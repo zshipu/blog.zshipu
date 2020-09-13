@@ -2,43 +2,26 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>flutter 小试： Table of contents | 技术分享 | 知识铺</title>
-  <meta name="keywords" content=" flutter,flutter技术 ">
-  <meta name="description" content="flutter 小试： Table of contents | 知识铺">
+  <title>从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图 | 技术分享 | 知识铺</title>
+  <meta name="keywords" content=" flutter ">
+  <meta name="description" content="从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图 | 知识铺">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="自从这是期待已久的发射，Flutter已经引起了很多的关注，我们也很兴奋！我希望大量的非游戏应用程序将过渡到Flutter， 在预期中， 因此， 我们正在训练我们的团队。 由于有新的，但很少，资源分散在互联网上学习飘飘 - 我们已经编译了我们的 Flutter 教程，让开发人员离开他们的脚，并开始开发 Flutter 的应用程序。 在初学者的 Flutter 指南中，我们将介绍：  Flutte">
+<meta name="description" content="内容 开始 您需要什么 设置开发帐户   构建应用 如果你还在开发 如果您已经构建了应用 你需要_一_个 mac 为什么？因为包。 为什么？因为测试。   Mac 和 XCode 设置您的环境 Mac 提示 使用 XCode Firebase + Podfile 应用程序权限   其他内容 版本和生成 ID 图标 应用内购买     部署 存储资产 图像 视频（可选）   生成和上传 发布新版本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fluter的开发人员指南">
-<meta property="og:url" content="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/Fluter%E7%9A%84%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:title" content="从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter">
+<meta property="og:url" content="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%206%20%E9%83%A8%E5%88%86%20-%20%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%20ios%20%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%20%E6%B2%A1%E6%9C%89%20Mac%20%E6%88%96%20iphone%20%E4%BD%BF%E7%94%A8%20Flutter/index.html">
 <meta property="og:site_name" content="知识铺">
-<meta property="og:description" content="自从这是期待已久的发射，Flutter已经引起了很多的关注，我们也很兴奋！我希望大量的非游戏应用程序将过渡到Flutter， 在预期中， 因此， 我们正在训练我们的团队。 由于有新的，但很少，资源分散在互联网上学习飘飘 - 我们已经编译了我们的 Flutter 教程，让开发人员离开他们的脚，并开始开发 Flutter 的应用程序。 在初学者的 Flutter 指南中，我们将介绍：  Flutte">
+<meta property="og:description" content="内容 开始 您需要什么 设置开发帐户   构建应用 如果你还在开发 如果您已经构建了应用 你需要_一_个 mac 为什么？因为包。 为什么？因为测试。   Mac 和 XCode 设置您的环境 Mac 提示 使用 XCode Firebase + Podfile 应用程序权限   其他内容 版本和生成 ID 图标 应用内购买     部署 存储资产 图像 视频（可选）   生成和上传 发布新版本">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--30fhcgVh--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2AuXblXMvv7YLLjiDiZobkVw.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--Z0NRoy7O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AaIAn1ORPEBwUY1krrd8iDA.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--EXMS1_El--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2Ayozc3QDZFjhfqvTv30VFOg.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--mdZmTXeW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2Aj5k-sQWAqf0LHl_SUR3_Gg.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--DcjGaPC5--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AjHSZ0_y9aoas3UxUMkRMZw.gif">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--nV911Awg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2A3KBHP-3nKyS3XP8bTma2Yw.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--qCyMYCjg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AdA0ntm5vz0xGyDYsp2-f7g.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--3tEXyTQ7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2ANibO5ZD4c_QJMAHR.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--8DrYiFpv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2A3GR_8PDpRyl4Tvmv.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--5a56KpL---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AFVbUPfA8Q03E7_old_Yajw.gif">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--9GfWi_OX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/0%2AIHvwEaxGsJzYFJXj.jpg">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--whiFAqMI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AoqlVDLGspU6203J22EQPZg.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--fCYN1lo0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2AgK4EzVCEIToPH_Rh.gif">
-<meta property="og:image" content="https://i.giphy.com/media/TFIZ2EBWVGHt59txzK/giphy.gif">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--_vEFXLJC--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/0%2AgDdGMXvkmtAuZ7Ha.">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
-<meta property="og:image" content="https://i.giphy.com/media/de5bARu0SsXiU/giphy.gif">
-<meta property="article:published_time" content="2020-09-13T09:13:43.000Z">
-<meta property="article:modified_time" content="2020-09-13T09:14:05.729Z">
+<meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/897a33b25c9053e1df6fbefa8f54bc8f90a07203/e15ca/images/posts/2020-05-15/banner.jpg">
+<meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/f06e33fce84bdb5bb27eb2017be560b2f1043487/12aa5/images/projects/icing-addict.jpg">
+<meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/f88f30e86fb9ef422f6dd3779e995436869643c1/e00cc/images/posts/2020-07-18/login.jpg">
+<meta property="article:published_time" content="2020-09-13T11:16:19.000Z">
+<meta property="article:modified_time" content="2020-09-13T11:17:38.868Z">
 <meta property="article:author" content="知识铺">
-<meta property="article:tag" content="知识铺">
+<meta property="article:tag" content="flutter">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--30fhcgVh--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2AuXblXMvv7YLLjiDiZobkVw.png">
+<meta name="twitter:image" content="https://d33wubrfki0l68.cloudfront.net/897a33b25c9053e1df6fbefa8f54bc8f90a07203/e15ca/images/posts/2020-05-15/banner.jpg">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -123,11 +106,11 @@
     <li><div class="all"><a href="https://blog.zshipu.com/media/">媒体期刊</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/txp/">淘小鋪</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/article/post/">归档文章</a></div></li>
-    <li><div class="all active">全部文章<small>(62)</small></div></li>
+    <li><div class="all active">全部文章<small>(63)</small></div></li>
     
         
             
-            <li><div data-rel="flutter">flutter<small>(41)</small></div>
+            <li><div data-rel="flutter">flutter<small>(34)</small></div>
                 
             </li>
             
@@ -143,7 +126,7 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="zsp_site_posts_number" value="62">
+<input type="hidden" id="zsp_site_posts_number" value="63">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -179,6 +162,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color3">flutter,flutter技术</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">flutter</a>
     </li>
     
     <div class="clearfix"></div>
@@ -444,26 +431,10 @@
         </a>
         
         <a  class="flutter "
-           href="/flutter/2020/09/13/flutter/README/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 初起步： gitbook-daliu-flutter">flutter 初起步： gitbook-daliu-flutter</span>
-            <span class="post-date" title="2020-09-13 06:14:03">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
            href="/flutter/2020/09/13/flutter/StatefulWidget%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"
            data-tag="flutter,flutter技术"
            data-author="" >
             <span class="post-title" title="flutter 初起步： StatefulWidget生命周期">flutter 初起步： StatefulWidget生命周期</span>
-            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
-           href="/flutter/2020/09/13/flutter/SUMMARY/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 初起步： Summary">flutter 初起步： Summary</span>
             <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
         </a>
         
@@ -532,14 +503,6 @@
         </a>
         
         <a  class="flutter "
-           href="/flutter/2020/09/13/flutter/Run%20Mode/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 初起步： Run Mode">flutter 初起步： Run Mode</span>
-            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
            href="/flutter/2020/09/13/flutter/%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90/JSON/"
            data-tag="flutter,flutter技术"
            data-author="" >
@@ -596,30 +559,6 @@
         </a>
         
         <a  class="flutter "
-           href="/flutter/2020/09/13/flutter-01/README/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 小试： 前言">flutter 小试： 前言</span>
-            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
-           href="/flutter/2020/09/13/flutter-01/SUMMARY/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 小试： Table of contents">flutter 小试： Table of contents</span>
-            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
-           href="/flutter/2020/09/13/flutter-01/untitled-1/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 小试： Untitled">flutter 小试： Untitled</span>
-            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
            href="/flutter/2020/09/13/flutter-01/di-san-fang-ku/gai-shu/"
            data-tag="flutter,flutter技术"
            data-author="" >
@@ -652,14 +591,6 @@
         </a>
         
         <a  class="flutter "
-           href="/flutter/2020/09/13/flutter-01/ru-men-pian/untitled/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 小试： 搭建flutter开发环境">flutter 小试： 搭建flutter开发环境</span>
-            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
            href="/flutter/2020/09/13/flutter-01/shi-li-pian/yi-ge-wan-zheng-de-deng-lu-ye/"
            data-tag="flutter,flutter技术"
            data-author="" >
@@ -683,6 +614,70 @@
             <span class="post-date" title="2020-09-13 17:13:43">2020/09/13</span>
         </a>
         
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%EF%BC%9A%E5%88%9D%E5%AD%A6%E8%80%85%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter：初学者学习资源">Flutter：初学者学习资源</span>
+            <span class="post-date" title="2020-09-13 18:20:27">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E5%9C%A8%20Flutter%20%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%20MQTT/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="在 Flutter 项目中使用 MQTT">在 Flutter 项目中使用 MQTT</span>
+            <span class="post-date" title="2020-09-13 18:27:58">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%201%20%E9%83%A8%E5%88%86%20-%20%E6%88%91%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E6%88%91%E7%9A%84%E6%B8%B8%E6%88%8F%E4%B8%8E%20Flutter%20%E5%9C%A8%201%20%E4%B8%AA%E6%9C%88/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 1 部分 - 我如何建立我的游戏与 Flutter 在 1 个月">从零开始 - 第 1 部分 - 我如何建立我的游戏与 Flutter 在 1 个月</span>
+            <span class="post-date" title="2020-09-13 18:59:50">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%202%20%E9%83%A8%E5%88%86%20-%20SVG%20%E9%AD%94%E6%9C%AF%E5%9C%A8%20Flutter/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 2 部分 - SVG 魔术在 Flutter">从零开始 - 第 2 部分 - SVG 魔术在 Flutter</span>
+            <span class="post-date" title="2020-09-13 19:04:53">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%203%20%E9%83%A8%E5%88%86%20-%20%E7%9C%9F%E6%A3%92%E5%8A%A8%E7%94%BB%E5%9C%A8%20Flutter/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 3 部分 - 真棒动画在 Flutter">从零开始 - 第 3 部分 - 真棒动画在 Flutter</span>
+            <span class="post-date" title="2020-09-13 19:08:01">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%204%20%E9%83%A8%E5%88%86%20-%20%E5%9C%A8%20Flutter%20%E4%B8%AD%E7%9A%84%E5%B0%8F%E9%83%A8%E4%BB%B6%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图">从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图</span>
+            <span class="post-date" title="2020-09-13 19:10:12">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%205%20%E9%83%A8%E5%88%86%20-%20%E6%88%91%E7%9A%84%E9%BB%84%E6%B2%B9%E5%85%89%E6%BB%91%E7%BB%93%E5%86%B0%E7%AE%97%E6%B3%95/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 5 部分 - 滑结冰算法">从零开始 - 第 5 部分 - 滑结冰算法</span>
+            <span class="post-date" title="2020-09-13 19:11:47">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%206%20%E9%83%A8%E5%88%86%20-%20%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%20ios%20%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%20%E6%B2%A1%E6%9C%89%20Mac%20%E6%88%96%20iphone%20%E4%BD%BF%E7%94%A8%20Flutter/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter">从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter</span>
+            <span class="post-date" title="2020-09-13 19:16:19">2020/09/13</span>
+        </a>
+        
     </nav>
 </div>
     </div>
@@ -695,31 +690,25 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-flutter-01/SUMMARY" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-flutter-02/从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">flutter 小试： Table of contents</h1>
+        <h1 class="article-title">从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            
-                <a href="javascript:" data-rel="flutter">flutter</a>
-            
-        </span>
-        
         
         <span class="tag">
             
-            <a href="javascript:" class="color3">flutter,flutter技术</a>
+            <a href="javascript:" class="color3">flutter</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-09-13 14:25:33'>2020-09-13 06:25</time>
+        创建时间:<time class="date" title='更新时间: 2020-09-13 19:10:12'>2020-09-13 19:10</time>
         
     </div>
     <div class="article-meta">
@@ -752,7 +741,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Table-of-contents"><span class="toc-text">Table of contents</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%E7%AF%87"><span class="toc-text">入门篇</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93"><span class="toc-text">第三方库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E7%AF%87"><span class="toc-text">实例篇</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9"><span class="toc-text">内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E9%83%A8%E4%BB%B6%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE"><span class="toc-text">小部件屏幕截图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">你在谈论什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%81%9A%E5%88%B0%E8%BF%99%E4%B8%80%E7%82%B9"><span class="toc-text">如何做到这一点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%BE%E5%A4%A7%E9%95%9C"><span class="toc-text">放大镜</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88%EF%BC%9F-1"><span class="toc-text">你在谈论什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%81%9A%E5%88%B0%E8%BF%99%E4%B8%80%E7%82%B9-1"><span class="toc-text">如何做到这一点</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -768,23 +757,73 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h1><ul>
-<li><a href="README.md">前言</a></li>
-<li><a href="untitled-1.md">Untitled</a></li>
+        <hr>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul>
+<li><a href="#widget-screenshots">小部件屏幕截图</a><ul>
+<li><a href="#what-are-you-talking-about">你在谈论什么？</a></li>
+<li><a href="#how-to-do-it">如何做到这一点</a></li>
 </ul>
-<h2 id="入门篇"><a href="#入门篇" class="headerlink" title="入门篇"></a>入门篇</h2><ul>
-<li><a href="ru-men-pian/untitled.md">搭建flutter开发环境</a></li>
-<li><a href="ru-men-pian/di-yi-zhang-di-yi-ge-flutter-app.md">第一章：第一个Flutter App</a></li>
-<li><a href="ru-men-pian/1.1-ji-shu-qi-shi-li.md">1.1 计数器示例</a></li>
+</li>
+<li><a href="#magnifying-glass">放大镜</a><ul>
+<li><a href="#what-are-you-talking-about-1">你在谈论什么？</a></li>
+<li><a href="#how-to-do-it-1">如何做到这一点</a></li>
 </ul>
-<h2 id="第三方库"><a href="#第三方库" class="headerlink" title="第三方库"></a>第三方库</h2><ul>
-<li><a href="di-san-fang-ku/gai-shu.md">概述</a></li>
-<li><a href="di-san-fang-ku/zhuang-tai-guan-li-zu-jian-zhi-mobx.md">状态管理组件之mobx</a></li>
+</li>
 </ul>
-<h2 id="实例篇"><a href="#实例篇" class="headerlink" title="实例篇"></a>实例篇</h2><ul>
-<li><a href="shi-li-pian/ying-yong-jian-jie.md">应用简介</a></li>
-<li><a href="shi-li-pian/yi-ge-wan-zheng-de-deng-lu-ye.md">一个完整的登陆页</a></li>
+<hr>
+<p>嘿， 布鲁上个月，我推出了我的第一个应用程序结冰成瘾 - 我今年正在构建的12个启动项目之一。这个系列深入探讨我是如何构建的。</p>
+<p>刚刚开始与 Flutter？<a href="/2020/05/15/zero-to-hero-1.html">在此处查看第一个帖子</a>。否则，在我的两个应用程序中试用此帖子的功能。</p>
+<p>  <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://icing-addict.kangabru.xyz/"><img src="https://d33wubrfki0l68.cloudfront.net/f06e33fce84bdb5bb27eb2017be560b2f1043487/12aa5/images/projects/icing-addict.jpg" alt="Project photo"><br> 结冰成瘾</a> <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://play.google.com/store/apps/details?id=com.kangabru.squiggle_snake"><img src="https://d33wubrfki0l68.cloudfront.net/32d330dd37f475782ce9e9dc184dcbe9b5149d99/9af39/images/projects/squiggle-snek.jpg" alt="Project photo"><br> 斯奎格 · 斯内克</a> </p>
+<hr>
+<p>  订阅</p>
+<hr>
+<h2 id="小部件屏幕截图"><a href="#小部件屏幕截图" class="headerlink" title="小部件屏幕截图"></a>小部件屏幕截图</h2><h3 id="你在谈论什么？"><a href="#你在谈论什么？" class="headerlink" title="你在谈论什么？"></a>你在谈论什么？</h3><p><img src="https://d33wubrfki0l68.cloudfront.net/c0bf91b6a6f720ca17cb3bac18a4e0d1abb71457/d39cb/images/posts/2020-06-19/screenshot.jpg"></p>
+<p>我的”结冰成瘾”应用是所有关于创建美丽的Cookies，因此，重要的是，用户能够分享他们的创作。</p>
+<p>我允许用户拍摄和共享其 Cookie 的图像，从而做到这一点。</p>
+<p>有两种方法可以做到这一点 -_渲_染图像，或_截屏_图像。</p>
+<p>在这种情况下渲染将意味着我采取饼干，颜色，装饰等，并在屏幕外画布上重建图像。</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/836e140eac37958bfebe4c3e8b891885d6fb96f5/aeff5/images/posts/2020-06-19/pre-screenshot.jpg"></p>
+<p>通过这样做，我可以生成任何大小的高质量图像。只是做起来比较复杂。</p>
+<p>相反，我选择采取实时应用程序的截图。现在的手机都挤满了像素， 所以没问题。</p>
+<p>不过，诀窍是不要捕获 Cookie 周围的应用 UI。我只想要最后图像中的饼干和装饰品。</p>
+<p>我的技术允许我轻松截屏特定的_小部件_，并忽略我不想包括的小部件。</p>
+<h3 id="如何做到这一点"><a href="#如何做到这一点" class="headerlink" title="如何做到这一点"></a>如何做到这一点</h3><p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://gist.github.com/kangabru/23770a466e9366f21ea8d12d22b6f12e">我做了这个混合，</a>这使得这个超级容易， 并公开以下方法：</p>
+<ul>
+<li><code>screenshotThis</code><font _mstmutation="1" _msthash="640523" _msttexthash="62804404">- 只需环绕您想要截屏的东西。</font></li>
+<li><code>takeScreenshot(&#123;Color, Rect&#125;)</code><font _mstmutation="1" _msthash="640978" _msttexthash="124921901">- 返回具有可选背景颜色和裁剪的屏幕截图图像。</font></li>
 </ul>
+<p>请查看以下代码，了解此操作。</p>
+<p> <code>import 'package:flutter/material.dart';<br>import 'screenshot.dart'; // See my related gist for this code</p>
+<p>class ScreenshotExample extends StatefulWidget &#123;<br>  @override<br>  ScreenshotExampleState createState() =&gt; ScreenshotExampleState();<br>&#125;</p>
+<p>class ScreenshotExampleState extends State<ScreenshotExample> with Screenshot &#123;<br>  @override<br>  Widget build(BuildContext context) &#123;<br>    return Container(<br>      color: Colors.blue,<br>      child: Stack(children: [<br>        screenshotThis(<br>          StuffYouWantToScreenshot(),<br>        ),<br>        StuffYouDontWantToScreenshot(),<br>      ]),<br>    );<br>  &#125;</p>
+<p>  doScreenshotStuff() async &#123;<br>    var screenshot = await takeScreenshot();<br>    // [screenshot.image] is a StatelessWidget you can render<br>    // [screenshot.pngBytes] is the raw image you can save/share<br>  &#125;<br>&#125;</code> </p>
+<p><font _mstmutation="1" _msthash="426231" _msttexthash="114494666">请注意，我用于包装的小部件，我想截图。</font><code>screenshotThis</code></p>
+<p><font _mstmutation="1" _msthash="426608" _msttexthash="181258974">在我的示例中，只有小部件在图像中可见，并且 将被忽略。</font><code>StuffYouWantToScreenshot``````StuffYouDontWantToScreenshot</code></p>
+<p><font _mstmutation="1" _msthash="426985" _msttexthash="335560095">其一缺点是背景颜色（在此示例中）也不可见。相反，您可以为呼叫提供背景颜色。</font><code>Colors.blue``````takeScreenshot()</code></p>
+<p>一切很酷， 对吧？</p>
+<h2 id="放大镜"><a href="#放大镜" class="headerlink" title="放大镜"></a>放大镜</h2><h3 id="你在谈论什么？-1"><a href="#你在谈论什么？-1" class="headerlink" title="你在谈论什么？"></a>你在谈论什么？</h3><p>在移动应用上绘图的一个问题，是您的手指在绘图时确实在进行。</p>
+<p>如果你试图做任何精确的事情 （比如玩我的游戏， 有利于准确性）， 你不能总是看到你在哪里画画。</p>
+<p>为了解决这个问题，我构建了一个”放大镜”功能。它只是显示用户他们正在绘制，但旁边的手指，而不是在它下面。</p>
+<p>此功能的工作方式与屏幕截图完全相同。唯一的区别是，它是在用户绘制时动态完成的。</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/e773c3cc6bffb0ff6ab89ae3c8d88a6d0c40003b/2b571/images/posts/2020-06-19/magnifying_glass.jpg"></p>
+<h3 id="如何做到这一点-1"><a href="#如何做到这一点-1" class="headerlink" title="如何做到这一点"></a>如何做到这一点</h3><p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://gist.github.com/kangabru/883835ff2c160ef84d71a7552904c08d">看看我在这里的要点，</a>其中包含另一个混合公开以下方法：</p>
+<ul>
+<li><code>magnifyThis</code><font _mstmutation="1" _msthash="640107" _msttexthash="62790000">- 只需环绕您想要放大的东西。</font></li>
+<li><code>magnifyingGlass([Color])</code><font _mstmutation="1" _msthash="640562" _msttexthash="500271655">- 实际放大镜小部件，用于呈现可选的背景颜色（请参阅上一节，了解为什么您可能需要此内容）。</font></li>
+<li><code>showMagGlass(bool)</code><font _mstmutation="1" _msthash="641017" _msttexthash="54074657">- 显示/隐藏放大镜小部件。</font></li>
+<li><code>updateMaGlassPosition(Offset)</code><font _mstmutation="1" _msthash="641472" _msttexthash="29077308">- 更新小部件位置。</font></li>
+</ul>
+<p>使用它如下：</p>
+<p> <code>import 'package:flutter/material.dart';<br>import 'magnifying_glass.dart'; // See my related gist for this code</p>
+<p>class MagnifyExample extends StatefulWidget &#123;<br>  @override<br>  MagnifyExampleState createState() =&gt; MagnifyExampleState();<br>&#125;</p>
+<p>class MagnifyExampleState extends State<MagnifyExample> with MagnifyingGlass &#123;<br>  @override<br>  Widget build(BuildContext context) &#123;<br>    return GestureDetector(<br>      onPanDown: (DragDownDetails details) =&gt; showMagGlass(true),<br>      onPanUpdate: (DragUpdateDetails details) =&gt; updateMagGlassPosition(details.localPosition),<br>      onPanEnd: (DragEndDetails details) =&gt; showMagGlass(false),<br>      child: Stack(children: [<br>        magnifyThis(<br>          StuffYouWantToMagnify(),<br>        ),<br>        magnifyingGlass(Colors.white),<br>      ]),<br>    );<br>  &#125;<br>&#125;</code> </p>
+<p>因此，正如您所看到的，它的工作方式类似于屏幕截图示例。</p>
+<p><font _mstmutation="1" _msthash="426582" _msttexthash="264648748">只需用 来包装您想要放大的东西，就使用 来渲染小部件，您就可以走了。</font><code>magnifyThis``````magnifyingGlass()</code></p>
+<p><font _mstmutation="1" _msthash="426959" _msttexthash="184305511">然后，在用户绘制时，我使用 来显示、隐藏和更新放大镜。</font><code>GestureDetector</code></p>
+<p><font _mstmutation="1" _msthash="427336" _msttexthash="567592870">只需确保将小部件_放在呼叫_之外。如果不是，你会得到一个时髦的镜像效果，如在视频中。很酷的效果， 虽然。</font><code>magnifyingGlass()``````magnifyThis</code></p>
+<hr>
+<p>嗯， 今天就是这样。调谐下周， 我去看看结冰算法本身。应该是一个有趣的！再见🤙</p>
+<p>  订阅</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 免责声明：本页面内容均来源于站内编辑发布，部分信息来源互联网，并不意味着本站赞同其观点或者证实其内容的真实性，如涉及版权等问题，请立即联系客服进行更改或删除，保证您的合法权益。转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。也可以邮件至 sblig@126.com </span>
@@ -801,12 +840,12 @@
 </ul>
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>flutter 小试： Table of contents</p>
+    <p><span class="copy-title">文章标题:</span>从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图</p>
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="知识铺">知识铺</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-09-13, 06:25:33</p>
-    <p><span class="copy-title">最后更新:</span>2020-09-13, 14:25:33</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/flutter-01/SUMMARY/" title="flutter 小试： Table of contents">https://blog.zshipu.com/flutter/2020/09/13/flutter-01/SUMMARY/</a>
+    <p><span class="copy-title">发布时间:</span>2020-09-13, 19:10:12</p>
+    <p><span class="copy-title">最后更新:</span>2020-09-13, 19:10:12</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%204%20%E9%83%A8%E5%88%86%20-%20%E5%9C%A8%20Flutter%20%E4%B8%AD%E7%9A%84%E5%B0%8F%E9%83%A8%E4%BB%B6%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/" title="从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图">https://blog.zshipu.com/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%204%20%E9%83%A8%E5%88%86%20-%20%E5%9C%A8%20Flutter%20%E4%B8%AD%E7%9A%84%E5%B0%8F%E9%83%A8%E4%BB%B6%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
@@ -934,7 +973,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#flutter,flutter技术',],
+            'data': ['#flutter,flutter技术','#flutter',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

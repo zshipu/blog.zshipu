@@ -2,43 +2,26 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>flutter 小试： 前言 | 技术分享 | 知识铺</title>
-  <meta name="keywords" content=" flutter,flutter技术 ">
-  <meta name="description" content="flutter 小试： 前言 | 知识铺">
+  <title>从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter | 技术分享 | 知识铺</title>
+  <meta name="keywords" content=" flutter ">
+  <meta name="description" content="从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter | 知识铺">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="自从这是期待已久的发射，Flutter已经引起了很多的关注，我们也很兴奋！我希望大量的非游戏应用程序将过渡到Flutter， 在预期中， 因此， 我们正在训练我们的团队。 由于有新的，但很少，资源分散在互联网上学习飘飘 - 我们已经编译了我们的 Flutter 教程，让开发人员离开他们的脚，并开始开发 Flutter 的应用程序。 在初学者的 Flutter 指南中，我们将介绍：  Flutte">
+<meta name="description" content="内容 开始 您需要什么 设置开发帐户   构建应用 如果你还在开发 如果您已经构建了应用 你需要_一_个 mac 为什么？因为包。 为什么？因为测试。   Mac 和 XCode 设置您的环境 Mac 提示 使用 XCode Firebase + Podfile 应用程序权限   其他内容 版本和生成 ID 图标 应用内购买     部署 存储资产 图像 视频（可选）   生成和上传 发布新版本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fluter的开发人员指南">
-<meta property="og:url" content="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/Fluter%E7%9A%84%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:title" content="从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter">
+<meta property="og:url" content="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%206%20%E9%83%A8%E5%88%86%20-%20%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%20ios%20%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%20%E6%B2%A1%E6%9C%89%20Mac%20%E6%88%96%20iphone%20%E4%BD%BF%E7%94%A8%20Flutter/index.html">
 <meta property="og:site_name" content="知识铺">
-<meta property="og:description" content="自从这是期待已久的发射，Flutter已经引起了很多的关注，我们也很兴奋！我希望大量的非游戏应用程序将过渡到Flutter， 在预期中， 因此， 我们正在训练我们的团队。 由于有新的，但很少，资源分散在互联网上学习飘飘 - 我们已经编译了我们的 Flutter 教程，让开发人员离开他们的脚，并开始开发 Flutter 的应用程序。 在初学者的 Flutter 指南中，我们将介绍：  Flutte">
+<meta property="og:description" content="内容 开始 您需要什么 设置开发帐户   构建应用 如果你还在开发 如果您已经构建了应用 你需要_一_个 mac 为什么？因为包。 为什么？因为测试。   Mac 和 XCode 设置您的环境 Mac 提示 使用 XCode Firebase + Podfile 应用程序权限   其他内容 版本和生成 ID 图标 应用内购买     部署 存储资产 图像 视频（可选）   生成和上传 发布新版本">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--30fhcgVh--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2AuXblXMvv7YLLjiDiZobkVw.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--Z0NRoy7O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AaIAn1ORPEBwUY1krrd8iDA.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--EXMS1_El--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2Ayozc3QDZFjhfqvTv30VFOg.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--mdZmTXeW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2Aj5k-sQWAqf0LHl_SUR3_Gg.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--DcjGaPC5--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AjHSZ0_y9aoas3UxUMkRMZw.gif">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--nV911Awg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2A3KBHP-3nKyS3XP8bTma2Yw.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--qCyMYCjg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AdA0ntm5vz0xGyDYsp2-f7g.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--3tEXyTQ7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2ANibO5ZD4c_QJMAHR.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--8DrYiFpv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2A3GR_8PDpRyl4Tvmv.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--5a56KpL---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AFVbUPfA8Q03E7_old_Yajw.gif">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--9GfWi_OX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/0%2AIHvwEaxGsJzYFJXj.jpg">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--whiFAqMI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AoqlVDLGspU6203J22EQPZg.png">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--fCYN1lo0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2AgK4EzVCEIToPH_Rh.gif">
-<meta property="og:image" content="https://i.giphy.com/media/TFIZ2EBWVGHt59txzK/giphy.gif">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--_vEFXLJC--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/0%2AgDdGMXvkmtAuZ7Ha.">
-<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
-<meta property="og:image" content="https://i.giphy.com/media/de5bARu0SsXiU/giphy.gif">
-<meta property="article:published_time" content="2020-09-13T09:13:43.000Z">
-<meta property="article:modified_time" content="2020-09-13T09:14:05.729Z">
+<meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/897a33b25c9053e1df6fbefa8f54bc8f90a07203/e15ca/images/posts/2020-05-15/banner.jpg">
+<meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/f06e33fce84bdb5bb27eb2017be560b2f1043487/12aa5/images/projects/icing-addict.jpg">
+<meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/f88f30e86fb9ef422f6dd3779e995436869643c1/e00cc/images/posts/2020-07-18/login.jpg">
+<meta property="article:published_time" content="2020-09-13T11:16:19.000Z">
+<meta property="article:modified_time" content="2020-09-13T11:17:38.868Z">
 <meta property="article:author" content="知识铺">
-<meta property="article:tag" content="知识铺">
+<meta property="article:tag" content="flutter">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--30fhcgVh--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2AuXblXMvv7YLLjiDiZobkVw.png">
+<meta name="twitter:image" content="https://d33wubrfki0l68.cloudfront.net/897a33b25c9053e1df6fbefa8f54bc8f90a07203/e15ca/images/posts/2020-05-15/banner.jpg">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -123,11 +106,11 @@
     <li><div class="all"><a href="https://blog.zshipu.com/media/">媒体期刊</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/txp/">淘小鋪</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/article/post/">归档文章</a></div></li>
-    <li><div class="all active">全部文章<small>(62)</small></div></li>
+    <li><div class="all active">全部文章<small>(63)</small></div></li>
     
         
             
-            <li><div data-rel="flutter">flutter<small>(41)</small></div>
+            <li><div data-rel="flutter">flutter<small>(34)</small></div>
                 
             </li>
             
@@ -143,7 +126,7 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="zsp_site_posts_number" value="62">
+<input type="hidden" id="zsp_site_posts_number" value="63">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -179,6 +162,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color3">flutter,flutter技术</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">flutter</a>
     </li>
     
     <div class="clearfix"></div>
@@ -444,26 +431,10 @@
         </a>
         
         <a  class="flutter "
-           href="/flutter/2020/09/13/flutter/README/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 初起步： gitbook-daliu-flutter">flutter 初起步： gitbook-daliu-flutter</span>
-            <span class="post-date" title="2020-09-13 06:14:03">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
            href="/flutter/2020/09/13/flutter/StatefulWidget%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"
            data-tag="flutter,flutter技术"
            data-author="" >
             <span class="post-title" title="flutter 初起步： StatefulWidget生命周期">flutter 初起步： StatefulWidget生命周期</span>
-            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
-           href="/flutter/2020/09/13/flutter/SUMMARY/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 初起步： Summary">flutter 初起步： Summary</span>
             <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
         </a>
         
@@ -532,14 +503,6 @@
         </a>
         
         <a  class="flutter "
-           href="/flutter/2020/09/13/flutter/Run%20Mode/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 初起步： Run Mode">flutter 初起步： Run Mode</span>
-            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
            href="/flutter/2020/09/13/flutter/%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90/JSON/"
            data-tag="flutter,flutter技术"
            data-author="" >
@@ -596,30 +559,6 @@
         </a>
         
         <a  class="flutter "
-           href="/flutter/2020/09/13/flutter-01/README/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 小试： 前言">flutter 小试： 前言</span>
-            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
-           href="/flutter/2020/09/13/flutter-01/SUMMARY/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 小试： Table of contents">flutter 小试： Table of contents</span>
-            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
-           href="/flutter/2020/09/13/flutter-01/untitled-1/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 小试： Untitled">flutter 小试： Untitled</span>
-            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
            href="/flutter/2020/09/13/flutter-01/di-san-fang-ku/gai-shu/"
            data-tag="flutter,flutter技术"
            data-author="" >
@@ -652,14 +591,6 @@
         </a>
         
         <a  class="flutter "
-           href="/flutter/2020/09/13/flutter-01/ru-men-pian/untitled/"
-           data-tag="flutter,flutter技术"
-           data-author="" >
-            <span class="post-title" title="flutter 小试： 搭建flutter开发环境">flutter 小试： 搭建flutter开发环境</span>
-            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
-        </a>
-        
-        <a  class="flutter "
            href="/flutter/2020/09/13/flutter-01/shi-li-pian/yi-ge-wan-zheng-de-deng-lu-ye/"
            data-tag="flutter,flutter技术"
            data-author="" >
@@ -683,6 +614,70 @@
             <span class="post-date" title="2020-09-13 17:13:43">2020/09/13</span>
         </a>
         
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%EF%BC%9A%E5%88%9D%E5%AD%A6%E8%80%85%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter：初学者学习资源">Flutter：初学者学习资源</span>
+            <span class="post-date" title="2020-09-13 18:20:27">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E5%9C%A8%20Flutter%20%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%20MQTT/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="在 Flutter 项目中使用 MQTT">在 Flutter 项目中使用 MQTT</span>
+            <span class="post-date" title="2020-09-13 18:27:58">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%201%20%E9%83%A8%E5%88%86%20-%20%E6%88%91%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E6%88%91%E7%9A%84%E6%B8%B8%E6%88%8F%E4%B8%8E%20Flutter%20%E5%9C%A8%201%20%E4%B8%AA%E6%9C%88/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 1 部分 - 我如何建立我的游戏与 Flutter 在 1 个月">从零开始 - 第 1 部分 - 我如何建立我的游戏与 Flutter 在 1 个月</span>
+            <span class="post-date" title="2020-09-13 18:59:50">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%202%20%E9%83%A8%E5%88%86%20-%20SVG%20%E9%AD%94%E6%9C%AF%E5%9C%A8%20Flutter/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 2 部分 - SVG 魔术在 Flutter">从零开始 - 第 2 部分 - SVG 魔术在 Flutter</span>
+            <span class="post-date" title="2020-09-13 19:04:53">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%203%20%E9%83%A8%E5%88%86%20-%20%E7%9C%9F%E6%A3%92%E5%8A%A8%E7%94%BB%E5%9C%A8%20Flutter/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 3 部分 - 真棒动画在 Flutter">从零开始 - 第 3 部分 - 真棒动画在 Flutter</span>
+            <span class="post-date" title="2020-09-13 19:08:01">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%204%20%E9%83%A8%E5%88%86%20-%20%E5%9C%A8%20Flutter%20%E4%B8%AD%E7%9A%84%E5%B0%8F%E9%83%A8%E4%BB%B6%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图">从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图</span>
+            <span class="post-date" title="2020-09-13 19:10:12">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%205%20%E9%83%A8%E5%88%86%20-%20%E6%88%91%E7%9A%84%E9%BB%84%E6%B2%B9%E5%85%89%E6%BB%91%E7%BB%93%E5%86%B0%E7%AE%97%E6%B3%95/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 5 部分 - 滑结冰算法">从零开始 - 第 5 部分 - 滑结冰算法</span>
+            <span class="post-date" title="2020-09-13 19:11:47">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%206%20%E9%83%A8%E5%88%86%20-%20%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%20ios%20%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%20%E6%B2%A1%E6%9C%89%20Mac%20%E6%88%96%20iphone%20%E4%BD%BF%E7%94%A8%20Flutter/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter">从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter</span>
+            <span class="post-date" title="2020-09-13 19:16:19">2020/09/13</span>
+        </a>
+        
     </nav>
 </div>
     </div>
@@ -695,31 +690,25 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-flutter-01/README" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-flutter-02/从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">flutter 小试： 前言</h1>
+        <h1 class="article-title">从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            
-                <a href="javascript:" data-rel="flutter">flutter</a>
-            
-        </span>
-        
         
         <span class="tag">
             
-            <a href="javascript:" class="color3">flutter,flutter技术</a>
+            <a href="javascript:" class="color3">flutter</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-09-13 14:25:33'>2020-09-13 06:25</time>
+        创建时间:<time class="date" title='更新时间: 2020-09-13 19:17:38'>2020-09-13 19:16</time>
         
     </div>
     <div class="article-meta">
@@ -752,7 +741,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9"><span class="toc-text">内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B"><span class="toc-text">开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%82%A8%E9%9C%80%E8%A6%81%E4%BB%80%E4%B9%88"><span class="toc-text">您需要什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E5%8F%91%E5%B8%90%E6%88%B7"><span class="toc-text">设置开发帐户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8"><span class="toc-text">构建应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E8%BF%98%E5%9C%A8%E5%BC%80%E5%8F%91"><span class="toc-text">如果你还在开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%82%A8%E5%B7%B2%E7%BB%8F%E6%9E%84%E5%BB%BA%E4%BA%86%E5%BA%94%E7%94%A8"><span class="toc-text">如果您已经构建了应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E9%9C%80%E8%A6%81-%E4%B8%80-%E4%B8%AA-mac"><span class="toc-text">你需要_一_个 mac</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F%E5%9B%A0%E4%B8%BA%E5%8C%85%E3%80%82"><span class="toc-text">为什么？因为包。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F%E5%9B%A0%E4%B8%BA%E6%B5%8B%E8%AF%95%E3%80%82"><span class="toc-text">为什么？因为测试。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mac-%E5%92%8C-XCode"><span class="toc-text">Mac 和 XCode</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%82%A8%E7%9A%84%E7%8E%AF%E5%A2%83"><span class="toc-text">设置您的环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mac-%E6%8F%90%E7%A4%BA"><span class="toc-text">Mac 提示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-XCode"><span class="toc-text">使用 XCode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Firebase-Podfile"><span class="toc-text">Firebase + Podfile</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -768,7 +757,217 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在此做记录的主要原因在于，flutter的知识点太杂太多，我自己学习的过程也是时间片段中学习，特此在这里将零散知识点进行记录，希望有朝一日可以整理成册</p>
+        <hr>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul>
+<li><a href="#getting-started">开始</a><ul>
+<li><a href="#what-youll-need">您需要什么</a></li>
+<li><a href="#setting-up-the-dev-account">设置开发帐户</a></li>
+</ul>
+</li>
+<li><a href="#building-the-app">构建应用</a><ul>
+<li><a href="#if-youre-still-developing">如果你还在开发</a></li>
+<li><a href="#if-youve-built-your-app">如果您已经构建了应用</a></li>
+<li><a href="#you-will-need-a-mac">你需要_一_个 mac</a><ul>
+<li><a href="#why-because-packages">为什么？因为包。</a></li>
+<li><a href="#why-because-testing">为什么？因为测试。</a></li>
+</ul>
+</li>
+<li><a href="#mac-and-xcode">Mac 和 XCode</a><ul>
+<li><a href="#setup-your-environment">设置您的环境</a></li>
+<li><a href="#mac-tips">Mac 提示</a></li>
+<li><a href="#using-xcode">使用 XCode</a></li>
+<li><a href="#firebase--podfile">Firebase + Podfile</a></li>
+<li><a href="#app-permissions">应用程序权限</a></li>
+</ul>
+</li>
+<li><a href="#other-stuff">其他内容</a><ul>
+<li><a href="#versions-and-build-ids">版本和生成 ID</a></li>
+<li><a href="#icon">图标</a></li>
+<li><a href="#in-app-purchases">应用内购买</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#deployment">部署</a><ul>
+<li><a href="#store-assets">存储资产</a><ul>
+<li><a href="#images">图像</a></li>
+<li><a href="#videos-optional">视频（可选）</a></li>
+</ul>
+</li>
+<li><a href="#build-and-upload">生成和上传</a></li>
+<li><a href="#publishing-new-releases">发布新版本</a></li>
+</ul>
+</li>
+<li><a href="#final-thoughts">最终想法</a></li>
+</ul>
+<hr>
+<p>所以你正在使用 Windows / Linux， 想构建一个 ios 应用程序， 嗯？</p>
+<p>我现在告诉你， 这并不容易， 但希望你能从我的痛苦中吸取教训。在本指南中，我将向您展示如何在无需访问 mac 或 iPhone 的情况下在应用商店中构建、测试和启动。</p>
+<p>破坏者： 你实际上需要一个 iDevice， 但有可能这样做， 而无需触摸一个自己。我会告诉你怎么做的。</p>
+<p>如果你是新到 Flutter， 然后看看下面的系列的第一个帖子！</p>
+<p>  <a href="/2020/05/15/zero-to-hero-1"><img src="https://d33wubrfki0l68.cloudfront.net/897a33b25c9053e1df6fbefa8f54bc8f90a07203/e15ca/images/posts/2020-05-15/banner.jpg" alt="Project photo"><br> 零到英雄 - 第 1 部分 - 我如何建立我的游戏与 Flutter 在 1 个月。</a> <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://icing-addict.kangabru.xyz/"><img src="https://d33wubrfki0l68.cloudfront.net/f06e33fce84bdb5bb27eb2017be560b2f1043487/12aa5/images/projects/icing-addict.jpg" alt="Project photo"><br> 结冰成瘾</a> </p>
+<hr>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>Flutter 承诺在 Android、iOS 甚至其他平台上构建应用程序-所有这些都在单个代码库内。</p>
+<p>这不辜负炒作吗？绝对。但挑战不是Flutter，而是苹果。</p>
+<h3 id="您需要什么"><a href="#您需要什么" class="headerlink" title="您需要什么"></a>您需要什么</h3><ul>
+<li>您的 Flutter 应用程序</li>
+<li>苹果开发者帐户 $99 USD</li>
+<li>在云中租用 Mac 的 20 美元（可能是可选的）</li>
+<li>拥有 iDevice 的朋友（即 iPhone 或 iPad）</li>
+<li>电话号码</li>
+<li>很多耐心， 也许一些酒精</li>
+</ul>
+<h3 id="设置开发帐户"><a href="#设置开发帐户" class="headerlink" title="设置开发帐户"></a>设置开发帐户</h3><p>首先你需要一个苹果帐户。<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://appleid.apple.com/">在这里做一个</a>。</p>
+<p>接下来，您需要设置 2 因素身份验证。苹果的措辞在这里很奇怪， 但他们有 2 个概念：</p>
+<ul>
+<li>2_步_验证 - 使用代码登录（如通过短信）</li>
+<li>2_因素_身份验证 - 通过确认关联 iDevice 上的登录登录</li>
+</ul>
+<p>你需要同时做到这两点。您需要身份验证_才能_创建 apple 开发人员帐户，但将使用_验证_登录。</p>
+<p>首先设置 2 因子验证并使用您的电话号码接收文本。这是开发帐户设置后登录的配置。</p>
+<p>其次，您需要设置 2 因素身份验证来创建 Apple 开发人员帐户并发布应用程序。这是您的物理设备的来源 - 您需要将其关联到帐户。问朋友或家庭成员， 如果你能使用他们的 （btw 谢谢妈妈！</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://developer.apple.com/support/authentication/">按照此页</a>在 iDevice 上设置 2 个因素身份验证。请注意：</p>
+<ul>
+<li>您必须在整个开发过程中保持关联。如果没有设备链接到您的帐户， 苹果将拒绝上传到应用商店…</li>
+<li>如果您更改帐户密码，您将断开链接。您应该信任拥有设备的人，并安全地向他们发送密码。</li>
+</ul>
+<p>从现在开始，系统将提示您使用 2 因子身份验证通过 iDevice 确认登录。您只需选择”未获取验证码”选项即可绕过此选项来使用您的电话号码。</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/f88f30e86fb9ef422f6dd3779e995436869643c1/e00cc/images/posts/2020-07-18/login.jpg"></p>
+<p>一旦你设置，你可以在这里注册<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://developer.apple.com/programs/enroll/">苹果开发者帐户</a>。只需支付 $99 （！） 费用，您就可以出发了！</p>
+<hr>
+<h2 id="构建应用"><a href="#构建应用" class="headerlink" title="构建应用"></a>构建应用</h2><p>Flutter 本身在 ios 上工作得很好， 没有太多的问题。它是第三方包，经常需要 iOS 特定的代码或额外的安装_步骤（尤其是_Firebase）。</p>
+<h3 id="如果你还在开发"><a href="#如果你还在开发" class="headerlink" title="如果你还在开发"></a>如果你还在开发</h3><p>如果您目前正在开发应用，那么在安装新包时需要做大量的笔记。</p>
+<ul>
+<li>保留涵盖需要 iOS 特定安装步骤的软件包的文档。</li>
+<li>在需要 iOS 特定代码的地方添加明显的代码注释。</li>
+</ul>
+<p>在 Android 上构建应用程序后，您可以在尝试在 iOS 上部署之前重新浏览笔记，以确保一切外观良好。</p>
+<p>我没有_做笔记_， 把一切都留到最后 - 这是一个痛苦， 因为我必须找到我的应用程序的一部分， 我需要 ios 特定的代码…节省自己的精力， 并在需要 iOS 之前记录您的 ios 需求。</p>
+<h3 id="如果您已经构建了应用"><a href="#如果您已经构建了应用" class="headerlink" title="如果您已经构建了应用"></a>如果您已经构建了应用</h3><p>如果您已经构建了应用，请浏览_您添加的每个_包并阅读 iOS 安装说明。还要仔细检查您的代码，以确保您根据需要添加了 iOS 特定代码。</p>
+<p>许多软件包（尤其是 Firebase）具有需要在 iOS 上使用的特定配置。请仔细执行他们的指示。我必须更新我的 Flutter 代码， 如下所示：</p>
+<ul>
+<li>为 Firebase 添加 ios 配置</li>
+<li>添加用于应用内购买的 iOS ID</li>
+<li>使用 Firebase 动态链接时添加 iOS 参数</li>
+</ul>
+<p>某些包可能不需要更改代码 - 是的，您可能需要使用 XCode。我将解释如何在以下部分。</p>
+<hr>
+<h3 id="你需要-一-个-mac"><a href="#你需要-一-个-mac" class="headerlink" title="你需要_一_个 mac"></a>你需要_一_个 mac</h3><p>我真的很想避免使用 mac， 但不幸的是， 这是必要的。有 90% 的机会， 你也需要。您需要使用 mac 有 2 个原因 - 通过 XCode 和测试安装某些软件包。</p>
+<h4 id="为什么？因为包。"><a href="#为什么？因为包。" class="headerlink" title="为什么？因为包。"></a>为什么？因为包。</h4><p>不幸的是，有些软件包需要的不仅仅是一个酒吧包安装才能工作。有时您可能需要 XCode 来正确配置应用。我不得不使用 XCode 安装这些软件包：</p>
+<ul>
+<li>Firebase本身 » 分析 » 动态链接</li>
+<li>应用程序权限</li>
+<li>应用内购买</li>
+</ul>
+<p>如果您不使用特殊权限或更复杂的软件包，那么如果没有_Mac，_您可能没问题。如果你这样做， 那么你需要租一台 Mac 进行小开发。</p>
+<h4 id="为什么？因为测试。"><a href="#为什么？因为测试。" class="headerlink" title="为什么？因为测试。"></a>为什么？因为测试。</h4><p>我强烈建议你租一个 mac 反正只是为了测试你的应用程序。在没有设备或模拟器的情况下测试和调试应用是一个严重的 PITA。我希望我能部署， 应用程序只会工作 - 我有多天真啊？</p>
+<p>省去麻烦，租个 mac 。在 Mac 上运行 VSCode 和 iOS 模拟器感觉就像在 Windows 上开发一样。</p>
+<h3 id="Mac-和-XCode"><a href="#Mac-和-XCode" class="headerlink" title="Mac 和 XCode"></a>Mac 和 XCode</h3><p>如果你决定你需要租一台Mac，那么我建议<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://www.macincloud.com/">macincloud。</a>我以 20 美元获得 1 个月的访问权限。</p>
+<p>以这个价格，你每天得到3小时的访问，比我每天可以忍受的时间😅</p>
+<h4 id="设置您的环境"><a href="#设置您的环境" class="headerlink" title="设置您的环境"></a>设置您的环境</h4><p>设置通常是无痛的。该实例附带安装了 VSCode + XCode，我使用 Github 快速访问代码。下<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/get-started/install/macos">一次安装 Flutter，</a>你几乎设置。</p>
+<p>如果您使用 Windows，则我发现此命令在安装后可将 Flutter 添加到我的路径中：</p>
+<p><code>export PATH=&quot;$PATH:/Users/&lt;user&gt;/&lt;install_path&gt;/flutter/bin&quot;</code></p>
+<p>如果使用 VSCode，那么您应该准备好出发。运行应用程序，就像你在 Windows/Linux 和 iOS 模拟器应该弹出。</p>
+<h4 id="Mac-提示"><a href="#Mac-提示" class="headerlink" title="Mac 提示"></a>Mac 提示</h4><p><font _mstmutation="1" _msthash="429962" _msttexthash="434858658">如果使用 Windows 键盘，键盘快捷键大多将”控制”替换为”Win”键，即使用 Windows 键盘在 Mac 上的”复制”是 。</font><code>Win + C</code></p>
+<p>使用右上右侧的搜索栏搜索应用。</p>
+<p>Finder<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://support.apple.com/en-us/HT201732">应用</a>与 Windows 资源管理器一样。</p>
+<p>通过右键单击文件、单击”文件信息”，然后突出显示路径并复制该路径，将文件路径复制到剪贴板。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://developer.apple.com/xcode/">Xcode</a>是 ios Ide 和<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/iOS_Simulator_Guide/GettingStartedwithiOSSimulator/GettingStartedwithiOSSimulator.html">模拟器</a>就像 Android 模拟器， 但对于 ios 。</p>
+<h4 id="使用-XCode"><a href="#使用-XCode" class="headerlink" title="使用 XCode"></a>使用 XCode</h4><p>您只需使用 XCode 为某些第三方包设置额外的配置 - 使用 VSCode 执行所有 Flutter 代码。</p>
+<p>您还可能会发现，在更新选项时，XCode 会更新一吨配置文件。这就是为什么目前无法真正安装一些没有 XCode 的软件包的原因。</p>
+<h4 id="Firebase-Podfile"><a href="#Firebase-Podfile" class="headerlink" title="Firebase + Podfile"></a>Firebase + Podfile</h4><p><font _mstmutation="1" _msthash="429949" _msttexthash="69121078">通过在文件中启用，确保启用 Firebase。</font><code>AppDelegate.swift</code></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> import UIKit</span><br><span class="line">import Flutter</span><br><span class="line">import Firebase</span><br><span class="line"></span><br><span class="line">@UIApplicationMain</span><br><span class="line">@objc class AppDelegate: FlutterAppDelegate &#123;</span><br><span class="line">  override func application(</span><br><span class="line">    _ application: UIApplication,</span><br><span class="line">    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?</span><br><span class="line">  ) -&gt; Bool &#123;</span><br><span class="line">    FirebaseApp.configure()</span><br><span class="line">    GeneratedPluginRegistrant.register(with: self)</span><br><span class="line">    return super.application(application, didFinishLaunchingWithOptions: launchOptions)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line">我的 Firebase 包还需要一个不是由 Flutter 生成的 Podfile。我的应用仅在 XCode 自动为我生成一个后才能工作，我根据他们的说明为 Firebase 分析和动态链接包添加了配置。</span><br><span class="line"></span><br><span class="line">#### 应用程序权限</span><br><span class="line"></span><br><span class="line">iOS 要求您在需要使用权限时包括说明。</span><br><span class="line"></span><br><span class="line">如果使用像[&quot;permission_handler包](https:&#x2F;&#x2F;zshipu.com&#x2F;t?url&#x3D;https:&#x2F;&#x2F;pub.dev&#x2F;packages&#x2F;permission_handler)，则需要为&quot;所有&quot;权限添加这些说明，即使您不使用它们。这是因为苹果的静态分析器将看到API调用，并假设他们正在被使用。</span><br><span class="line"></span><br><span class="line">&lt;font _mstmutation&#x3D;&quot;1&quot; _msthash&#x3D;&quot;428805&quot; _msttexthash&#x3D;&quot;77730484&quot;&gt;将它们像这样添加到您的文件中：&lt;&#x2F;font&gt;&#96;&#96;&#96;Info.plist&#96;&#96;&#96;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> <key>NSAppleMusicUsageDescription</key><br><string>Music access not used but required by permissions API.</string></p>
+<p><key>NSCalendarsUsageDescription</key><br><string>Calendar access not used but required by permissions API.</string></p>
+<pre><code>
+[在此处查找所有键和进一步说明](https://zshipu.com/t?url=https://pub.dev/packages/permission_handler)。
+
+### 其他内容
+
+#### 版本和生成 ID
+
+如果在某些情况下已使用生成 ID 或版本号，Apple 将拒绝您的应用。
+
+&lt;font _mstmutation=&quot;1&quot; _msthash=&quot;427661&quot; _msttexthash=&quot;232220690&quot;&gt;一个示例版本代码（如文件中定义）是 - 部件是版本号，是生成号。&lt;/font&gt;```pubspec.yaml``````1.1.1+12``````1.1.1``````+12```
+
+如果将新的应用存档上载到 Apple（即添加新的测试版本），请确保更新生成 ID。
+
+如果将版本公开发布到应用商店，请确保更新版本号。
+
+#### 图标
+
+我强烈建议您[使用flutter_launcher_icons生成](https://zshipu.com/t?url=https://pub.dev/packages/flutter_launcher_icons)应用图标。
+
+iOS 的一件事是，您不能在应用图标中使用透明度。如果使用 PNG，您甚至不能具有透明度图层，因此在 Photoshop 等**程序中关闭透明度设置**时导出 PNG。
+
+#### 应用内购买
+
+测试应用内购买糟透了。我按照[T](https://zshipu.com/t?url=https://pub.dev/packages/in_app_purchase)的指示， 但我不能让他们在 ios 上工作
+
+由于[这个线程](https://zshipu.com/t?url=https://developer.apple.com/forums/thread/100356?page=2)[和这个](https://zshipu.com/t?url=https://stackoverflow.com/questions/36660280/not-showing-amendments-or-request-button-to-accept-the-updated-apple-develop)线程，我能够解决这个问题。事实证明，您必须：
+
+*   [设置银行详细信息](https://zshipu.com/t?url=https://appstoreconnect.apple.com/agreements/#/banking)
+*   [同意此处的协议](https://zshipu.com/t?url=https://developer.apple.com/account/#/membership)
+
+我甚至不能测试应用程序内购买， 直到这些完成。
+
+* * *
+
+## 部署
+
+### 存储资产
+
+商店具有非常具体的资产大小和内容规则。确保您遵循要求，否则您的应用在提交时将被拒绝。
+
+#### 图像
+
+您将需要制作至少 2 套资产（用于 5.5&quot; 和 6.5&quot; iPhone），如果支持 iPad，则需要制作一套额外的资产。图像必须是他们在这里指定[的确切大小](https://zshipu.com/t?url=https://help.apple.com/app-store-connect/#/devd274dd925)。
+
+我使用了一个简单的图像格式，可以调整大小到两个设置大小，如下所示。
+
+![](https://d33wubrfki0l68.cloudfront.net/1f68031a196b8e4414b5fb50f66868174f5598bc/1220f/images/posts/2020-07-18/images.jpg)
+
+还要确保您的屏幕截图不包含 Android UI 元素或镶边，否则您的应用将被拒绝。
+
+#### 视频（可选）
+
+就像与图像一样，视频大小和持续时间是非常严格的[，因为这里指定](https://zshipu.com/t?url=https://help.apple.com/app-store-connect/#/dev4e413fcb8)。
+
+如果支持 iPad， 您将需要一个视频的两个 iphone 尺寸加上一个额外的大小。视频必须小于 30s 长。
+
+与图像一样，我使用相同的视频，但添加了较高的后栏，以适应两个设置的大小。同样，确保您的视频不包含 Android UI 元素或镶边。
+
+![](https://d33wubrfki0l68.cloudfront.net/63c61c9c99d06eee2132fd783ff33d53176adbe4/b2ea4/images/posts/2020-07-18/wtf.jpg)
+
+另一个额外的事情是， 苹果要求你使用 Safari 和 Osx 10 + 上传视频...说真的， wtf？
+
+只需通过浏览器扩展切换用户代理来[绕过这一点](https://zshipu.com/t?url=https://addons.mozilla.org/en-US/firefox/addon/uaswitcher/)。
+
+### 生成和上传
+
+如果使用 macincloud， 那么你可以手动上传你的内置应用程序到苹果。请按照[此处的 Flutter 部署](https://zshipu.com/t?url=https://flutter.dev/docs/deployment/ios)指南操作，您应该是好。
+
+请注意，在最便宜的 macincloud 实例上构建需要数年（约 20 分钟）。
+
+如果你想自动化你的部署，那么我可以建议[代码魔术](https://zshipu.com/t?url=https://codemagic.io/start/)自动部署你的 iOS 应用程序。他们有一个很好的博客[与有用的指南](https://zshipu.com/t?url=https://blog.codemagic.io/how-to-develop-and-distribute-ios-apps-without-mac-with-flutter-codemagic/)，以帮助您。
+
+我建议您仅在部署自己之后才设置此设置。尝试通过 CodeMagic 生成日志调试问题将让你发疯。另请注意，您每月可获得 500 个免费构建分钟数，但每个生成在免费实例上需要 30-75 分钟。
+
+### 发布新版本
+
+我发现[App Store 连接](https://zshipu.com/t?url=https://appstoreconnect.apple.com/)网站超级不直观， 有时使用。以下是需要注意的一些方面：
+
+*   在可以使用&quot;试飞&quot;屏幕之前，我必须手动更新&quot;试飞&quot;屏幕中的新版本。新版本不适用于测试人员，直到我勾选了每个新版本的一些框。
+*   提交新的公共版本时，必须指定生成编号。其 UI 位于&quot;App Store&quot;屏幕的半路上，该屏幕不是最值得发现的地方。
+
+一旦提交您的应用程序将由 Apple 审核。谢天谢地， 他们的审查过程相当不错， 只需要一天左右对我来说。
+
+## 最终想法
+
+尝试在应用商店中部署是迄今为止制作应用最令人沮丧的部分。花了 99 美元， 我得到了一个错综复杂， 记录不好， 设计不好的开发人员经验。此外， 他们强迫你使用 mac 和 idevice 对我来说是疯狂的。
+
+谷歌Play商店也不完美，但苹果认真对待蛋糕痛苦的开发者经验。
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 免责声明：本页面内容均来源于站内编辑发布，部分信息来源互联网，并不意味着本站赞同其观点或者证实其内容的真实性，如涉及版权等问题，请立即联系客服进行更改或删除，保证您的合法权益。转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。也可以邮件至 sblig@126.com </span>
@@ -785,12 +984,12 @@
 </ul>
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>flutter 小试： 前言</p>
+    <p><span class="copy-title">文章标题:</span>从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter</p>
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="知识铺">知识铺</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-09-13, 06:25:33</p>
-    <p><span class="copy-title">最后更新:</span>2020-09-13, 14:25:33</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/flutter-01/README/" title="flutter 小试： 前言">https://blog.zshipu.com/flutter/2020/09/13/flutter-01/README/</a>
+    <p><span class="copy-title">发布时间:</span>2020-09-13, 19:16:19</p>
+    <p><span class="copy-title">最后更新:</span>2020-09-13, 19:17:38</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%206%20%E9%83%A8%E5%88%86%20-%20%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%20ios%20%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%20%E6%B2%A1%E6%9C%89%20Mac%20%E6%88%96%20iphone%20%E4%BD%BF%E7%94%A8%20Flutter/" title="从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter">https://blog.zshipu.com/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%206%20%E9%83%A8%E5%88%86%20-%20%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%20ios%20%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%20%E6%B2%A1%E6%9C%89%20Mac%20%E6%88%96%20iphone%20%E4%BD%BF%E7%94%A8%20Flutter/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
@@ -918,7 +1117,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#flutter,flutter技术',],
+            'data': ['#flutter,flutter技术','#flutter',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
