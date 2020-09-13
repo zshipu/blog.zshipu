@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>技术分享 | 知识铺</title>
+  <title>dart 库的定义 | 技术分享 | 知识铺</title>
   <meta name="keywords" content="">
-  <meta name="description" content="知识铺">
+  <meta name="description" content="dart 库的定义 | 知识铺">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Dart在安装Flutter SDK的时候，它已经内置了Dart了, 但是，如果你想单独学习Dart，并且运行自己的Dart代码，最好去安装一个Dart SDK  安装Dart有两种方式:  通过工具安装官网安装  12brew install dart --devel # 安装brew upgrade dart # 升级  直接下载SDK，配置环境变量官网SDK   这里把下载下来的dart-s">
 <meta property="og:type" content="article">
@@ -67,7 +67,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a target="_blank" rel="noopener" href="https://zshipu.com/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -219,12 +219,54 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-dart/库的定义" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BA%B2"><span class="toc-text">总纲</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%AF%87"><span class="toc-text">学习篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81-go%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B"><span class="toc-text">1、 go入门基础教程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%AF%87"><span class="toc-text">工具篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81-%E5%B7%A5%E5%85%B7%E7%AF%87"><span class="toc-text">1、 工具篇</span></a></li></ol></li></ol></li></ol>
+        <h1 class="article-title">dart 库的定义</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-09-13 13:45:13'>2020-09-13 13:53</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="pushtsua_container_page_pv">
+            阅读:<span id="pushtsua_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%93%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">库的定义</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -237,14 +279,75 @@
     }
 </style>
 </div>
-            <h1 id="总纲"><a href="#总纲" class="headerlink" title="总纲"></a>总纲</h1><h2 id="学习篇"><a href="#学习篇" class="headerlink" title="学习篇"></a>学习篇</h2><h3 id="1、-go入门基础教程"><a href="#1、-go入门基础教程" class="headerlink" title="1、 go入门基础教程"></a>1、 <a href="https://blog.zshipu.com/go%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/index.html">go入门基础教程</a></h3><h2 id="工具篇"><a href="#工具篇" class="headerlink" title="工具篇"></a>工具篇</h2><h3 id="1、-工具篇"><a href="#1、-工具篇" class="headerlink" title="1、 工具篇"></a>1、 <a href="https://blog.zshipu.com/tool/index.html">工具篇</a></h3>
-        </article>
-        
-        <p>
-            <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="库的定义"><a href="#库的定义" class="headerlink" title="库的定义"></a>库的定义</h1><p>通常在定义库时，我们可以使用library关键字给库起一个名字。但目前我发现，库的名字并不影响导入，因为import语句用的是字符串URI  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library math;</span><br></pre></td></tr></table></figure>
+
+<p><strong>part关键字</strong></p>
+<p>在开发中，如果一个库文件太大，将所有内容保存到一个文件夹是不太合理的，我们有可能希望将这个库进行拆分，这个时候就可以使用part关键字  </p>
+<p>以Android Studio为例:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; lib&#x2F;MathUtils.dart</span><br><span class="line"></span><br><span class="line">part of &#39;Utils.dart&#39;;</span><br><span class="line"></span><br><span class="line">int sum(int num1, int num2) &#123;</span><br><span class="line">  return num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; lib&#x2F;DateUtils.dart</span><br><span class="line">part of &#39;Utils.dart&#39;;</span><br><span class="line"></span><br><span class="line">String dateFormate(DateTime date) &#123;</span><br><span class="line">  return &quot;2020-01-02&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; lib&#x2F;Utils.dart</span><br><span class="line">part &#39;MathUtils.dart&#39;; &#x2F;&#x2F; package:flutterapptest&#x2F;MathUtils.dart</span><br><span class="line">part &#39;DateUtils.dart&#39;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; lib&#x2F;main.dart</span><br><span class="line">print(sum(1, 2));</span><br><span class="line">print(dateFormate(DateTime.now()));</span><br></pre></td></tr></table></figure>
+
+<p>再以VS Code为例:  </p>
+<p>假设下面dart文件全在一个目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; A.dart</span><br><span class="line">part of &#39;C.dart&#39;; &#x2F;&#x2F; 同 part of &#39;.&#x2F;C.dart&#39;</span><br><span class="line"></span><br><span class="line">a_sayHello() &#123;</span><br><span class="line">  print(&#39;A hello&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; B.dart</span><br><span class="line">part of &#39;C.dart&#39;;</span><br><span class="line"></span><br><span class="line">b_sayHello() &#123;</span><br><span class="line">  print(&#39;B hello&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; C.dart</span><br><span class="line">part &#39;A.dart&#39;; &#x2F;&#x2F; 同 part &#39;.&#x2F;A.dart&#39;;</span><br><span class="line">part &#39;B.dart&#39;; &#x2F;&#x2F; 同 part &#39;.&#x2F;B.dart&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 测试: Test.dart</span><br><span class="line">import &#39;C.dart&#39;; &#x2F;&#x2F; 同 import &#39;.&#x2F;C.dart&#39;</span><br><span class="line"></span><br><span class="line">main(List&lt;String&gt; args) &#123;</span><br><span class="line">  a_sayHello();</span><br><span class="line">  b_sayHello();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>但是, 官方已经不建议使用<code>part</code>这种方式了: </p>
+<p><strong>Note:</strong> You may have heard of the <code>part</code> directive, which allows you to split a library into multiple Dart files. We recommend that you avoid using <code>part</code> and create mini libraries instead.</p>
+<p>如果库非常大, 可以将每一个dart文件作为库文件, 然后使用<code>export</code>关键字在某个库文件中单独导入</p>
+<p>以VS Code 示例:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; a.dart</span><br><span class="line">class A &#123;</span><br><span class="line">  void sayHello() &#123;</span><br><span class="line">    print(&quot;A hello&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; b.dart</span><br><span class="line">class B &#123;</span><br><span class="line">  void sayHello() &#123;</span><br><span class="line">    print(&quot;B hello&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; c.dart</span><br><span class="line">library c;</span><br><span class="line"></span><br><span class="line">export &#39;.&#x2F;a.dart&#39;;</span><br><span class="line">export &#39;.&#x2F;b.dart&#39;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; test.dart</span><br><span class="line">import &#39;.&#x2F;c.dart&#39;;</span><br><span class="line"></span><br><span class="line">main(List&lt;String&gt; args) &#123;</span><br><span class="line">  A a &#x3D; A();</span><br><span class="line">  B b &#x3D; B();</span><br><span class="line">  a.sayHello();</span><br><span class="line">  b.sayHello();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 免责声明：本页面内容均来源于站内编辑发布，部分信息来源互联网，并不意味着本站赞同其观点或者证实其内容的真实性，如涉及版权等问题，请立即联系客服进行更改或删除，保证您的合法权益。转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。也可以邮件至 sblig@126.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+<h2>推荐阅读:</h2>
+<ul class="list-paddingleft-2" style="list-style-type: disc;" id="pushtsua_recommend_list">
+</ul>
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>dart 库的定义</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="知识铺">知识铺</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-09-13, 13:53:36</p>
+    <p><span class="copy-title">最后更新:</span>2020-09-13, 13:45:13</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/dart/%E5%BA%93%E7%9A%84%E5%AE%9A%E4%B9%89/" title="dart 库的定义">https://blog.zshipu.com/flutter/2020/09/13/dart/%E5%BA%93%E7%9A%84%E5%AE%9A%E4%B9%89/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
@@ -309,6 +412,13 @@
 </script>
 
 
+
+
+    
+
+
+
+<script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1278144647&web_id=1278144647"></script>
     </div>
     <div class="copyright">
         <p class="footer-entry"><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://beian.miit.gov.cn">浙 ICP 备19032823号-1</a> |

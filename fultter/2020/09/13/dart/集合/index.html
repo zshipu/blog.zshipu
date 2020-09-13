@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>技术分享 | 知识铺</title>
+  <title>dart 基本 | 技术分享 | 知识铺</title>
   <meta name="keywords" content="">
-  <meta name="description" content="知识铺">
+  <meta name="description" content="dart 基本 | 知识铺">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Dart在安装Flutter SDK的时候，它已经内置了Dart了, 但是，如果你想单独学习Dart，并且运行自己的Dart代码，最好去安装一个Dart SDK  安装Dart有两种方式:  通过工具安装官网安装  12brew install dart --devel # 安装brew upgrade dart # 升级  直接下载SDK，配置环境变量官网SDK   这里把下载下来的dart-s">
 <meta property="og:type" content="article">
@@ -67,7 +67,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a target="_blank" rel="noopener" href="https://zshipu.com/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -219,12 +219,54 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-dart/集合" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BA%B2"><span class="toc-text">总纲</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%AF%87"><span class="toc-text">学习篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81-go%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B"><span class="toc-text">1、 go入门基础教程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%AF%87"><span class="toc-text">工具篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81-%E5%B7%A5%E5%85%B7%E7%AF%87"><span class="toc-text">1、 工具篇</span></a></li></ol></li></ol></li></ol>
+        <h1 class="article-title">dart 基本</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-09-13 13:44:35'>2020-09-13 13:53</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="pushtsua_container_page_pv">
+            阅读:<span id="pushtsua_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#List-Set-Map"><span class="toc-text">List &#x2F; Set &#x2F; Map</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -237,14 +279,38 @@
     }
 </style>
 </div>
-            <h1 id="总纲"><a href="#总纲" class="headerlink" title="总纲"></a>总纲</h1><h2 id="学习篇"><a href="#学习篇" class="headerlink" title="学习篇"></a>学习篇</h2><h3 id="1、-go入门基础教程"><a href="#1、-go入门基础教程" class="headerlink" title="1、 go入门基础教程"></a>1、 <a href="https://blog.zshipu.com/go%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/index.html">go入门基础教程</a></h3><h2 id="工具篇"><a href="#工具篇" class="headerlink" title="工具篇"></a>工具篇</h2><h3 id="1、-工具篇"><a href="#1、-工具篇" class="headerlink" title="1、 工具篇"></a>1、 <a href="https://blog.zshipu.com/tool/index.html">工具篇</a></h3>
-        </article>
-        
-        <p>
-            <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h3 id="List-Set-Map"><a href="#List-Set-Map" class="headerlink" title="List / Set / Map"></a>List / Set / Map</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">main(List&lt;String&gt; args) &#123;</span><br><span class="line">  &#x2F;&#x2F; listDemo();</span><br><span class="line">  &#x2F;&#x2F; setDemo();</span><br><span class="line">  &#x2F;&#x2F; mapDemo();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void listDemo() &#123;</span><br><span class="line">  &#x2F;&#x2F; List定义</span><br><span class="line">  &#x2F;&#x2F; 1.使用类型推导定义</span><br><span class="line">  var letters &#x3D; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;];</span><br><span class="line">  print(&#39;$letters $&#123;letters.runtimeType&#125;&#39;); &#x2F;&#x2F; List&lt;String&gt;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 2.明确指定类型</span><br><span class="line">  List&lt;int&gt; numbers &#x3D; [1, 2, 3, 4];</span><br><span class="line">  print(&#39;$numbers $&#123;numbers.runtimeType&#125;&#39;); &#x2F;&#x2F; List&lt;int&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void setDemo() &#123;</span><br><span class="line">  &#x2F;&#x2F; 1.使用类型推导定义</span><br><span class="line">  var lettersSet &#x3D; &#123;&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;&#125;;</span><br><span class="line">  print(&#39;$lettersSet $&#123;lettersSet.runtimeType&#125;&#39;); &#x2F;&#x2F; _CompactLinkedHashSet&lt;String&gt;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 2.明确指定类型</span><br><span class="line">  Set&lt;int&gt; numbersSet &#x3D; &#123;1, 2, 3, 4&#125;;</span><br><span class="line">  print(&#39;$numbersSet $&#123;numbersSet.runtimeType&#125;&#39;); &#x2F;&#x2F; _CompactLinkedHashSet&lt;int&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mapDemo() &#123;</span><br><span class="line">  &#x2F;&#x2F; Map的定义</span><br><span class="line">  &#x2F;&#x2F; 1.使用类型推导定义</span><br><span class="line">  var infoMap1 &#x3D; &#123;&#39;name&#39;: &#39;why&#39;, &#39;age&#39;: 18&#125;;</span><br><span class="line">  print(&#39;$infoMap1 $&#123;infoMap1.runtimeType&#125;&#39;); &#x2F;&#x2F; _InternalLinkedHashMap&lt;String, Object&gt;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 2.明确指定类型</span><br><span class="line">  Map&lt;String, Object&gt; infoMap2 &#x3D; &#123;&#39;height&#39;: 1.88, &#39;address&#39;: &#39;北京市&#39;&#125;;</span><br><span class="line">  print(&#39;$infoMap2 $&#123;infoMap2.runtimeType&#125;&#39;); &#x2F;&#x2F;_InternalLinkedHashMap&lt;String, Object&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+       <hr><span style="font-style: italic;color: gray;"> 免责声明：本页面内容均来源于站内编辑发布，部分信息来源互联网，并不意味着本站赞同其观点或者证实其内容的真实性，如涉及版权等问题，请立即联系客服进行更改或删除，保证您的合法权益。转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。也可以邮件至 sblig@126.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+<h2>推荐阅读:</h2>
+<ul class="list-paddingleft-2" style="list-style-type: disc;" id="pushtsua_recommend_list">
+</ul>
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>dart 基本</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="知识铺">知识铺</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-09-13, 13:53:36</p>
+    <p><span class="copy-title">最后更新:</span>2020-09-13, 13:44:35</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/dart/%E9%9B%86%E5%90%88/" title="dart 基本">https://blog.zshipu.com/flutter/2020/09/13/dart/%E9%9B%86%E5%90%88/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
@@ -309,6 +375,13 @@
 </script>
 
 
+
+
+    
+
+
+
+<script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1278144647&web_id=1278144647"></script>
     </div>
     <div class="copyright">
         <p class="footer-entry"><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://beian.miit.gov.cn">浙 ICP 备19032823号-1</a> |

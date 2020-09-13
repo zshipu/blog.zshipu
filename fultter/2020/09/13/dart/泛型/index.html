@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>技术分享 | 知识铺</title>
+  <title>dart 泛型 | 技术分享 | 知识铺</title>
   <meta name="keywords" content="">
-  <meta name="description" content="知识铺">
+  <meta name="description" content="dart 泛型 | 知识铺">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Dart在安装Flutter SDK的时候，它已经内置了Dart了, 但是，如果你想单独学习Dart，并且运行自己的Dart代码，最好去安装一个Dart SDK  安装Dart有两种方式:  通过工具安装官网安装  12brew install dart --devel # 安装brew upgrade dart # 升级  直接下载SDK，配置环境变量官网SDK   这里把下载下来的dart-s">
 <meta property="og:type" content="article">
@@ -67,7 +67,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a target="_blank" rel="noopener" href="https://zshipu.com/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -219,12 +219,54 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-dart/泛型" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BA%B2"><span class="toc-text">总纲</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%AF%87"><span class="toc-text">学习篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81-go%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B"><span class="toc-text">1、 go入门基础教程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%AF%87"><span class="toc-text">工具篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81-%E5%B7%A5%E5%85%B7%E7%AF%87"><span class="toc-text">1、 工具篇</span></a></li></ol></li></ol></li></ol>
+        <h1 class="article-title">dart 泛型</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-09-13 13:41:44'>2020-09-13 13:53</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="pushtsua_container_page_pv">
+            阅读:<span id="pushtsua_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-text">泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-text">泛型方法</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -237,14 +279,49 @@
     }
 </style>
 </div>
-            <h1 id="总纲"><a href="#总纲" class="headerlink" title="总纲"></a>总纲</h1><h2 id="学习篇"><a href="#学习篇" class="headerlink" title="学习篇"></a>学习篇</h2><h3 id="1、-go入门基础教程"><a href="#1、-go入门基础教程" class="headerlink" title="1、 go入门基础教程"></a>1、 <a href="https://blog.zshipu.com/go%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/index.html">go入门基础教程</a></h3><h2 id="工具篇"><a href="#工具篇" class="headerlink" title="工具篇"></a>工具篇</h2><h3 id="1、-工具篇"><a href="#1、-工具篇" class="headerlink" title="1、 工具篇"></a>1、 <a href="https://blog.zshipu.com/tool/index.html">工具篇</a></h3>
-        </article>
-        
-        <p>
-            <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  <span class="keyword">var</span> names1 = [<span class="string">&#x27;why&#x27;</span>, <span class="string">&#x27;kobe&#x27;</span>, <span class="string">&#x27;james&#x27;</span>, <span class="number">111</span>];</span><br><span class="line">  <span class="built_in">print</span>(names1.runtimeType); <span class="comment">// List&lt;Object&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 限制类型</span></span><br><span class="line">  <span class="comment">// var names2 = &lt;String&gt;[&#x27;why&#x27;, &#x27;kobe&#x27;, &#x27;james&#x27;, 111]; // 最后一个报错</span></span><br><span class="line">  <span class="comment">// List&lt;String&gt; names3 = [&#x27;why&#x27;, &#x27;kobe&#x27;, &#x27;james&#x27;, 111]; // 最后一个报错</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 创建Map的方式</span></span><br><span class="line">  <span class="keyword">var</span> infos1 = &#123;<span class="number">1</span>: <span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;why&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">18</span>&#125;; </span><br><span class="line">  <span class="built_in">print</span>(infos1.runtimeType); <span class="comment">// _InternalLinkedHashMap&lt;Object, Object&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 对类型进行显示</span></span><br><span class="line">  <span class="comment">// Map&lt;String, String&gt; infos2 = &#123;&#x27;name&#x27;: &#x27;why&#x27;, &#x27;age&#x27;: 18&#125;; // 18不能放在value中</span></span><br><span class="line">  <span class="comment">// var infos3 = &lt;String, String&gt;&#123;&#x27;name&#x27;: &#x27;why&#x27;, &#x27;age&#x27;: 18&#125;;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不带泛型的写法:  </p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Location</span> </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span> x;</span><br><span class="line">  <span class="built_in">Object</span> y;</span><br><span class="line"></span><br><span class="line">  Location(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  Location l1 = Location(<span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line">  <span class="built_in">print</span>(l1.x.runtimeType); <span class="comment">// int</span></span><br><span class="line">  <span class="built_in">int</span> xInt = l1.x;</span><br><span class="line">  <span class="built_in">print</span>(xInt);</span><br><span class="line"></span><br><span class="line">  Location l3 = Location(<span class="string">&#x27;aaa&#x27;</span>, <span class="string">&#x27;bbb&#x27;</span>);</span><br><span class="line">  <span class="built_in">print</span>(l3.x.runtimeType); <span class="comment">// String</span></span><br><span class="line">  <span class="built_in">String</span> xStr = l3.x;</span><br><span class="line">  <span class="built_in">print</span>(xStr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>带泛型的写法:  </p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Location</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  T x;</span><br><span class="line">  T y;</span><br><span class="line"></span><br><span class="line">  Location(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  Location l1 = Location&lt;<span class="built_in">int</span>&gt;(<span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line">  <span class="built_in">print</span>(l1.x.runtimeType); <span class="comment">// int</span></span><br><span class="line"></span><br><span class="line">  Location l3 = Location&lt;<span class="built_in">String</span>&gt;(<span class="string">&#x27;aaa&#x27;</span>, <span class="string">&#x27;bbb&#x27;</span>);</span><br><span class="line">  <span class="built_in">print</span>(l3.x.runtimeType); <span class="comment">// String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>只希望类型是num:  </p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Location</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">num</span>&gt; </span>&#123;</span><br><span class="line">  T x;</span><br><span class="line">  T y;</span><br><span class="line"></span><br><span class="line">  Location(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  Location l2 = Location&lt;<span class="built_in">int</span>&gt;(<span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line">  <span class="built_in">print</span>(l2.x.runtimeType);</span><br><span class="line">  <span class="comment">// 错误的写法, 类型必须继承自num</span></span><br><span class="line">  <span class="comment">// Location l3 = Location&lt;String&gt;(&#x27;aaa&#x27;, &#x27;bbb&#x27;);</span></span><br><span class="line">  <span class="comment">// print(l3.x.runtimeType);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">T getFirst&lt;T&gt;(<span class="built_in">List</span>&lt;T&gt; list) &#123;</span><br><span class="line">  <span class="keyword">if</span> (list.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> list[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  <span class="keyword">var</span> names = [<span class="string">&quot;tom&quot;</span>, <span class="string">&quot;jimmy&quot;</span>];</span><br><span class="line">  <span class="keyword">var</span> first = getFirst(names);</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;<span class="subst">$first</span> <span class="subst">$&#123;first.runtimeType&#125;</span>&#x27;</span>); <span class="comment">// tom String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+       <hr><span style="font-style: italic;color: gray;"> 免责声明：本页面内容均来源于站内编辑发布，部分信息来源互联网，并不意味着本站赞同其观点或者证实其内容的真实性，如涉及版权等问题，请立即联系客服进行更改或删除，保证您的合法权益。转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。也可以邮件至 sblig@126.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+<h2>推荐阅读:</h2>
+<ul class="list-paddingleft-2" style="list-style-type: disc;" id="pushtsua_recommend_list">
+</ul>
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>dart 泛型</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="知识铺">知识铺</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-09-13, 13:53:36</p>
+    <p><span class="copy-title">最后更新:</span>2020-09-13, 13:41:44</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/dart/%E6%B3%9B%E5%9E%8B/" title="dart 泛型">https://blog.zshipu.com/flutter/2020/09/13/dart/%E6%B3%9B%E5%9E%8B/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
@@ -309,6 +386,13 @@
 </script>
 
 
+
+
+    
+
+
+
+<script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1278144647&web_id=1278144647"></script>
     </div>
     <div class="copyright">
         <p class="footer-entry"><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://beian.miit.gov.cn">浙 ICP 备19032823号-1</a> |
