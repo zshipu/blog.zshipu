@@ -6,18 +6,39 @@
   <meta name="keywords" content=" flutter,flutter技术 ">
   <meta name="description" content="flutter 初起步： ListView | 知识铺">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Untitled">
+<meta name="description" content="自从这是期待已久的发射，Flutter已经引起了很多的关注，我们也很兴奋！我希望大量的非游戏应用程序将过渡到Flutter， 在预期中， 因此， 我们正在训练我们的团队。 由于有新的，但很少，资源分散在互联网上学习飘飘 - 我们已经编译了我们的 Flutter 教程，让开发人员离开他们的脚，并开始开发 Flutter 的应用程序。 在初学者的 Flutter 指南中，我们将介绍：  Flutte">
 <meta property="og:type" content="article">
-<meta property="og:title" content="知识铺">
-<meta property="og:url" content="https://blog.zshipu.com/flutter/2020/09/13/gitbook-flutter/untitled-1/index.html">
+<meta property="og:title" content="Fluter的开发人员指南">
+<meta property="og:url" content="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/Fluter%E7%9A%84%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="知识铺">
-<meta property="og:description" content="Untitled">
+<meta property="og:description" content="自从这是期待已久的发射，Flutter已经引起了很多的关注，我们也很兴奋！我希望大量的非游戏应用程序将过渡到Flutter， 在预期中， 因此， 我们正在训练我们的团队。 由于有新的，但很少，资源分散在互联网上学习飘飘 - 我们已经编译了我们的 Flutter 教程，让开发人员离开他们的脚，并开始开发 Flutter 的应用程序。 在初学者的 Flutter 指南中，我们将介绍：  Flutte">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-13T06:21:37.081Z">
-<meta property="article:modified_time" content="2020-09-12T07:08:16.336Z">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--30fhcgVh--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2AuXblXMvv7YLLjiDiZobkVw.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--Z0NRoy7O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AaIAn1ORPEBwUY1krrd8iDA.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--EXMS1_El--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2Ayozc3QDZFjhfqvTv30VFOg.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--mdZmTXeW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2Aj5k-sQWAqf0LHl_SUR3_Gg.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--DcjGaPC5--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AjHSZ0_y9aoas3UxUMkRMZw.gif">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--nV911Awg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2A3KBHP-3nKyS3XP8bTma2Yw.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--qCyMYCjg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AdA0ntm5vz0xGyDYsp2-f7g.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--3tEXyTQ7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2ANibO5ZD4c_QJMAHR.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--8DrYiFpv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2A3GR_8PDpRyl4Tvmv.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--5a56KpL---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AFVbUPfA8Q03E7_old_Yajw.gif">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--9GfWi_OX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/0%2AIHvwEaxGsJzYFJXj.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--whiFAqMI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AoqlVDLGspU6203J22EQPZg.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--fCYN1lo0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2AgK4EzVCEIToPH_Rh.gif">
+<meta property="og:image" content="https://i.giphy.com/media/TFIZ2EBWVGHt59txzK/giphy.gif">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--_vEFXLJC--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/0%2AgDdGMXvkmtAuZ7Ha.">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
+<meta property="og:image" content="https://i.giphy.com/media/de5bARu0SsXiU/giphy.gif">
+<meta property="article:published_time" content="2020-09-13T09:13:43.000Z">
+<meta property="article:modified_time" content="2020-09-13T09:14:05.729Z">
 <meta property="article:author" content="知识铺">
 <meta property="article:tag" content="知识铺">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--30fhcgVh--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2AuXblXMvv7YLLjiDiZobkVw.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -102,7 +123,7 @@
     <li><div class="all"><a href="https://blog.zshipu.com/media/">媒体期刊</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/txp/">淘小鋪</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/article/post/">归档文章</a></div></li>
-    <li><div class="all active">全部文章<small>(61)</small></div></li>
+    <li><div class="all active">全部文章<small>(62)</small></div></li>
     
         
             
@@ -122,7 +143,7 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="zsp_site_posts_number" value="61">
+<input type="hidden" id="zsp_site_posts_number" value="62">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -652,6 +673,14 @@
            data-author="" >
             <span class="post-title" title="flutter 小试： 应用简介">flutter 小试： 应用简介</span>
             <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Fluter%E7%9A%84%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Fluter的开发人员指南">Fluter的开发人员指南</span>
+            <span class="post-date" title="2020-09-13 17:13:43">2020/09/13</span>
         </a>
         
     </nav>

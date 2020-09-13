@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Fluter的开发人员指南 | 技术分享 | 知识铺</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Fluter的开发人员指南 | 知识铺">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="自从这是期待已久的发射，Flutter已经引起了很多的关注，我们也很兴奋！我希望大量的非游戏应用程序将过渡到Flutter， 在预期中， 因此， 我们正在训练我们的团队。 由于有新的，但很少，资源分散在互联网上学习飘飘 - 我们已经编译了我们的 Flutter 教程，让开发人员离开他们的脚，并开始开发 Flutter 的应用程序。 在初学者的 Flutter 指南中，我们将介绍：  Flutte">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fluter的开发人员指南">
+<meta property="og:url" content="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/Fluter%E7%9A%84%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="知识铺">
+<meta property="og:description" content="自从这是期待已久的发射，Flutter已经引起了很多的关注，我们也很兴奋！我希望大量的非游戏应用程序将过渡到Flutter， 在预期中， 因此， 我们正在训练我们的团队。 由于有新的，但很少，资源分散在互联网上学习飘飘 - 我们已经编译了我们的 Flutter 教程，让开发人员离开他们的脚，并开始开发 Flutter 的应用程序。 在初学者的 Flutter 指南中，我们将介绍：  Flutte">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--30fhcgVh--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2AuXblXMvv7YLLjiDiZobkVw.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--Z0NRoy7O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AaIAn1ORPEBwUY1krrd8iDA.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--EXMS1_El--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2Ayozc3QDZFjhfqvTv30VFOg.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--mdZmTXeW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2Aj5k-sQWAqf0LHl_SUR3_Gg.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--DcjGaPC5--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AjHSZ0_y9aoas3UxUMkRMZw.gif">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--nV911Awg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2A3KBHP-3nKyS3XP8bTma2Yw.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--qCyMYCjg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AdA0ntm5vz0xGyDYsp2-f7g.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--3tEXyTQ7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2ANibO5ZD4c_QJMAHR.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--8DrYiFpv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2A3GR_8PDpRyl4Tvmv.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--5a56KpL---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AFVbUPfA8Q03E7_old_Yajw.gif">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--9GfWi_OX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/0%2AIHvwEaxGsJzYFJXj.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--whiFAqMI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AoqlVDLGspU6203J22EQPZg.png">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--fCYN1lo0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2AgK4EzVCEIToPH_Rh.gif">
+<meta property="og:image" content="https://i.giphy.com/media/TFIZ2EBWVGHt59txzK/giphy.gif">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--_vEFXLJC--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/0%2AgDdGMXvkmtAuZ7Ha.">
+<meta property="og:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg">
+<meta property="og:image" content="https://i.giphy.com/media/de5bARu0SsXiU/giphy.gif">
+<meta property="article:published_time" content="2020-09-13T09:13:43.000Z">
+<meta property="article:modified_time" content="2020-09-13T09:14:05.729Z">
+<meta property="article:author" content="知识铺">
+<meta property="article:tag" content="知识铺">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://res.cloudinary.com/practicaldev/image/fetch/s--30fhcgVh--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2AuXblXMvv7YLLjiDiZobkVw.png">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WLWJSST');</script>
+  <!-- End Google Tag Manager -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-2874221941555456",
+      enable_page_level_ads: true
+    });
+  </script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a target="_blank" rel="noopener" href="https://zshipu.com/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>知识铺</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/liliang8858" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all"><a href="https://blog.zshipu.com/">博客主页</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/read/">读书笔记</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/note/">建站笔记</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/tlg/">技术分享</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/flutter/">flutter技术</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/media/">媒体期刊</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/txp/">淘小鋪</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/article/post/">归档文章</a></div></li>
+    <li><div class="all active">全部文章<small>(62)</small></div></li>
+    
+        
+            
+            <li><div data-rel="flutter">flutter<small>(41)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="zsp_site_posts_number" value="62">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://zshipu.com/">知识铺</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">flutter,flutter技术</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/README/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 开始">dart 开始</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E6%B3%9B%E5%9E%8B/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 泛型">dart 泛型</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 函数">dart 函数</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E5%9F%BA%E6%9C%AC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 基本">dart 基本</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E9%9B%86%E5%90%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 集合">dart 集合</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E5%BA%93%E7%9A%84%E5%AE%9A%E4%B9%89/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 库的定义">dart 库的定义</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 库的使用">dart 库的使用</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 类和对象">dart 类和对象</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E6%9E%9A%E4%B8%BE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 枚举">dart 枚举</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E8%BF%90%E7%AE%97%E7%AC%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 运算符">dart 运算符</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/Future/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart future">dart future</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/await%E5%92%8Casync/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart await和async">dart await和async</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/%E5%A4%9A%E6%A0%B8CPU%E5%88%A9%E7%94%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 多核CPU利用">dart 多核CPU利用</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 阻塞问题">dart 阻塞问题</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart Dart事件循环">dart Dart事件循环</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/%E5%BE%AE%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 微任务队列">dart 微任务队列</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/%E7%BA%BF%E7%A8%8B/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 线程">dart 线程</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%9B%BE%E7%89%87/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 图片">flutter 初起步： 图片</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%96%87%E6%9C%AC/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 文本">flutter 初起步： 文本</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 本地资源">flutter 初起步： 本地资源</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 布局">flutter 初起步： 布局</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/Align/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Align">flutter 初起步： Align</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/BoxDecoration/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： BoxDecoration">flutter 初起步： BoxDecoration</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/Padding/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Padding">flutter 初起步： Padding</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/Center/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Center">flutter 初起步： Center</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/Container/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Container">flutter 初起步： Container</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 单子布局">flutter 初起步： 单子布局</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%A4%9A%E5%AD%90%E5%B8%83%E5%B1%80/Column/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Column">flutter 初起步： Column</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%A4%9A%E5%AD%90%E5%B8%83%E5%B1%80/Flex/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Flex">flutter 初起步： Flex</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%A4%9A%E5%AD%90%E5%B8%83%E5%B1%80/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 多子布局">flutter 初起步： 多子布局</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%A4%9A%E5%AD%90%E5%B8%83%E5%B1%80/Row/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Row">flutter 初起步： Row</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%A4%9A%E5%AD%90%E5%B8%83%E5%B1%80/Stack/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Stack">flutter 初起步： Stack</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： gitbook-daliu-flutter">flutter 初起步： gitbook-daliu-flutter</span>
+            <span class="post-date" title="2020-09-13 06:14:03">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/StatefulWidget%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： StatefulWidget生命周期">flutter 初起步： StatefulWidget生命周期</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/SUMMARY/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Summary">flutter 初起步： Summary</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/TextField/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： TextField">flutter 初起步： TextField</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%85%A5%E9%97%A8Flutter/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 入门Flutter">flutter 初起步： 入门Flutter</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 创建应用">flutter 初起步： 创建应用</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E8%A1%A8%E5%8D%95/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 表单">flutter 初起步： 表单</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%8C%89%E9%92%AE/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 按钮">flutter 初起步： 按钮</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%BB%9A%E5%8A%A8Widget/ListView/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： ListView">flutter 初起步： ListView</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%BB%9A%E5%8A%A8Widget/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 滚动Widget">flutter 初起步： 滚动Widget</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%BB%9A%E5%8A%A8Widget/%E7%9B%91%E5%90%AC%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 监听滚动事件">flutter 初起步： 监听滚动事件</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/Run%20Mode/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Run Mode">flutter 初起步： Run Mode</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90/JSON/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： JSON">flutter 初起步： JSON</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%BB%9A%E5%8A%A8Widget/GridView/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： GridView">flutter 初起步： GridView</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%BB%9A%E5%8A%A8Widget/Slivers/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Slivers">flutter 初起步： Slivers</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 环境配置">flutter 初起步： 环境配置</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/gitbook-flutter/README/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2020-09-13 14:21:37">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/gitbook-flutter/SUMMARY/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2020-09-13 14:21:37">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/gitbook-flutter/untitled-1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2020-09-13 14:21:37">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 前言">flutter 小试： 前言</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/SUMMARY/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： Table of contents">flutter 小试： Table of contents</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/untitled-1/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： Untitled">flutter 小试： Untitled</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/di-san-fang-ku/gai-shu/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 概述">flutter 小试： 概述</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/di-san-fang-ku/zhuang-tai-guan-li-zu-jian-zhi-mobx/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 状态管理组件之mobx">flutter 小试： 状态管理组件之mobx</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/ru-men-pian/1.1-ji-shu-qi-shi-li/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 1.1 计数器示例">flutter 小试： 1.1 计数器示例</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/ru-men-pian/di-yi-zhang-di-yi-ge-flutter-app/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 第一章：第一个Flutter App">flutter 小试： 第一章：第一个Flutter App</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/ru-men-pian/untitled/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 搭建flutter开发环境">flutter 小试： 搭建flutter开发环境</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/shi-li-pian/yi-ge-wan-zheng-de-deng-lu-ye/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 一个完整的登陆页">flutter 小试： 一个完整的登陆页</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/shi-li-pian/ying-yong-jian-jie/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 应用简介">flutter 小试： 应用简介</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Fluter%E7%9A%84%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Fluter的开发人员指南">Fluter的开发人员指南</span>
+            <span class="post-date" title="2020-09-13 17:13:43">2020/09/13</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-flutter-02/Fluter的开发人员指南" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Fluter的开发人员指南</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-09-13 17:14:05'>2020-09-13 17:13</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="pushtsua_container_page_pv">
+            阅读:<span id="pushtsua_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Flutter%EF%BC%9A%E4%BB%80%E4%B9%88%EF%BC%8C%E5%A6%82%E4%BD%95%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">Flutter：什么，如何，为什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%B3%E6%9E%97%E5%BE%B7%C2%B7%E6%A2%85%E7%93%A6%E8%BE%BE-%E2%80%A2-2019%E5%B9%B44%E6%9C%881%E6%97%A5-3%E5%88%86%E9%92%9F-%E9%98%85%E8%AF%BB"><span class="toc-text">米林德·梅瓦达 • 2019年4月1日~ 3分钟 阅读</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEFlutter"><span class="toc-text">设置Flutter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A3%9E%E9%95%96%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-text">飞镖基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%A1%E5%85%B0%E6%B2%99%E9%98%BF-%E2%80%A2-2020-%E5%B9%B4-5-%E6%9C%88-25%E6%97%A5-12-%E5%88%86%E9%92%9F%E9%98%85%E8%AF%BB"><span class="toc-text">卡兰沙阿 • 2020 年 5 月 25日 &#x3D; 12 分钟阅读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E9%A3%9E%E9%95%96"><span class="toc-text">学习飞镖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%8C%E7%BB%83%E4%B9%A0%EF%BC%8C%E7%BB%83%E4%B9%A0%EF%BC%81"><span class="toc-text">练习，练习，练习！</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Flutter%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-text">Flutter基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E4%BB%B6"><span class="toc-text">部件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter-%E4%B8%AD%E7%9A%84%E5%B8%83%E5%B1%80"><span class="toc-text">Flutter 中的布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%98%E6%9C%89%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%B7%A5%E5%85%B7%EF%BC%81"><span class="toc-text">还有一些小工具！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%B0%8F%E9%83%A8%E4%BB%B6"><span class="toc-text">交互式小部件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter%E9%A3%9F%E8%B0%B1"><span class="toc-text">Flutter食谱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">设计应用程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%A2%E5%BC%8F"><span class="toc-text">形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%8A%BF"><span class="toc-text">手势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F"><span class="toc-text">图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E6%98%BE%E7%A4%BA%E6%9B%B4%E5%A4%9A%E6%95%B0%E6%8D%AE"><span class="toc-text">使用列表显示更多数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%AB%E5%BF%98%E4%BA%86%E7%9C%8B%E7%9C%8B%E8%89%BE%E7%B1%B3%E8%8E%89-%C2%B7%E7%A6%8F%E5%9B%BE%E7%BA%B3%E7%9A%84%E8%BF%99%E7%AF%87%E4%BB%A4%E4%BA%BA%E6%95%AC%E7%95%8F%E7%9A%84%E6%96%87%E7%AB%A0%EF%BC%8C-%E6%B7%B1%E5%85%A5%E5%9C%B0%E4%BA%86%E8%A7%A3%E6%96%AF%E6%9D%8E%E5%BC%97"><span class="toc-text">别忘了看看艾米莉 ·福图纳的这篇令人敬畏的文章， 深入地了解斯李弗</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Aakash-D-Mehta-2020-%E5%B9%B4-5-%E6%9C%88-25%E6%97%A5-3-%E5%88%86%E9%92%9F%E9%98%85%E8%AF%BB"><span class="toc-text">Aakash D. Mehta &#x3D; 2020 年 5 月 25日 &#x3D; 3 分钟阅读</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B9%8B%E9%97%B4%E5%AF%BC%E8%88%AA%EF%BC%8C-%E5%8F%88%E5%90%8D%E8%B7%AF%E7%94%B1"><span class="toc-text">在屏幕之间导航， 又名路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-text">网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-JSON-%E5%92%8C%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">使用 JSON 和序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E6%80%A7"><span class="toc-text">数据持久性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E6%80%A7%E7%AE%A1%E7%90%86"><span class="toc-text">依赖性管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BD%E5%AE%B6%E7%AE%A1%E7%90%86%E7%9A%84%E8%89%BA%E6%9C%AF"><span class="toc-text">国家管理的艺术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Agung-Surya-%E2%80%A2-2018%E5%B9%B47%E6%9C%8823%E6%97%A5-4%E5%88%86%E9%92%9F-%E9%98%85%E8%AF%BB"><span class="toc-text">Agung Surya • 2018年7月23日~ 4分钟 阅读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%98%E8%AE%B0%E5%BE%97%E4%BD%A0%E4%B9%8B%E5%89%8D%E7%94%A8%E8%BF%87%E7%9A%84-%E2%80%9C%E4%B8%BB%E9%A2%98-%E2%80%9C%EF%BC%88%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%89-%E2%80%9D-%E5%92%8C-%E2%80%9C%E5%AF%BC%E8%88%AA%E5%99%A8%E2%80%9D-%E5%90%97%EF%BC%9F%E8%BF%99%E6%98%AF%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%90%8C%E7%9A%84%E7%BB%A7%E6%89%BF%E5%B0%8F%E9%83%A8%E4%BB%B6%E6%A6%82%E5%BF%B5%E6%9D%A5%E8%AE%BF%E9%97%AE%E5%B0%8F%E9%83%A8%E4%BB%B6%E6%A0%91%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E3%80%82"><span class="toc-text">还记得你之前用过的 “主题 “（上下文）;” 和 “导航器” 吗？这是使用相同的继承小部件概念来访问小部件树中的数据。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-text">单元测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E9%83%A8%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="toc-text">小部件测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95"><span class="toc-text">集成测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BDD%EF%BC%9A%E8%A1%8C%E4%B8%BA%E9%A9%B1%E5%8A%A8%E5%9E%8B%E5%BC%80%E5%8F%91"><span class="toc-text">BDD：行为驱动型开发</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 自从这是期待已久的发射，Flutter已经引起了很多的关注，我们也很兴奋！我希望大量的非游戏应用程序将过渡到Flutter， 在预期中， 因此， 我们正在训练我们的团队。</p>
+<p>由于有新的，但很少，资源分散在互联网上学习飘飘 - 我们已经编译了我们的 Flutter 教程，让开发人员离开他们的脚，并开始开发 Flutter 的应用程序。</p>
+<p>在初学者的 Flutter 指南中，我们将介绍：</p>
+<ul>
+<li>Flutter：什么，如何，为什么？</li>
+<li>设置Flutter</li>
+<li>飞镖基础知识</li>
+<li>Flutter基础知识</li>
+<li>部件</li>
+<li>布局</li>
+<li>交互式小部件</li>
+<li>设计应用：窗体、手势和图像</li>
+<li>列表和导航</li>
+<li>网络</li>
+<li>JSON 和序列化</li>
+<li>依赖性管理</li>
+<li>状态管理</li>
+<li>测试（单元和集成）</li>
+</ul>
+<h1 id="Flutter：什么，如何，为什么？"><a href="#Flutter：什么，如何，为什么？" class="headerlink" title="Flutter：什么，如何，为什么？"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#flutter-what-how-and%C2%A0why"></a><font _mstmutation="1" _msthash="289380" _msttexthash="78816751">Flutter：什么，如何，为什么？</font></h1><p>什么是Flutter，它有什么不同？请记住这一点 - Flutter 专为任何具有屏幕的设备工作而构建，并适用于：</p>
+<ul>
+<li>ios 和安卓系统</li>
+<li>Web 和桌面（Mac、Windows 和 Ubuntu） - 甚至支持 PWA</li>
+<li>自动</li>
+<li>树莓派（POC 阶段）</li>
+</ul>
+<p>查看谷歌的这段视频;这是一个伟大的地方得到一个掌握 - 比较本机开发，混合应用程序开发，反应本机开发，最后<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://www.solutelabs.com/flutter-app-development-services">，Flutter应用程序开发</a>。</p>
+<p>以下是新版 Flutter 和 Dart 编程语言的发布最新消息 -</p>
+<p>  <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://blog.solutelabs.com/google-launched-flutter-sdk-1-2-and-dart-programming-language-2-2-8ebab5500fb"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--30fhcgVh--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2AuXblXMvv7YLLjiDiZobkVw.png" alt="Milind Mevada"></a>  [## 谷歌推出 Flutter SDK 1.2 和飞镖编程语言 2.2 |由米林德·梅瓦达 »学习 v/s 忘记 |索卢特实验室</p>
+<h3 id="米林德·梅瓦达-•-2019年4月1日-3分钟-阅读"><a href="#米林德·梅瓦达-•-2019年4月1日-3分钟-阅读" class="headerlink" title="米林德·梅瓦达 • 2019年4月1日~ 3分钟 阅读"></a><font _mstmutation="1" _msthash="837044" _msttexthash="93799368">米林德·梅瓦达 • 2019年4月1日~ 3分钟 阅读</font></h3><p> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg" alt="Medium Logo"><font _mstmutation="1" _msthash="1125293" _msttexthash="397644">blog.solutelabs.com</font>](<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://blog.solutelabs.com/google-launched-flutter-sdk-1-2-and-dart-programming-language-2-2-8ebab5500fb">https://zshipu.com/t?url=https://blog.solutelabs.com/google-launched-flutter-sdk-1-2-and-dart-programming-language-2-2-8ebab5500fb</a>) </p>
+<h1 id="设置Flutter"><a href="#设置Flutter" class="headerlink" title="设置Flutter"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#setting-up%C2%A0flutter"></a><font _mstmutation="1" _msthash="303784" _msttexthash="13976898">设置Flutter</font></h1><p>Flutter 设置起来相对简单，具体取决于您使用的操作系统;你可以看看这个官方 Flutter 教程中的步骤：</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/get-started/install">https://flutter.dev/docs/get-started/install</a></p>
+<p>但万一，你遇到的东西，看看这里<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://github.com/flutter/flutter/wiki/Workarounds-for-common-issues#flutter-installation">：https://github.com/flutter/flutter/wiki/Workarounds-for-common-issues#flutter-installation</a></p>
+<p>我们要求你在飞镖之前设置 Flutter 的原因是因为当你安装 Flutter 时， 你安装飞镖太， 虽然你可以单独安装飞镖， 这将是一个不必要的步骤.Flutter 将决定使用哪个飞镖版本，因此安装不同的飞镖版本也将是模棱两可的。</p>
+<p>下载并解压缩 Flutter 后，在控制台上运行 flutter 命令时应看到类似这样的内容：</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--Z0NRoy7O--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://cdn-images-1.medium.com/max/800/1*aIAn1ORPEBwUY1krrd8iDA.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Z0NRoy7O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AaIAn1ORPEBwUY1krrd8iDA.png" alt="flutter development"></a></p>
+<p>如果您是移动开发<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://www.solutelabs.com/mobile-app-development">的新人</a>，您还需要下载<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://developer.apple.com/xcode/">Xcode 和</a> <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://developer.android.com/studio/index.html">Android Studio（</a>以及工具链）。设置 Flutter 后，基架新项目只是一个命令。</p>
+<h1 id="飞镖基础知识"><a href="#飞镖基础知识" class="headerlink" title="飞镖基础知识"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#dart-basics"></a><font _mstmutation="1" _msthash="303459" _msttexthash="24145199">飞镖基础知识</font></h1><p>Flutter 使用<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://dart.dev">飞镖语言</a>构建应用。要了解为什么 Flutter 使用飞镖， 请查看我以前的博客， 并到部分 - <strong>Flutter 是如何出生的</strong></p>
+<p>  <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://blog.solutelabs.com/flutter-for-your-next-product-idea-everything-you-need-to-know-f5179a925524"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--EXMS1_El--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/2%2Ayozc3QDZFjhfqvTv30VFOg.png" alt="Karan Shah"></a>  [## 为您的下一个”产品”创意而飘荡 [您需要了解的一切]由卡兰·沙阿 »学习 v/s 忘记 |索卢特实验室</p>
+<h3 id="卡兰沙阿-•-2020-年-5-月-25日-12-分钟阅读"><a href="#卡兰沙阿-•-2020-年-5-月-25日-12-分钟阅读" class="headerlink" title="卡兰沙阿 • 2020 年 5 月 25日 = 12 分钟阅读"></a><font _mstmutation="1" _msthash="837681" _msttexthash="78190684">卡兰沙阿 • 2020 年 5 月 25日 = 12 分钟阅读</font></h3><p> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg" alt="Medium Logo"><font _mstmutation="1" _msthash="1125930" _msttexthash="397644">blog.solutelabs.com</font>](<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://blog.solutelabs.com/flutter-for-your-next-product-idea-everything-you-need-to-know-f5179a925524">https://zshipu.com/t?url=https://blog.solutelabs.com/flutter-for-your-next-product-idea-everything-you-need-to-know-f5179a925524</a>) </p>
+<p>飘逸和铬使用相同的渲染引擎 - SKIA。它无需与本机 API 交互，而是控制屏幕上的每个像素，从而获得远离旧行李以及性能所需的自由。</p>
+<p>一定<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/resources/faq#why-did-flutter-choose-to-use-dart">给官方</a>文档读一读， 但我发现这个善于解释飞镖</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://hackernoon.com/why-flutter-uses-dart-dd635a054ebf">为什么Flutter使用飞镖</a></p>
+<p>P. s. 您可以跟进他们的媒体帐户的<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://medium.com/dartlang">飞镖更新</a></p>
+<p>现在，你知道为什么<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://en.m.wikipedia.org/wiki/Google">谷歌</a>选择飞镖 - 所以让我们把你的手弄脏！</p>
+<h3 id="学习飞镖"><a href="#学习飞镖" class="headerlink" title="学习飞镖"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#learn-dart"></a><font _mstmutation="1" _msthash="306501" _msttexthash="13764452">学习飞镖</font></h3><p>看看飞镖语言的官方文档<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://dart.dev/guides/language/language-tour">，旅游，</a>和他们的语言<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://dart.dev/samples">样本</a>。</p>
+<p>一旦你有一个概述<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=http://jpryan.me/dartbyexample/">，http://jpryan.me/dartbyexample/，</a>做所有的例子宗教。</p>
+<h3 id="练习，练习，练习！"><a href="#练习，练习，练习！" class="headerlink" title="练习，练习，练习！"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#practice-practice-practice"></a><font _mstmutation="1" _msthash="304616" _msttexthash="51817857">练习，练习，练习！</font></h3><p>在<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://dartpad.dartlang.org/">DartPad</a>上编辑代码，以获得更好的抓地力。我相信你很快就会启动并运行！</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--mdZmTXeW--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://cdn-images-1.medium.com/max/800/1*j5k-sQWAqf0LHl_SUR3_Gg.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--mdZmTXeW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2Aj5k-sQWAqf0LHl_SUR3_Gg.png" alt="My First Hello, World! in Dart"></a></p>
+<p>之后， 你完成了飞镖例， 头到外在主义， 并完成他们的飞镖轨道。很时髦，所以万一它满了，你也可以做练习轨道。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://exercism.io/tracks/dart">飞镖 |Exercism</a></p>
+<h1 id="Flutter基础知识"><a href="#Flutter基础知识" class="headerlink" title="Flutter基础知识"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#flutter-basics"></a><font _mstmutation="1" _msthash="305630" _msttexthash="22369373">Flutter基础知识</font></h1><p>现在你熟悉了飞镖， 终于是时候继续飞溅了</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--DcjGaPC5--/c_limit,f_auto,fl_progressive,q_66,w_880/https://cdn-images-1.medium.com/max/800/1*jHSZ0_y9aoas3UxUMkRMZw.gif"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--DcjGaPC5--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AjHSZ0_y9aoas3UxUMkRMZw.gif" alt="penguin gif"></a></p>
+<p>让我们从这里的技术概述开始：</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/resources/technical-overview">技术概述</a></p>
+<p><font _mstmutation="1" _msthash="291174" _msttexthash="90244310">和脚手架一个新的Flutter应用程序与：</font></p>
+<p> <code>$ flutter create app_name</code> </p>
+<p>你应该看到类似的东西：</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--nV911Awg--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://cdn-images-1.medium.com/max/800/1*3KBHP-3nKyS3XP8bTma2Yw.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--nV911Awg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2A3KBHP-3nKyS3XP8bTma2Yw.png" alt="android studio"></a></p>
+<p>打开 Android 工作室上的项目， 下载模拟器， 和 Android 版本， 如果还没有完成， 并运行项目 - 和等 voila！</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--qCyMYCjg--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://cdn-images-1.medium.com/max/800/1*dA0ntm5vz0xGyDYsp2-f7g.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--qCyMYCjg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AdA0ntm5vz0xGyDYsp2-f7g.png" alt="Flutter demo"></a></p>
+<p>了解应如何构建项目目录，并了解哪些文件用于哪个目的</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://dev.to/jay_tillu/flutter-project-structure-1lhe">Flutter项目结构</a></p>
+<p>现在，您已经设置了飘飘，是时候做所有开发人员都做的事情了！使用其他人的代码😆 - 我的意思是设置包文件： pubspec， 写在 Yaml</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://dart.dev/tools/pub/pubspec">pubspec 文件</a></p>
+<h3 id="部件"><a href="#部件" class="headerlink" title="部件"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#widgets"></a><font _mstmutation="1" _msthash="305214" _msttexthash="5477992">部件</font></h3><blockquote>
+<p><em>记住 - 一切都是 Flutter 中的小部件</em></p>
+</blockquote>
+<p>如果您没有像我们之前询问的您那样阅读技术概述，请返回并阅读:)你会得到一个公平的想法，什么是小部件。小部件有两种口味：<strong>_无状态_**</strong>_和有状态_**</p>
+<p>无状态小部件是那些状态不会像按钮或图像一样更改的小部件。如名称状态，当在屏幕上执行操作时，它不会更改其状态。</p>
+<p>查看短视频系列，以及 Google 提供<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">的文档</a>，以深入探讨（我附上该系列中的第一个视频）。</p>
+<p>当小部件需要保持某些状态，如<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/PageView-class.html">PageView</a>中的当前页面时，当前选择的选项卡位于<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/PageView-class.html">底部导航</a>栏中，有状态的小部件是正确的选择。</p>
+<p>有状态的小工具可以保持小部件的当前状态。状态小部件具有状态生成方法，它每次显式<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/State-class.html">调用</a>setState 时调用 ，而不是小部件<strong><em>生成方法</em></strong>。</p>
+<p>同样，请查看此处有状态小部件的文档（里面有视频） ：</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">状态的Widget类</a></p>
+<p>Flutter 1.9 在<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://developers.googleblog.com/2019/09/flutter-news-from-gdd-china-flutter1.9.html?m=1">GDD 中国</a>发布，具有许多新功能和标志，社区正在成倍增长（现在不能忽视中国）</p>
+<h2 id="Flutter-中的布局"><a href="#Flutter-中的布局" class="headerlink" title="Flutter 中的布局"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#layouts-in%C2%A0flutter"></a><font _mstmutation="1" _msthash="305240" _msttexthash="19881719">Flutter 中的布局</font></h2><p>正如我们前面讨论的，一切都是 Flutter 中的小部件 - 包括布局模型。</p>
+<p>在此处查看文档：</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/ui/layout">Flutter 中的布局</a></p>
+<p>行、列和网格等小部件是布局小部件（我们在屏幕上看不到），可帮助其他可见小部件排列、约束和对齐。</p>
+<blockquote>
+<p>⏰实验室的时间： 写你的<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://codelabs.developers.google.com/codelabs/first-flutter-app-pt1/#0"><em>第一个 Flutter 应用程序： 第 1 部分</em></a></p>
+</blockquote>
+<h2 id="还有一些小工具！"><a href="#还有一些小工具！" class="headerlink" title="还有一些小工具！"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#and-some-more%C2%A0widgets"></a><font _mstmutation="1" _msthash="307112" _msttexthash="33571928">还有一些小工具！</font></h2><p>Flutter附带一套强大的基本小部件，如文本<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/Text-class.html">，列</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/Column-class.html">，</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/Row-class.html">行，</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/Stack-class.html">堆栈</a>和<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/Container-class.html">容器</a>。基本小部件将帮助您创建自定义视图。您可以。</p>
+<p>如果你的应用遵循<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://material.io/design/guidelines-overview/">材料设计准则，Flutter</a>在默认情况下有很多要涵盖的。Flutter 提供了多个支持材料设计的小部件。它包括小部件，如<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/material/MaterialApp-class.html">材料应用程序</a>，<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/material/AppBar-class.html">应用栏</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/material/Scaffold-class.html">，脚手架</a>等。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--3tEXyTQ7--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://cdn-images-1.medium.com/max/800/0*NibO5ZD4c_QJMAHR.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--3tEXyTQ7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2ANibO5ZD4c_QJMAHR.png" alt="Material Navigation Drawer (https://material.io/components/navigation-drawer/#)"></a></p>
+<p>飘飘还包括以 iOS 为中心的<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/ui/widgets/cupertino">Cupertino 组件</a>包。它涵盖了小部件，如<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/cupertino/CupertinoApp-class.html">库比蒂诺应用程序</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/cupertino/CupertinoNavigationBar-class.html">，库比蒂诺导航酒吧</a>等。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--8DrYiFpv--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://cdn-images-1.medium.com/max/800/0*3GR_8PDpRyl4Tvmv.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--8DrYiFpv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2A3GR_8PDpRyl4Tvmv.png" alt="Cupertino NavigationBar (https://developer.apple.com/design/human-interface-guidelines/ios/bars/navigation-bars/)"></a></p>
+<h2 id="交互式小部件"><a href="#交互式小部件" class="headerlink" title="交互式小部件"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#interactive-widgets"></a><font _mstmutation="1" _msthash="306163" _msttexthash="18292885">交互式小部件</font></h2><p>到目前为止，我们已经看到在屏幕上显示信息或排列其他小部件的小部件。对于真正的应用程序，同样重要的是使应用程序互动，并获得用户的各种形式，如手势，点击等用户的意见。</p>
+<p>为此，Flutter 具有状态数字，如复选框、收音机、<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/material/Slider-class.html">滑块、</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/material/InkWell-class.html">墨水井</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/material/Checkbox-class.html"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/Form-class.html">、窗体</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/material/TextField-class.html">和文本字段</a>等。 <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/material/Radio-class.html"></a>这些小部件足以保持其状态（例如，我们在 TextField 中输入的文本，无论是否选中检查列表）。</p>
+<p>转到下面的示例，将收藏夹/非收藏夹功能添加到应用。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/ui/interactive">向 Flutter 应用添加交互性</a></p>
+<blockquote>
+<p>⏰<em>时间：写你的</em><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://codelabs.developers.google.com/codelabs/first-flutter-app-pt2/#0"><em>第一个Flutter应用程序：第2部分</em></a></p>
+<p><em>正如您到达这里， 你应该<strong>清楚什么是小部件？</strong>和<strong>小工具的类型</strong></em></p>
+</blockquote>
+<p>现在，你一定好奇在 Flutter 中有什么小部件可用？</p>
+<p>因此，这里是一个小部件目录，检查所有的小部件，使 Flutter 开发放松和乐趣😍</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/ui/widgets">小部件目录</a></p>
+<h2 id="Flutter食谱"><a href="#Flutter食谱" class="headerlink" title="Flutter食谱"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#flutter-cookbook"></a><font _mstmutation="1" _msthash="306150" _msttexthash="15005653">Flutter食谱</font></h2><p>在这里，我们开始，是时候学习 Flutter 真正的应用程序。我的意思是具有多个屏幕、图像、网络依赖项等的应用。</p>
+<p>所以，让我们开始吧。</p>
+<h2 id="设计应用程序"><a href="#设计应用程序" class="headerlink" title="设计应用程序"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#designing-an%C2%A0app"></a><font _mstmutation="1" _msthash="307086" _msttexthash="21948719">设计应用程序</font></h2><p>请查看下面的应用插图。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--5a56KpL---/c_limit,f_auto,fl_progressive,q_66,w_880/https://cdn-images-1.medium.com/max/800/1*FVbUPfA8Q03E7_old_Yajw.gif"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--5a56KpL---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AFVbUPfA8Q03E7_old_Yajw.gif" alt="-----------------"></a></p>
+<p>这个简单看起来的应用程序有这些功能👇</p>
+<ol>
+<li><p>导航抽<br>屉<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/design/drawer">https://flutter.dev/docs/cookbook/design/drawer</a></p>
+</li>
+<li><p>小吃<br><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/design/snackbars">https://flutter.dev/docs/cookbook/design/snackbars</a></p>
+</li>
+<li><p>自定义字体（文本有其自己的样式<br><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/design/package-fonts">😉）https://flutter.dev/docs/cookbook/design/package-fonts</a></p>
+</li>
+<li><p>基于<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/ui/widgets/text">方向</a>的文本（横向中更大的字体<br><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/design/orientation">）https://flutter.dev/docs/cookbook/design/orientation</a></p>
+</li>
+<li><p>并且，多个选项卡<br><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/design/tabs">https://flutter.dev/docs/cookbook/design/tabs</a></p>
+</li>
+</ol>
+<blockquote>
+<p><em><strong>请注意：定向</strong>构建器与设备的方向无关。相反，它通过比较父小部件可用的宽度和高度来计算当前方向。要确定设备的方向，您可以参考<strong>MediaQuery.of（上下文） 方向</strong></em></p>
+</blockquote>
+<h2 id="形式"><a href="#形式" class="headerlink" title="形式"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#forms"></a><font _mstmutation="1" _msthash="306137" _msttexthash="4752878">形式</font></h2><p>Flutter 具有<strong>表单</strong>小部件，可帮助构建一个表单，该表单可以有效地管理窗体的基本要求，例如，窗体的状态、验证等。请查看以下文档中的完整公会。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook#forms">食谱</a></p>
+<h2 id="手势"><a href="#手势" class="headerlink" title="手势"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#gestures"></a><font _mstmutation="1" _msthash="307073" _msttexthash="4492865">手势</font></h2><p>为了获得用户输入和一些时间，使应用程序超级互动，我们最大限度地使用手势。Flutter 具有预构建的小部件来涵盖这一点。</p>
+<ol>
+<li><p>添加材质波纹<br><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/gestures/ripples">https://flutter.dev/docs/cookbook/gestures/ripples</a></p>
+</li>
+<li><p>手柄水龙头<br><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/gestures/handling-taps">https://flutter.dev/docs/cookbook/gestures/handling-taps</a></p>
+</li>
+<li><p>轻扫<br><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/gestures/dismissible">至https://flutter.dev/docs/cookbook/gestures/dismissible</a></p>
+</li>
+</ol>
+<h2 id="图像"><a href="#图像" class="headerlink" title="图像"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#images"></a><font _mstmutation="1" _msthash="308009" _msttexthash="4178018">图像</font></h2><p>为了让应用程序美观和吸引人，我们使用图像。Flutter 提供了一<strong>个</strong>图像小部件，用于在各种来源的 Flutter 应用中显示图像。</p>
+<ol>
+<li>显示来自网络的图像</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/images/network-image">显示来自互联网的图像</a></p>
+<ol>
+<li>使用占位符和淡入动画显示图像</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/images/fading-in-images">使用占位符淡入图像</a></p>
+<ol>
+<li>有时，从网络加载映像并缓存在本地存储中使其下次快速可用非常方便。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/images/cached-images">使用缓存的图像</a></p>
+<h2 id="使用列表显示更多数据"><a href="#使用列表显示更多数据" class="headerlink" title="使用列表显示更多数据"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#showing-more-data-using%C2%A0list"></a><font _mstmutation="1" _msthash="320658" _msttexthash="39517426">使用列表显示更多数据</font></h2><p>为了容纳更多的数据，我们使用列表来显示它们。列表可以是水平或线性的。</p>
+<p>Flutter 具有<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/GridView-class.html">网格视图和</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/ListView-class.html">列表视图</a>。这些是具有不同承包商的基本小部件，用于标识如何使用它们。</p>
+<ol>
+<li>创建网格列表</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/lists/grid-lists">创建网格列表</a></p>
+<ol>
+<li>水平创建列表</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/lists/horizontal-list">创建水平列表</a></p>
+<ol>
+<li>该列表可以具有不同类型的项目。例如，标题和项目。在此处查看如何在 ListView 中涵盖此类案例。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/lists/mixed-list">创建具有不同类型的项目的列表</a></p>
+<ol>
+<li>使用 SliverList 浮动应用条和嵌套滚动</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/lists/floating-app-bar">在列表上方放置一个浮动应用栏</a>。</p>
+<h4 id="别忘了看看艾米莉-·福图纳的这篇令人敬畏的文章，-深入地了解斯李弗"><a href="#别忘了看看艾米莉-·福图纳的这篇令人敬畏的文章，-深入地了解斯李弗" class="headerlink" title="别忘了看看艾米莉 ·福图纳的这篇令人敬畏的文章， 深入地了解斯李弗"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#dont-forget-to-check-out-this-awesome-article-by-emily-fortuna-to-understand-slivers-in%C2%A0depth"></a><em>别忘了看看艾米莉 ·<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://medium.com/flutter/slivers-demystified-6ff68ab0296f">福图纳</a>的这篇令人敬畏的文章， 深入地了解斯李弗</em></h4><ol>
+<li>有时，我们将预定义的任意项放在列表中。例如，设置类别。在 ListView 中，您可以将自定义项（以小部件的形式）传递给其子项。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/lists/basic-list">使用列表</a></p>
+<ol>
+<li>有时，列表包含的项目比屏幕的视口更多。在这种情况下，一次生成所有项是没有意义的。Flutter 具有_<strong>ListView.Builder，</strong>_它使用惰性呈现方法高效地创建列表项。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/lists/long-lists">使用长列表</a></p>
+<p>如果列表中有更多的项目，并且希望将它们分页。这是我找到的一篇好👇</p>
+<p>  <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://blog.solutelabs.com/paginate-your-data-in-flutter-7744995febd1"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--9GfWi_OX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/0%2AIHvwEaxGsJzYFJXj.jpg" alt="Aakash D. Mehta"></a>  [## 飞溅列表查看无限滚动的分页 （指南） |学习 v/s 忘记 |索卢特实验室</p>
+<h3 id="Aakash-D-Mehta-2020-年-5-月-25日-3-分钟阅读"><a href="#Aakash-D-Mehta-2020-年-5-月-25日-3-分钟阅读" class="headerlink" title="Aakash D. Mehta = 2020 年 5 月 25日 = 3 分钟阅读"></a><font _mstmutation="1" _msthash="869141" _msttexthash="87738430">Aakash D. Mehta = 2020 年 5 月 25日 = 3 分钟阅读</font></h3><p> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg" alt="Medium Logo"><font _mstmutation="1" _msthash="1164072" _msttexthash="397644">blog.solutelabs.com</font>](<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://blog.solutelabs.com/paginate-your-data-in-flutter-7744995febd1">https://zshipu.com/t?url=https://blog.solutelabs.com/paginate-your-data-in-flutter-7744995febd1</a>) </p>
+<h2 id="在屏幕之间导航，-又名路由"><a href="#在屏幕之间导航，-又名路由" class="headerlink" title="在屏幕之间导航， 又名路由"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#navigating-between-screens-aka%C2%A0routes"></a><font _mstmutation="1" _msthash="320632" _msttexthash="60304738">在屏幕之间导航， 又名路由</font></h2><p>大多数应用都包含多个屏幕，以组织良好的方式显示数据。</p>
+<p>在 Flutter 中，我们可以使用导航器执行与导航<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://api.flutter.dev/flutter/widgets/Navigator-class.html">相关的操作</a>。<br>请查看下图以了解 Flutter 如何管理多个路由，稍后，我们将讨论如何在它们之间来回导航。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--whiFAqMI--/c_limit,f_auto,fl_progressive,q_auto,w_880/https://cdn-images-1.medium.com/max/800/1*oqlVDLGspU6203J22EQPZg.png"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--whiFAqMI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AoqlVDLGspU6203J22EQPZg.png" alt="-----------------"></a></p>
+<ol>
+<li>导航到新屏幕并返回</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/navigation/navigation-basics">导航到新屏幕并返回</a></p>
+<ol>
+<li>将数据传递到新屏幕并检索结果。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/navigation/passing-data">将数据发送到新屏幕</a></p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/navigation/returning-data">从屏幕返回数据</a></p>
+<blockquote>
+<p><em>到目前为止，我们所看到的是适合小型项目。但是，当项目增长时，我们希望在一个位置管理所有路由。此外，我们可能需要解决以下问题</em></p>
+<ol>
+<li>我们有多少条路线？</li>
+<li>如何初始化每条路线？</li>
+<li>每条路线都需要哪些数据？等。。</li>
+</ol>
+</blockquote>
+<ol>
+<li>为了有效地管理所有这些，Flutter 指定了路由。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/navigation/named-routes">使用命名路由导航</a></p>
+<ol>
+<li>在命名路由中传递参数。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/navigation/navigate-with-arguments">将参数传递给命名路由</a></p>
+<p>导航到新屏幕时，此动画如何？</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://res.cloudinary.com/practicaldev/image/fetch/s--fCYN1lo0--/c_limit,f_auto,fl_progressive,q_66,w_880/https://cdn-images-1.medium.com/max/800/0*gK4EzVCEIToPH_Rh.gif"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--fCYN1lo0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://cdn-images-1.medium.com/max/800/0%2AgK4EzVCEIToPH_Rh.gif" alt="Hero animation (https://flutter.dev/docs/cookbook/navigation/hero-animations)"></a></p>
+<ol>
+<li>在屏幕上为小部件设置动画</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/navigation/hero-animations">在屏幕上为小部件设置动画</a></p>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#networking"></a><font _mstmutation="1" _msthash="320606" _msttexthash="6343467">网络</font></h2><p>我们现在遇到大多数应用程序，通常连接到第三方服务器，并发出请求到服务器提取或发布数据。</p>
+<p>在 Flutter 中， 我们可以使用 Http 作为第三方酒吧做这样的事情。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/packages/http">http飞镖包</a></p>
+<ol>
+<li>从网络获取数据</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/networking/fetch-data">从互联网获取数据</a></p>
+<ol>
+<li>发出经过身份验证的请求</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/networking/authenticated-requests">发出经过身份验证的请求</a></p>
+<ol>
+<li>使用 Web 套接字</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/networking/web-sockets">使用 Web 袜子</a></p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/networking/web-sockets">Flutter 有更多的酒吧可用， 这样做的更高效。别忘了看看下面的酒吧。</a></p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/packages/dio">迪奥 |飞镖包</a></p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/packages/chopper">直升机 |飞镖包</a></p>
+<h2 id="使用-JSON-和序列化"><a href="#使用-JSON-和序列化" class="headerlink" title="使用 JSON 和序列化"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#using-json-and-serialization"></a><font _mstmutation="1" _msthash="321893" _msttexthash="21599617">使用 JSON 和序列化</font></h2><p>在 Flutter 中，我们通常有两种 JSON 序列化策略。使用代码生成手动解析和自动序列化。</p>
+<blockquote>
+<p><em>运行时<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://en.wikipedia.org/wiki/Reflection_(computer_programming)">反射</a>在 Flutter 中被禁用，因此我们不能有像<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://github.com/google/gson">GSON、Jackson</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://github.com/FasterXML/jackson-core">或 Moshi</a> <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://github.com/square/moshi">这样的库</a></em></p>
+</blockquote>
+<p>在此处查看两种策略的完整指南：</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/data-and-backend/json">JSON 和序列化</a></p>
+<p>对于手动解析，不要忘记查看此在线工具，以自动生成模型类的样板。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://app.quicktype.io/">以任何语言即时解析 Json |快速类型</a></p>
+<h2 id="数据持久性"><a href="#数据持久性" class="headerlink" title="数据持久性"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#data-persistence"></a><font _mstmutation="1" _msthash="321230" _msttexthash="14100424">数据持久性</font></h2><p>有时，我们需要将数据保留在本地内存中，以在需要时快速可用。</p>
+<ol>
+<li>如果数据存储在键值对中的数据量相对较小。请考虑<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/packages/shared_preferences">使用共享首选项</a>。下面是使用 Flutter 实现相同目标的详细指南。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/persistence/key-value">在磁盘上存储密钥值数据</a></p>
+<ol>
+<li>您还可以在磁盘上读取和写入文件。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/persistence/reading-writing-files">读取和写入文件</a></p>
+<ol>
+<li><font _mstmutation="1" _msthash="485147" _msttexthash="243112077">如果应用需要保留大量数据，并且还需要查询它们。建议使用<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://www.sqlite.org/index.html">SQLite 数据库</a></font></li>
+</ol>
+<p>Flutter 应用程序可以使用 Sqlite 数据库通过<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/packages/sqflite">sqflite</a>酒吧。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/persistence/sqlite">使用 SQLite 保留数据</a></p>
+<p>为了便于使用，反应性持久性，请查看酒吧下方。摩尔是围绕平方石的包装。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/packages/moor_flutter">moor_flutter |Flutter包装</a></p>
+<h2 id="依赖性管理"><a href="#依赖性管理" class="headerlink" title="依赖性管理"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#dependency-management"></a><font _mstmutation="1" _msthash="321867" _msttexthash="16859310">依赖性管理</font></h2><p>我们在应用程序中使用这么多的酒吧。这是跨应用进行集体工作和共享代码，而无需从头开始开发所有内容的一种有效方式。</p>
+<p>你可以从这里找到所有有用的包。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/">飞镖包</a></p>
+<p>使用多个酒吧时，您可能会面临版本解析中的冲突等问题。您可以在使用酒吧时在这里找到所有要遵循的最佳实践。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/packages-and-plugins/using-packages">使用包</a></p>
+<p>而且，有了这一切，您现在已经完成了 Flutter 食谱。👏</p>
+<h1 id="国家管理的艺术"><a href="#国家管理的艺术" class="headerlink" title="国家管理的艺术"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#an-art-of-state-management"></a><font _mstmutation="1" _msthash="323869" _msttexthash="26045851">国家管理的艺术</font></h1><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#introduction"></a><font _mstmutation="1" _msthash="321802" _msttexthash="5211505">介绍</font></h3><p>在典型的应用中，在 Point-A 所做的更改反映了 Point-B 的一些更改的常见用例。这就是所谓的状态管理。也可以通过下图理解。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://i.giphy.com/media/TFIZ2EBWVGHt59txzK/giphy.gif"><img src="https://i.giphy.com/media/TFIZ2EBWVGHt59txzK/giphy.gif" alt="Alt text of image"></a></p>
+<p>Flutter 有多种方法可以有效地管理应用的状态。根据项目规模，我们可以决定适当的技术。</p>
+<p>在这里，我们将讨论一些可能的国家管理技术。</p>
+<ol>
+<li><strong>设置状态方式</strong></li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/ui/interactive">向 Flutter 应用添加交互性</a></p>
+<p>  <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://medium.com/@agungsurya/basic-state-management-in-google-flutter-6ee73608f96d"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--_vEFXLJC--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/fit/c/96/96/0%2AgDdGMXvkmtAuZ7Ha." alt="Agung Surya"></a>  [## 谷歌飘飘的基本状态管理 |由阿贡苏里亚 »中等</p>
+<h3 id="Agung-Surya-•-2018年7月23日-4分钟-阅读"><a href="#Agung-Surya-•-2018年7月23日-4分钟-阅读" class="headerlink" title="Agung Surya • 2018年7月23日~ 4分钟 阅读"></a><font _mstmutation="1" _msthash="872781" _msttexthash="81313999">Agung Surya • 2018年7月23日~ 4分钟 阅读</font></h3><p> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--KBvj_QRD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/medium_icon-90d5232a5da2369849f285fa499c8005e750a788fdbf34f5844d5f2201aae736.svg" alt="Medium Logo"><font _mstmutation="1" _msthash="1167712" _msttexthash="5103527">中等</font>](<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://medium.com/@agungsurya/basic-state-management-in-google-flutter-6ee73608f96d">https://zshipu.com/t?url=https://medium.com/@agungsurya/basic-state-management-in-google-flutter-6ee73608f96d</a>) </p>
+<ol>
+<li>继承的小部件</li>
+</ol>
+<p>查看以下视频以了解**”什么是继承小部件？”**</p>
+<p>此外，请查看此处的完整文章列表。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/data-and-backend/state-mgmt/options#inheritedwidget--inheritedmodel">状态管理方法列表</a></p>
+<h3 id="还记得你之前用过的-“主题-“（上下文）-”-和-“导航器”-吗？这是使用相同的继承小部件概念来访问小部件树中的数据。"><a href="#还记得你之前用过的-“主题-“（上下文）-”-和-“导航器”-吗？这是使用相同的继承小部件概念来访问小部件树中的数据。" class="headerlink" title="还记得你之前用过的 “主题 “（上下文）;” 和 “导航器” 吗？这是使用相同的继承小部件概念来访问小部件树中的数据。"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#remember-themeofcontext-and-navigatorofcontext-you-used-earlier-that-is-using-the-same-inherited-widget-concept-to-access-data-down-in-the-widget%C2%A0tree"></a><em>还记得你之前用过的 “主题 “（上下文）;” 和 “导航器” 吗？这是使用相同的继承小部件概念来访问小部件树中的数据。</em></h3><ol>
+<li>提供程序包</li>
+</ol>
+<p>提供程序<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/packages/provider">是</a>DI（依赖注入）和状态管理的混合体，这些管理是使用小部件构建的。</p>
+<p>提供商的官方文档太好，无法理解它。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/documentation/provider/latest/">提供程序 - 飞镖 API 文档</a></p>
+<ol>
+<li>BLOC 模式</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://bloclibrary.dev/#/">BLoC</a>是 Dart 的简单、轻量级和高度可测试的可预测状态管理库。</p>
+<p>这里是一个官方指南：<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://bloclibrary.dev/#/">集团</a></p>
+<p><font _mstmutation="1" _msthash="305592" _msttexthash="232293360">我还发现了这个良好的视频系列解释 Bloc 模式 （<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://resocoder.com/2019/10/26/flutter-bloc-library-tutorial-1-0-0-stable-reactive-state-management/">与附带的文章系列</a></font>)</p>
+<blockquote>
+<p><em>业内还有其他流行的国家管理技术。像<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/data-and-backend/state-mgmt/options#redux">雷杜克斯</a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/development/data-and-backend/state-mgmt/options#mobx">和莫比克斯</a>。</em></p>
+</blockquote>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#testing"></a><font _mstmutation="1" _msthash="320633" _msttexthash="6268977">测试</font></h2><p>当应用程序增长时，很难测试每个功能，然后它出现回归。在这种情况下，自动化测试是要走的路。它有助于确保应用在发布之前按预期执行。<br>因此，我们不会陷入这种境地。😆</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://i.giphy.com/media/de5bARu0SsXiU/giphy.gif"><img src="https://i.giphy.com/media/de5bARu0SsXiU/giphy.gif"></a></p>
+<p>自动化测试分为三类</p>
+<ul>
+<li><p>单元_<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/testing#unit-tests">测试</a>_测试单个函数、方法或类。</p>
+</li>
+<li><p>*<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/testing#widget-tests">小部件测试</a>（在其他 UI 框架中称为组件测试）测试单个小部件。</p>
+</li>
+<li><p>*<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/testing#integration-tests">集成测试</a>测试完整的应用或应用的很大一部分。</p>
+</li>
+</ul>
+<p>在此处查看 Flutter 中的测试简介</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/testing">测试 Flutter 应用程序</a></p>
+<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#unit-testing"></a><font _mstmutation="1" _msthash="319969" _msttexthash="12031968">单元测试</font></h2><p>单元测试的目标是使用 Stub/mock 依赖项测试特定的代码单元。验证代码在不同方案中是否正常工作。单元测试非常快，不需要实际设备执行。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/testing/unit/introduction">单元测试简介</a></p>
+<p>在执行 Unit 测试时，任何依赖类都应可注入，以便我们可以注入依赖的模拟或假实现，并验证是否一切正常。Flutter 具有一<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/packages/mockito">个模拟</a>框架，可帮助创建模拟或假实现。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/packages/mockito">模拟飞镖包</a></p>
+<h2 id="小部件测试"><a href="#小部件测试" class="headerlink" title="小部件测试"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#widget-testing"></a><font _mstmutation="1" _msthash="321594" _msttexthash="17123860">小部件测试</font></h2><p>小部件测试（在 Flutter 中）是一种 UI 测试技术。<br>小部件测试的目标是测试特定的小部件 UI 是否看起来与预期一样，并且它是交互式的。小部件测试不需要物理设备。</p>
+<p>我们还可以测试小部件的属性，如颜色、大小、字体系列等。<br>我们还可以执行用户事件，如点击、手势、输入文本等。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/testing/widget/introduction">小部件测试简介</a></p>
+<h2 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#integration-testing"></a><font _mstmutation="1" _msthash="319956" _msttexthash="14050387">集成测试</font></h2><p>集成测试工作成对。这里的目标是测试多个单元如何协同工作。集成测试发生在真正的设备或仿真器上。</p>
+<p>我们可以发射一系列用户交互事件，并期望正确执行 UI 呈现或单元代码。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://flutter.dev/docs/cookbook/testing/integration/introduction">集成测试简介</a></p>
+<h2 id="BDD：行为驱动型开发"><a href="#BDD：行为驱动型开发" class="headerlink" title="BDD：行为驱动型开发"></a><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=#bdd-behaviordriven-development"></a><font _mstmutation="1" _msthash="321581" _msttexthash="41328001">BDD：行为驱动型开发</font></h2><p>当利益相关者具有很强的技术技能时，TDD 或单元测试会有所帮助。BDD 就是从最终用户的角度编写测试用例。这是用自然的英语写的。</p>
+<p>测试用例可以以以下格式<br><strong>编写：给定</strong>：场景开头的初始上下文，在一个或多个子句中;<br><strong>当</strong>： 触发方案的事件;<br><strong>然后</strong>：预期结果，在一个或多个子句中。</p>
+<p>在内部，行为测试用例可以是单元测试、小部件测试或两者的组合。</p>
+<p>BDD 有助于从最终用户的角度理解软件功能，并成为一种功能文档。</p>
+<p>Flutter 有一<a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://cucumber.io/docs/bdd/better-gherkin/">个 gherkin，</a>帮助我们编写行为测试用例。</p>
+<p><a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://pub.dev/packages/gherkin">盖尔金 |飞镖包</a></p>
+<hr>
+<p>本指南涵盖了所有基础知识，您需要知道，从Flutter开始，开发您的应用程序！我们希望这有助于你的旅程飘飘。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 免责声明：本页面内容均来源于站内编辑发布，部分信息来源互联网，并不意味着本站赞同其观点或者证实其内容的真实性，如涉及版权等问题，请立即联系客服进行更改或删除，保证您的合法权益。转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。也可以邮件至 sblig@126.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+<h2>推荐阅读:</h2>
+<ul class="list-paddingleft-2" style="list-style-type: disc;" id="pushtsua_recommend_list">
+</ul>
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Fluter的开发人员指南</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="知识铺">知识铺</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-09-13, 17:13:43</p>
+    <p><span class="copy-title">最后更新:</span>2020-09-13, 17:14:05</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/Fluter%E7%9A%84%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8C%87%E5%8D%97/" title="Fluter的开发人员指南">https://blog.zshipu.com/flutter/2020/09/13/flutter-02/Fluter%E7%9A%84%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8C%87%E5%8D%97/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script>
+    //去除尾部匹配正则数组的字符串
+    String.prototype.trimEnd = function(regStr)
+    {
+        var result = this;
+        if(regStr==undefined||regStr==null||regStr=="")
+        {
+            return result;
+        }
+        var array = regStr.split(',');
+
+        if(array.length > 0){
+
+            var c = array.shift();
+            var str= this;
+            var i = str.length;
+            var rg = new RegExp(c);
+            var matchArr = str.match(rg);
+
+            if(matchArr != undefined && matchArr != null && matchArr.length > 0)
+            {
+                var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+                    .replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+                    .replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+                    .replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+                    .replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+                    .replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+                    .replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+                    .replace(/\./g, "\\.").replace(/\&/g, "\\&");
+                matchStr = matchStr + '$';
+                result = str.replace(new RegExp(matchStr), "");
+            }
+
+            if(array.length > 0){
+                return result.trimEnd(array.join())
+            }
+            else{
+                return result;
+            }
+        }
+    };
+</script>
+<script type="text/javascript">
+    var hreftrimend = '#.*$,\\?.*$,index.html$'
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'ec3adfa1a072fdaa4d91',
+            clientSecret: '7a84a35d6d8bce205398c3d5d7f6ee1ce8e1ab53',
+            repo: 'zspblogcomment',
+            owner: 'liliang8858',
+            admin: ['liliang8858'],
+            id: md5(location.href.trimEnd(hreftrimend)),// decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('20',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+<script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1278144647&web_id=1278144647"></script>
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://beian.miit.gov.cn">浙 ICP 备19032823号-1</a> |
+					<a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602010431"><img src="https://zshipu.com/img/ghs.png">浙公网安备 33010602010431号</a>
+					| 知识铺</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/liliang8858/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="https://zshipu.com/tongji/tusa.js"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#flutter,flutter技术',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("/img/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div style="position:absolute; bottom: 0; right: 0;">
+<!--    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=110 src="//music.163.com/outchain/player?type=0&id=962982601&auto=1&height=90"></iframe>-->
+</div>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<script>
+    (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+    })();
+</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5db42fab89870e49"></script>
+
+<div class="site-nav" id="google_translate_element"></div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</html>
