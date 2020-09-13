@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>dart 函数 | 技术分享 | 知识铺</title>
+  <title>dart 微任务队列 | 技术分享 | 知识铺</title>
   <meta name="keywords" content="">
-  <meta name="description" content="dart 函数 | 知识铺">
+  <meta name="description" content="dart 微任务队列 | 知识铺">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="知识铺">
 <meta property="og:type" content="article">
@@ -301,9 +301,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-dart/函数" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-dart/thread/微任务队列" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">dart 函数</h1>
+        <h1 class="article-title">dart 微任务队列</h1>
     
     <div class="article-meta">
         
@@ -313,7 +313,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-09-13 13:42:56'>2020-09-13 13:53</time>
+        创建时间:<time class="date" title='更新时间: 2020-09-13 14:02:00'>2020-09-13 13:53</time>
         
     </div>
     <div class="article-meta">
@@ -346,7 +346,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0"><span class="toc-text">可选参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">参数默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%98%E9%87%8F-%E5%8F%82%E6%95%B0%E5%92%8C%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">函数作为变量, 参数和返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%8D%E6%B3%95%E9%97%AD%E5%8C%85"><span class="toc-text">词法闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC%E9%97%AE%E9%A2%98"><span class="toc-text">返回值问题</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97"><span class="toc-text">微任务队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="toc-text">如何创建微任务</span></a></li></ol></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -362,44 +362,52 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">main(List&lt;String&gt; args) &#123;</span><br><span class="line">  print(sum(1, 2));</span><br><span class="line">  print(sum_2(1, 2));</span><br><span class="line">  print(sum_3(1, 2));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int sum(num num1, num num2) &#123;</span><br><span class="line">  return num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sum_2(num1, num2) &#123;</span><br><span class="line">  return num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sum_3(num1, num2) &#x3D;&gt; num1 + num2;</span><br><span class="line"></span><br><span class="line">hello() &#123;</span><br><span class="line">  &#x2F;&#x2F; return null, 系统默认返回</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="可选参数"><a href="#可选参数" class="headerlink" title="可选参数"></a>可选参数</h3><ul>
-<li>命名可选参数 <code>&#123;param1, param2, ...&#125;</code></li>
-<li>位置可选参数 <code>[param1, param2, ...]</code></li>
+        <h1 id="微任务队列"><a href="#微任务队列" class="headerlink" title="微任务队列"></a>微任务队列</h1><p>在Dart中还存在另一个队列：微任务队列（Microtask Queue）。</p>
+<ul>
+<li>微任务队列的优先级要高于事件队列；</li>
+<li>也就是说<code>事件循环</code>都是优先执行<code>微任务队列</code>中的任务，再执行 <code>事件队列</code> 中的任务；</li>
 </ul>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 命名可选参数</span></span><br><span class="line">printInfo1(<span class="built_in">String</span> name, &#123;<span class="built_in">int</span> age, <span class="built_in">double</span> height&#125;) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;name=<span class="subst">$name</span> age=<span class="subst">$age</span> height=<span class="subst">$height</span>&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用printInfo1函数</span></span><br><span class="line">printInfo1(<span class="string">&#x27;why&#x27;</span>); <span class="comment">// name=why age=null height=null</span></span><br><span class="line">printInfo1(<span class="string">&#x27;why&#x27;</span>, age: <span class="number">18</span>); <span class="comment">// name=why age=18 height=null</span></span><br><span class="line">printInfo1(<span class="string">&#x27;why&#x27;</span>, age: <span class="number">18</span>, height: <span class="number">1.88</span>); <span class="comment">// name=why age=18 height=1.88</span></span><br><span class="line">printInfo1(<span class="string">&#x27;why&#x27;</span>, height: <span class="number">1.88</span>); <span class="comment">// name=why age=null height=1.88</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名可选参数的必须</span></span><br><span class="line">printInfo3(<span class="built_in">String</span> name, &#123;<span class="built_in">int</span> age, <span class="built_in">double</span> height, <span class="meta">@required</span> <span class="built_in">String</span> address&#125;) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;name=<span class="subst">$name</span> age=<span class="subst">$age</span> height=<span class="subst">$height</span> address=<span class="subst">$address</span>&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义位置可选参数</span></span><br><span class="line">printInfo2(<span class="built_in">String</span> name, [<span class="built_in">int</span> age, <span class="built_in">double</span> height]) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;name=<span class="subst">$name</span> age=<span class="subst">$age</span> height=<span class="subst">$height</span>&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用printInfo2函数</span></span><br><span class="line">printInfo2(<span class="string">&#x27;why&#x27;</span>); <span class="comment">// name=why age=null height=null</span></span><br><span class="line">printInfo2(<span class="string">&#x27;why&#x27;</span>, <span class="number">18</span>); <span class="comment">// name=why age=18 height=null</span></span><br><span class="line">printInfo2(<span class="string">&#x27;why&#x27;</span>, <span class="number">18</span>, <span class="number">1.88</span>); <span class="comment">// name=why age=18 height=1.88</span></span><br></pre></td></tr></table></figure>
+<p>那么在Flutter开发中，哪些是放在事件队列，哪些是放在微任务队列呢？</p>
+<ul>
+<li>所有的外部事件任务都在事件队列中，如IO、计时器、点击、以及绘制事件等；</li>
+<li>而微任务通常来源于Dart内部，并且微任务非常少。这是因为如果微任务非常多，就会造成事件队列排不上队，会阻塞任务队列的执行（比如用户点击没有反应的情况）</li>
+</ul>
+<p><img src="images/1.jpg"></p>
+<h4 id="如何创建微任务"><a href="#如何创建微任务" class="headerlink" title="如何创建微任务"></a>如何创建微任务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import &quot;dart:async&quot;;</span><br><span class="line"></span><br><span class="line">main(List&lt;String&gt; args) &#123;</span><br><span class="line">  scheduleMicrotask(() &#123;</span><br><span class="line">    print(&quot;Hello Microtask&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h3 id="参数默认值"><a href="#参数默认值" class="headerlink" title="参数默认值"></a>参数默认值</h3><p>参数可以有默认值, 在不传入的情况下, 使用默认值, 注意, 只有可选参数才可以有默认值, 必须参数不能有默认值 </p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数的默认值</span></span><br><span class="line">printInfo4(<span class="built_in">String</span> name, &#123;<span class="built_in">int</span> age = <span class="number">18</span>, <span class="built_in">double</span> height=<span class="number">1.88</span>&#125;) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;name=<span class="subst">$name</span> age=<span class="subst">$age</span> height=<span class="subst">$height</span>&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Future的代码是加入到事件队列还是微任务队列呢</strong></p>
+<p>Future中通常有两个函数执行体：</p>
+<ul>
+<li>Future构造函数传入的函数体</li>
+<li>then的函数体（catchError等同看待）</li>
+</ul>
+<p>那么它们是加入到什么队列中的呢？</p>
+<ul>
+<li>Future构造函数传入的函数体放在事件队列中</li>
+<li>then的函数体要分成三种情况：</li>
+<li>情况一：Future没有执行完成（有任务需要执行），那么then会直接被添加到Future的函数执行体后；</li>
+<li>情况二：如果Future执行完后就then，该then的函数体被放到如微任务队列，当前Future执行完后执行微任务队列；</li>
+<li>情况三：如果Future世链式调用，意味着then未执行完，下一个then不会执行；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; future_1加入到eventqueue中，紧随其后then_1被加入到eventqueue中</span><br><span class="line">Future(() &#x3D;&gt; print(&quot;future_1&quot;)).then((_) &#x3D;&gt; print(&quot;then_1&quot;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Future没有函数执行体，then_2被加入到microtaskqueue中</span><br><span class="line">Future(() &#x3D;&gt; null).then((_) &#x3D;&gt; print(&quot;then_2&quot;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; future_3、then_3_a、then_3_b依次加入到eventqueue中</span><br><span class="line">Future(() &#x3D;&gt; print(&quot;future_3&quot;)).then((_) &#x3D;&gt; print(&quot;then_3_a&quot;)).then((_) &#x3D;&gt; print(&quot;then_3_b&quot;));</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  printInfo(<span class="string">&#x27;liu&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printInfo(<span class="built_in">String</span> name, &#123;<span class="built_in">int</span> age = <span class="number">40</span>, <span class="built_in">double</span> height=<span class="number">180</span>,  <span class="built_in">String</span> address=<span class="string">&#x27;china&#x27;</span>&#125;) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;name=<span class="subst">$name</span> age=<span class="subst">$age</span> height=<span class="subst">$height</span> address=<span class="subst">$address</span>&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import &quot;dart:async&quot;;</span><br><span class="line"></span><br><span class="line">main(List&lt;String&gt; args) &#123;</span><br><span class="line">  print(&quot;main start&quot;);</span><br><span class="line"></span><br><span class="line">  Future(() &#x3D;&gt; print(&quot;task1&quot;));</span><br><span class="line">	</span><br><span class="line">  final future &#x3D; Future(() &#x3D;&gt; null);</span><br><span class="line"></span><br><span class="line">  Future(() &#x3D;&gt; print(&quot;task2&quot;)).then((_) &#123;</span><br><span class="line">    print(&quot;task3&quot;);</span><br><span class="line">    scheduleMicrotask(() &#x3D;&gt; print(&#39;task4&#39;));</span><br><span class="line">  &#125;).then((_) &#x3D;&gt; print(&quot;task5&quot;));</span><br><span class="line"></span><br><span class="line">  future.then((_) &#x3D;&gt; print(&quot;task6&quot;));</span><br><span class="line">  scheduleMicrotask(() &#x3D;&gt; print(&#39;task7&#39;));</span><br><span class="line"></span><br><span class="line">  Future(() &#x3D;&gt; print(&#39;task8&#39;))</span><br><span class="line">    .then((_) &#x3D;&gt; Future(() &#x3D;&gt; print(&#39;task9&#39;)))</span><br><span class="line">    .then((_) &#x3D;&gt; print(&#39;task10&#39;));</span><br><span class="line"></span><br><span class="line">  print(&quot;main end&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h3 id="函数作为变量-参数和返回值"><a href="#函数作为变量-参数和返回值" class="headerlink" title="函数作为变量, 参数和返回值"></a>函数作为变量, 参数和返回值</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  <span class="comment">// 1.将函数赋值给一个变量</span></span><br><span class="line">  <span class="keyword">var</span> bar = foo;</span><br><span class="line">  <span class="built_in">print</span>(bar);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2.将函数作为另一个函数的参数</span></span><br><span class="line">  test(foo);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3.将函数作为另一个函数的返回值</span></span><br><span class="line">  <span class="keyword">var</span> func =getFunc();</span><br><span class="line">  func(<span class="string">&#x27;kobe&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="built_in">String</span> name) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;传入的name: <span class="subst">$name</span>&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.将函数作为另外一个函数的参数</span></span><br><span class="line">test(<span class="built_in">Function</span> func) &#123;</span><br><span class="line">  func(<span class="string">&#x27;haha&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.将函数作为另一个函数的返回值</span></span><br><span class="line">getFunc() &#123;</span><br><span class="line">  <span class="keyword">return</span> foo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码执行的结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">main start</span><br><span class="line">main end</span><br><span class="line">task7</span><br><span class="line">task1</span><br><span class="line">task6</span><br><span class="line">task2</span><br><span class="line">task3</span><br><span class="line">task5</span><br><span class="line">task4</span><br><span class="line">task8</span><br><span class="line">task9</span><br><span class="line">task10</span><br></pre></td></tr></table></figure>
 
-<p>由于Dart允许可以直接把一个方法名赋值给一个变量, 从而让这个变量指向此方法的函数入口地址. 那么我们可以想像, Dart是不可能允许方法重载的(即方法名相同, 参数个数和类型不同) , 假如允许: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test() &#123;...&#125;</span><br><span class="line">test(int age) &#123;...&#125;</span><br><span class="line">test(int age, String name) &#123;...&#125;</span><br><span class="line"></span><br><span class="line">var f &#x3D; test; &#x2F;&#x2F; 那么f指的是谁呢? </span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>我们可以使用没有名字的函数，这种函数可以被称之为匿名函数( anonymous function)，也可以叫lambda或者closure  </p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  printElement(item) &#123;</span><br><span class="line">    <span class="built_in">print</span>(item);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> movies = [<span class="string">&#x27;盗梦空间&#x27;</span>, <span class="string">&#x27;星际穿越&#x27;</span>, <span class="string">&#x27;少年派&#x27;</span>, <span class="string">&#x27;大话西游&#x27;</span>];</span><br><span class="line">  movies.forEach(printElement);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">  movies.forEach((item) &#123;</span><br><span class="line">    <span class="built_in">print</span>(item);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">  movies.forEach((item) =&gt; <span class="built_in">print</span>(item));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="词法闭包"><a href="#词法闭包" class="headerlink" title="词法闭包"></a>词法闭包</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  makeAdder(<span class="built_in">num</span> addBy) &#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">num</span> i) &#123;</span><br><span class="line">      <span class="keyword">return</span> i + addBy;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> adder2 = makeAdder(<span class="number">2</span>);</span><br><span class="line">  <span class="built_in">print</span>(adder2(<span class="number">10</span>)); <span class="comment">// 12</span></span><br><span class="line">  <span class="built_in">print</span>(adder2(<span class="number">6</span>)); <span class="comment">// 8</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> adder5 = makeAdder(<span class="number">5</span>);</span><br><span class="line">  <span class="built_in">print</span>(adder5(<span class="number">10</span>)); <span class="comment">// 15</span></span><br><span class="line">  <span class="built_in">print</span>(adder5(<span class="number">6</span>)); <span class="comment">// 11</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="返回值问题"><a href="#返回值问题" class="headerlink" title="返回值问题"></a>返回值问题</h3><p>所有函数都返回一个值。如果没有指定返回值，则语句返回null;隐式附加到函数体 </p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">main(<span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; args) &#123;</span><br><span class="line">  <span class="built_in">print</span>(foo()); <span class="comment">// null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo() &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;foo function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
+<p>代码分析：</p>
+<ul>
+<li>1、main函数先执行，所以<code>main start</code>和<code>main end</code>先执行，没有任何问题；</li>
+<li>2、main函数执行<code>过程中</code>，会将一些任务分别加入到<code>EventQueue</code>和<code>MicrotaskQueue</code>中；</li>
+<li>3、task7通过<code>scheduleMicrotask</code>函数调用，所以它被最早加入到<code>MicrotaskQueue</code>，会被先执行；</li>
+<li>4、然后开始执行<code>EventQueue</code>，task1被添加到<code>EventQueue</code>中被执行；</li>
+<li>5、通过<code>final future = Future(() =&gt; null);</code>创建的future的then被添加到微任务中，微任务直接被优先执行，所以会执行task6；</li>
+<li>6、一次在<code>EventQueue</code>中添加task2、task3、task5被执行；</li>
+<li>7、task3的打印执行完后，调用<code>scheduleMicrotask</code>，那么在执行完这次的<code>EventQueue</code>后会执行，所以在task5后执行task4（注意：<code>scheduleMicrotask</code>的调用是作为task3的一部分代码，所以task4是要在task5之后执行的）</li>
+<li>8、task8、task9、task10一次添加到<code>EventQueue</code>被执行；</li>
+</ul>
 
       
        <hr><span style="font-style: italic;color: gray;"> 免责声明：本页面内容均来源于站内编辑发布，部分信息来源互联网，并不意味着本站赞同其观点或者证实其内容的真实性，如涉及版权等问题，请立即联系客服进行更改或删除，保证您的合法权益。转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。也可以邮件至 sblig@126.com </span>
@@ -416,12 +424,12 @@
 </ul>
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>dart 函数</p>
+    <p><span class="copy-title">文章标题:</span>dart 微任务队列</p>
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="知识铺">知识铺</a></p>
     <p><span class="copy-title">发布时间:</span>2020-09-13, 13:53:36</p>
-    <p><span class="copy-title">最后更新:</span>2020-09-13, 13:42:56</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/dart/%E5%87%BD%E6%95%B0/" title="dart 函数">https://blog.zshipu.com/flutter/2020/09/13/dart/%E5%87%BD%E6%95%B0/</a>
+    <p><span class="copy-title">最后更新:</span>2020-09-13, 14:02:00</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/dart/thread/%E5%BE%AE%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97/" title="dart 微任务队列">https://blog.zshipu.com/flutter/2020/09/13/dart/thread/%E5%BE%AE%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
