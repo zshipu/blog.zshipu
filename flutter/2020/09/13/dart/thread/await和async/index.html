@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>技术分享 | 知识铺</title>
+  <title>dart await和async | 技术分享 | 知识铺</title>
   <meta name="keywords" content="">
-  <meta name="description" content="知识铺">
+  <meta name="description" content="dart await和async | 知识铺">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="知识铺">
+<meta name="description" content="Dart在安装Flutter SDK的时候，它已经内置了Dart了, 但是，如果你想单独学习Dart，并且运行自己的Dart代码，最好去安装一个Dart SDK  安装Dart有两种方式:  通过工具安装官网安装  12brew install dart --devel # 安装brew upgrade dart # 升级  直接下载SDK，配置环境变量官网SDK   这里把下载下来的dart-s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="知识铺">
-<meta property="og:url" content="https://blog.zshipu.com/flutter/2020/09/13/dart/thread/await%E5%92%8Casync/index.html">
+<meta property="og:title" content="dart 开始">
+<meta property="og:url" content="https://blog.zshipu.com/flutter/2020/09/13/dart/README/index.html">
 <meta property="og:site_name" content="知识铺">
-<meta property="og:description" content="知识铺">
+<meta property="og:description" content="Dart在安装Flutter SDK的时候，它已经内置了Dart了, 但是，如果你想单独学习Dart，并且运行自己的Dart代码，最好去安装一个Dart SDK  安装Dart有两种方式:  通过工具安装官网安装  12brew install dart --devel # 安装brew upgrade dart # 升级  直接下载SDK，配置环境变量官网SDK   这里把下载下来的dart-s">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-13T05:59:34.833Z">
-<meta property="article:modified_time" content="2020-09-13T06:02:17.331Z">
+<meta property="article:published_time" content="2020-09-13T05:53:36.000Z">
+<meta property="article:modified_time" content="2020-09-13T05:09:33.967Z">
 <meta property="article:author" content="知识铺">
 <meta property="article:tag" content="知识铺">
 <meta name="twitter:card" content="summary">
@@ -98,6 +98,7 @@
     <li><div class="all"><a href="https://blog.zshipu.com/read/">读书笔记</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/note/">建站笔记</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/tlg/">技术分享</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/flutter/">flutter技术</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/media/">媒体期刊</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/txp/">淘小鋪</a></div></li>
     <li><div class="all"><a href="https://blog.zshipu.com/article/post/">归档文章</a></div></li>
@@ -245,8 +246,8 @@
            href="/flutter/2020/09/13/dart/thread/await%E5%92%8Casync/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2020-09-13 13:59:34">2020/09/13</span>
+            <span class="post-title" title="dart await和async">dart await和async</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
         </a>
         
         <a  class=""
@@ -303,6 +304,8 @@
     <div class="pjax">
         <article id="post-dart/thread/await和async" class="article article-type-post" itemscope itemprop="blogPost">
     
+        <h1 class="article-title">dart await和async</h1>
+    
     <div class="article-meta">
         
         
@@ -311,7 +314,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-09-13 14:02:17'>2020-09-13 13:59</time>
+        创建时间:<time class="date" title='更新时间: 2020-09-13 14:02:17'>2020-09-13 13:53</time>
         
     </div>
     <div class="article-meta">
@@ -344,7 +347,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#await%E5%92%8Casync"><span class="toc-text">await和async</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96json%E6%A1%88%E4%BE%8B"><span class="toc-text">读取json案例</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -360,7 +363,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="await和async"><a href="#await和async" class="headerlink" title="await和async"></a>await和async</h1><p><a target="_blank" rel="noopener" href="https://juejin.im/post/5d7f5e7c6fb9a06b0c089920">参考这里</a> </p>
+<p><code>await和async</code>可以让我们用<code>同步的代码格式</code>，去实现<code>异步的调用过程</code> , 通常一个async的函数会返回一个Future  </p>
+<p>Future可以做到不阻塞我们的线程，让线程继续执行，并且在完成某个操作时改变自己的状态，并且回调then或者errorCatch回调。通过async的函数可以方便的生成Future对象  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 需要注意:</span><br><span class="line">&#x2F;&#x2F; 1. await关键字必须存在于async函数中, &#96;await&#96; can only be used in &#96;async&#96; or &#96;async*&#96; methods.</span><br><span class="line">&#x2F;&#x2F; 2. 使用async标记的函数，必须返回一个Future对象</span><br><span class="line">&#x2F;&#x2F; 也就是说: 方法使用async修饰, 内部使用await同步, 返回Future对象</span><br><span class="line">Future getNetworkData() async &#123;</span><br><span class="line">  var result &#x3D; await Future.delayed(Duration(seconds: 3), () &#123;</span><br><span class="line">    return &quot;net work data&quot;;</span><br><span class="line">  &#125;);</span><br><span class="line">  return &quot;请求到的数据: &quot; + result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void test() &#123;</span><br><span class="line">  print(&quot;main function start&quot;);</span><br><span class="line">  print(getNetworkData().then((value) &#123;</span><br><span class="line">    print(value);</span><br><span class="line">  &#125;));</span><br><span class="line">  print(&quot;main function end&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">main function start</span><br><span class="line">Instance of &#39;Future&lt;Null&gt;&#39;</span><br><span class="line">main function end</span><br><span class="line">请求到的数据: net work data</span><br></pre></td></tr></table></figure>
+
+<h3 id="读取json案例"><a href="#读取json案例" class="headerlink" title="读取json案例"></a>读取json案例</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">&quot;nick_name&quot;</span>: <span class="string">&quot;小明&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;room_name&quot;</span>: <span class="string">&quot;101&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;image_url&quot;</span>: <span class="string">&quot;http://www.xxx.yyy/12.png&quot;</span></span><br><span class="line">    &#125;, </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">&quot;nick_name&quot;</span>: <span class="string">&quot;小红&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;room_name&quot;</span>: <span class="string">&quot;102&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;image_url&quot;</span>: <span class="string">&quot;http://www.wer.yyy/123.png&quot;</span></span><br><span class="line">    &#125;, </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">&quot;nick_name&quot;</span>: <span class="string">&quot;小张&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;room_name&quot;</span>: <span class="string">&quot;103&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;image_url&quot;</span>: <span class="string">&quot;http://www.wer.yyy/123.png&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import &#39;dart:convert&#39;;</span><br><span class="line"></span><br><span class="line">import &#39;package:flutter&#x2F;services.dart&#39;;</span><br><span class="line"></span><br><span class="line">class Anchor &#123;</span><br><span class="line">  String nickName;</span><br><span class="line">  String roomName;</span><br><span class="line">  String imgUrl;</span><br><span class="line"></span><br><span class="line">  Anchor(&#123;this.nickName, this.roomName, this.imgUrl&#125;);</span><br><span class="line">  &#x2F;&#x2F; Anchor(this.nickName, this.roomName, this.imgUrl);</span><br><span class="line"></span><br><span class="line">  Anchor.fromMap(Map&lt;String, dynamic&gt; parsedMap) &#123;</span><br><span class="line">    this.nickName &#x3D; parsedMap[&#39;nick_name&#39;];</span><br><span class="line">    this.roomName &#x3D; parsedMap[&#39;room_name&#39;];</span><br><span class="line">    this.imgUrl &#x3D; parsedMap[&#39;image_url&#39;];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  static Future&lt;List&lt;Anchor&gt;&gt; getAnchors() async &#123;</span><br><span class="line">    &#x2F;&#x2F; 1.读取json文件</span><br><span class="line">    &#x2F;&#x2F; 注意Flutter中导入资源需要做一些配置: https:&#x2F;&#x2F;blog.csdn.net&#x2F;nicolelili1&#x2F;article&#x2F;details&#x2F;90577241</span><br><span class="line">    String jsonString &#x3D; await rootBundle.loadString(&quot;resource&#x2F;anchors.json&quot;);</span><br><span class="line">    print(jsonString);</span><br><span class="line">    final jsonResult &#x3D; json.decode(jsonString);</span><br><span class="line">    List&lt;Anchor&gt; anchors &#x3D; new List();</span><br><span class="line">    for (Map&lt;String, dynamic&gt; map in jsonResult) &#123;</span><br><span class="line">      anchors.add(Anchor.fromMap(map));</span><br><span class="line">    &#125;</span><br><span class="line">    return anchors;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void test() &#123;</span><br><span class="line">  Anchor.getAnchors().then((value) &#123;</span><br><span class="line">    for (Anchor anchor in value) &#123;</span><br><span class="line">      print(&quot;$&#123;anchor.nickName&#125;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
        <hr><span style="font-style: italic;color: gray;"> 免责声明：本页面内容均来源于站内编辑发布，部分信息来源互联网，并不意味着本站赞同其观点或者证实其内容的真实性，如涉及版权等问题，请立即联系客服进行更改或删除，保证您的合法权益。转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。也可以邮件至 sblig@126.com </span>
     </div>
@@ -376,12 +391,12 @@
 </ul>
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span></p>
+    <p><span class="copy-title">文章标题:</span>dart await和async</p>
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="知识铺">知识铺</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-09-13, 13:59:34</p>
+    <p><span class="copy-title">发布时间:</span>2020-09-13, 13:53:36</p>
     <p><span class="copy-title">最后更新:</span>2020-09-13, 14:02:17</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/dart/thread/await%E5%92%8Casync/" title="">https://blog.zshipu.com/flutter/2020/09/13/dart/thread/await%E5%92%8Casync/</a>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/dart/thread/await%E5%92%8Casync/" title="dart await和async">https://blog.zshipu.com/flutter/2020/09/13/dart/thread/await%E5%92%8Casync/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
