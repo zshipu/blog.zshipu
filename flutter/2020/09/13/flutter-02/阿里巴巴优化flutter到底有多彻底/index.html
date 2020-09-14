@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>阿里巴巴优化flutter到底有多彻底 | 技术分享 | 知识铺</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="阿里巴巴优化flutter到底有多彻底 | 知识铺">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="首先 Flutter 是什么？响应式的跨平台 UI 框架，这点和 vue 或者 weex 很像，所以在开发思路上并不会有什么阻碍。  那么上手 Flutter 需要做什么？  1、Dart 语言首先就是 Dart 语言，Dart 语言对于有 JS 基础而言很容易上手，因为可辨识度本高！因为 Dart 起初都是为了Web 而生，所以 Dart 和 JS 在一定程度上有很大的通识性。 举个例子：如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter 是什么">
+<meta property="og:url" content="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/Flutter%20%E6%98%AF%E4%BB%80%E4%B9%88/index.html">
+<meta property="og:site_name" content="知识铺">
+<meta property="og:description" content="首先 Flutter 是什么？响应式的跨平台 UI 框架，这点和 vue 或者 weex 很像，所以在开发思路上并不会有什么阻碍。  那么上手 Flutter 需要做什么？  1、Dart 语言首先就是 Dart 语言，Dart 语言对于有 JS 基础而言很容易上手，因为可辨识度本高！因为 Dart 起初都是为了Web 而生，所以 Dart 和 JS 在一定程度上有很大的通识性。 举个例子：如">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-13T13:23:04.000Z">
+<meta property="article:modified_time" content="2020-09-13T13:23:04.676Z">
+<meta property="article:author" content="知识铺">
+<meta property="article:tag" content="知识铺">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WLWJSST');</script>
+  <!-- End Google Tag Manager -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-2874221941555456",
+      enable_page_level_ads: true
+    });
+  </script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a target="_blank" rel="noopener" href="https://zshipu.com/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>知识铺</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/liliang8858" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all"><a href="https://blog.zshipu.com/">博客主页</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/read/">读书笔记</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/note/">建站笔记</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/tlg/">技术分享</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/flutter/">flutter技术</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/media/">媒体期刊</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/txp/">淘小鋪</a></div></li>
+    <li><div class="all"><a href="https://blog.zshipu.com/article/post/">归档文章</a></div></li>
+    <li><div class="all active">全部文章<small>(91)</small></div></li>
+    
+        
+            
+            <li><div data-rel="flutter">flutter<small>(37)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="zsp_site_posts_number" value="91">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://zshipu.com/">知识铺</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">flutter,flutter技术</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">flutter</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/README/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 开始">dart 开始</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E6%B3%9B%E5%9E%8B/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 泛型">dart 泛型</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E5%87%BD%E6%95%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 函数">dart 函数</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E5%9F%BA%E6%9C%AC/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 基本">dart 基本</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E9%9B%86%E5%90%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 集合">dart 集合</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E5%BA%93%E7%9A%84%E5%AE%9A%E4%B9%89/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 库的定义">dart 库的定义</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 库的使用">dart 库的使用</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 类和对象">dart 类和对象</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E6%9E%9A%E4%B8%BE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 枚举">dart 枚举</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/%E8%BF%90%E7%AE%97%E7%AC%A6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 运算符">dart 运算符</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/Future/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart future">dart future</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/await%E5%92%8Casync/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart await和async">dart await和async</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/%E5%A4%9A%E6%A0%B8CPU%E5%88%A9%E7%94%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 多核CPU利用">dart 多核CPU利用</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 阻塞问题">dart 阻塞问题</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart Dart事件循环">dart Dart事件循环</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/%E5%BE%AE%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 微任务队列">dart 微任务队列</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/dart/thread/%E7%BA%BF%E7%A8%8B/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dart 线程">dart 线程</span>
+            <span class="post-date" title="2020-09-13 13:53:36">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%9B%BE%E7%89%87/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 图片">flutter 初起步： 图片</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%96%87%E6%9C%AC/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 文本">flutter 初起步： 文本</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 本地资源">flutter 初起步： 本地资源</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 布局">flutter 初起步： 布局</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/Align/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Align">flutter 初起步： Align</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/BoxDecoration/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： BoxDecoration">flutter 初起步： BoxDecoration</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/Padding/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Padding">flutter 初起步： Padding</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/Center/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Center">flutter 初起步： Center</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/Container/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Container">flutter 初起步： Container</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%8D%95%E5%AD%90%E5%B8%83%E5%B1%80/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 单子布局">flutter 初起步： 单子布局</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%A4%9A%E5%AD%90%E5%B8%83%E5%B1%80/Column/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Column">flutter 初起步： Column</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%A4%9A%E5%AD%90%E5%B8%83%E5%B1%80/Flex/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Flex">flutter 初起步： Flex</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%A4%9A%E5%AD%90%E5%B8%83%E5%B1%80/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 多子布局">flutter 初起步： 多子布局</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%A4%9A%E5%AD%90%E5%B8%83%E5%B1%80/Row/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Row">flutter 初起步： Row</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%B8%83%E5%B1%80/%E5%A4%9A%E5%AD%90%E5%B8%83%E5%B1%80/Stack/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Stack">flutter 初起步： Stack</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/StatefulWidget%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： StatefulWidget生命周期">flutter 初起步： StatefulWidget生命周期</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/TextField/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： TextField">flutter 初起步： TextField</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%85%A5%E9%97%A8Flutter/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 入门Flutter">flutter 初起步： 入门Flutter</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 创建应用">flutter 初起步： 创建应用</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E8%A1%A8%E5%8D%95/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 表单">flutter 初起步： 表单</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%8C%89%E9%92%AE/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 按钮">flutter 初起步： 按钮</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%BB%9A%E5%8A%A8Widget/ListView/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： ListView">flutter 初起步： ListView</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%BB%9A%E5%8A%A8Widget/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 滚动Widget">flutter 初起步： 滚动Widget</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%BB%9A%E5%8A%A8Widget/%E7%9B%91%E5%90%AC%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 监听滚动事件">flutter 初起步： 监听滚动事件</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90/JSON/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： JSON">flutter 初起步： JSON</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%BB%9A%E5%8A%A8Widget/GridView/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： GridView">flutter 初起步： GridView</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E6%BB%9A%E5%8A%A8Widget/Slivers/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Slivers">flutter 初起步： Slivers</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： 环境配置">flutter 初起步： 环境配置</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/gitbook-flutter/README/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2020-09-13 14:21:37">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/gitbook-flutter/SUMMARY/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2020-09-13 14:21:37">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/gitbook-flutter/untitled-1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2020-09-13 14:21:37">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/di-san-fang-ku/gai-shu/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 概述">flutter 小试： 概述</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/di-san-fang-ku/zhuang-tai-guan-li-zu-jian-zhi-mobx/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 状态管理组件之mobx">flutter 小试： 状态管理组件之mobx</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/ru-men-pian/1.1-ji-shu-qi-shi-li/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 1.1 计数器示例">flutter 小试： 1.1 计数器示例</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/ru-men-pian/di-yi-zhang-di-yi-ge-flutter-app/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 第一章：第一个Flutter App">flutter 小试： 第一章：第一个Flutter App</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/shi-li-pian/yi-ge-wan-zheng-de-deng-lu-ye/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 一个完整的登陆页">flutter 小试： 一个完整的登陆页</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter-01/shi-li-pian/ying-yong-jian-jie/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 小试： 应用简介">flutter 小试： 应用简介</span>
+            <span class="post-date" title="2020-09-13 06:25:33">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Fluter%E7%9A%84%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8C%87%E5%8D%97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Fluter的开发人员指南">Fluter的开发人员指南</span>
+            <span class="post-date" title="2020-09-13 17:13:43">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%EF%BC%9A%E5%88%9D%E5%AD%A6%E8%80%85%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter：初学者学习资源">Flutter：初学者学习资源</span>
+            <span class="post-date" title="2020-09-13 18:20:27">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E5%9C%A8%20Flutter%20%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%20MQTT/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="在 Flutter 项目中使用 MQTT">在 Flutter 项目中使用 MQTT</span>
+            <span class="post-date" title="2020-09-13 18:27:58">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%201%20%E9%83%A8%E5%88%86%20-%20%E6%88%91%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E6%88%91%E7%9A%84%E6%B8%B8%E6%88%8F%E4%B8%8E%20Flutter%20%E5%9C%A8%201%20%E4%B8%AA%E6%9C%88/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 1 部分 - 我如何建立我的游戏与 Flutter 在 1 个月">从零开始 - 第 1 部分 - 我如何建立我的游戏与 Flutter 在 1 个月</span>
+            <span class="post-date" title="2020-09-13 18:59:50">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%202%20%E9%83%A8%E5%88%86%20-%20SVG%20%E9%AD%94%E6%9C%AF%E5%9C%A8%20Flutter/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 2 部分 - SVG 魔术在 Flutter">从零开始 - 第 2 部分 - SVG 魔术在 Flutter</span>
+            <span class="post-date" title="2020-09-13 19:04:53">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%203%20%E9%83%A8%E5%88%86%20-%20%E7%9C%9F%E6%A3%92%E5%8A%A8%E7%94%BB%E5%9C%A8%20Flutter/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 3 部分 - 真棒动画在 Flutter">从零开始 - 第 3 部分 - 真棒动画在 Flutter</span>
+            <span class="post-date" title="2020-09-13 19:08:01">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%204%20%E9%83%A8%E5%88%86%20-%20%E5%9C%A8%20Flutter%20%E4%B8%AD%E7%9A%84%E5%B0%8F%E9%83%A8%E4%BB%B6%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图">从零开始 - 第 4 部分 - 在 Flutter 中的小部件屏幕截图</span>
+            <span class="post-date" title="2020-09-13 19:10:12">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%205%20%E9%83%A8%E5%88%86%20-%20%E6%88%91%E7%9A%84%E9%BB%84%E6%B2%B9%E5%85%89%E6%BB%91%E7%BB%93%E5%86%B0%E7%AE%97%E6%B3%95/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 5 部分 - 滑结冰算法">从零开始 - 第 5 部分 - 滑结冰算法</span>
+            <span class="post-date" title="2020-09-13 19:11:47">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20-%20%E7%AC%AC%206%20%E9%83%A8%E5%88%86%20-%20%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%20ios%20%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%20%E6%B2%A1%E6%9C%89%20Mac%20%E6%88%96%20iphone%20%E4%BD%BF%E7%94%A8%20Flutter/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter">从零开始 - 第 6 部分 - 建立一个 ios 应用程序， 没有 Mac 或 iphone 使用 Flutter</span>
+            <span class="post-date" title="2020-09-13 19:16:19">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/README/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： gitbook-daliu-flutter">flutter 初起步： gitbook-daliu-flutter</span>
+            <span class="post-date" title="2020-09-13 06:14:03">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/Run%20Mode/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Run Mode">flutter 初起步： Run Mode</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/flutter/2020/09/13/flutter/SUMMARY/"
+           data-tag="flutter,flutter技术"
+           data-author="" >
+            <span class="post-title" title="flutter 初起步： Summary">flutter 初起步： Summary</span>
+            <span class="post-date" title="2020-09-13 06:14:04">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E4%B8%80%E6%9C%9F/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第一期">Flutter 期刊： 第一期</span>
+            <span class="post-date" title="2020-09-13 19:38:14">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E4%BA%8C%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第二期">Flutter 期刊： 第二期</span>
+            <span class="post-date" title="2020-09-13 19:39:09">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E4%B8%89%E6%9C%9F/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第三期">Flutter 期刊： 第三期</span>
+            <span class="post-date" title="2020-09-13 19:39:56">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%9B%9B%E6%9C%9F/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第四期">Flutter 期刊： 第四期</span>
+            <span class="post-date" title="2020-09-13 19:40:51">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E4%BA%94%E6%9C%9F/"
+           data-tag="flutter"
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第五期">Flutter 期刊： 第五期</span>
+            <span class="post-date" title="2020-09-13 19:41:16">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E4%B8%83%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第七期">Flutter 期刊： 第七期</span>
+            <span class="post-date" title="2020-09-13 20:46:05">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%85%AD%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第六期">Flutter 期刊： 第六期</span>
+            <span class="post-date" title="2020-09-13 20:42:42">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%85%AB%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第八期">Flutter 期刊： 第八期</span>
+            <span class="post-date" title="2020-09-13 20:46:55">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E4%B9%9D%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第九期">Flutter 期刊： 第九期</span>
+            <span class="post-date" title="2020-09-13 20:47:24">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%8D%81%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第十期">Flutter 期刊： 第十期</span>
+            <span class="post-date" title="2020-09-13 20:53:02">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%8D%81%E4%B8%80%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第十一期">Flutter 期刊： 第十一期</span>
+            <span class="post-date" title="2020-09-13 20:53:39">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%8D%81%E4%BA%8C%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第十二期">Flutter 期刊： 第十二期</span>
+            <span class="post-date" title="2020-09-13 20:54:11">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%8D%81%E4%B8%89%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第十三期">Flutter 期刊： 第十三期</span>
+            <span class="post-date" title="2020-09-13 20:54:37">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%8D%81%E5%9B%9B%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第十四期">Flutter 期刊： 第十四期</span>
+            <span class="post-date" title="2020-09-13 20:55:49">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%8D%81%E4%BA%94%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第十五期">Flutter 期刊： 第十五期</span>
+            <span class="post-date" title="2020-09-13 20:56:46">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%8D%81%E5%85%AD%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第十六期">Flutter 期刊： 第十六期</span>
+            <span class="post-date" title="2020-09-13 20:57:16">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%8D%81%E4%B8%83%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第十七期">Flutter 期刊： 第十七期</span>
+            <span class="post-date" title="2020-09-13 20:57:49">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%8D%81%E5%85%AB%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第十八期">Flutter 期刊： 第十八期</span>
+            <span class="post-date" title="2020-09-13 20:59:04">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E5%8D%81%E4%B9%9D%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第十九期">Flutter 期刊： 第十九期</span>
+            <span class="post-date" title="2020-09-13 20:59:37">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%9C%9F%E5%88%8A%EF%BC%9A%20%E7%AC%AC%E4%BA%8C%E5%8D%81%E6%9C%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 期刊： 第二十期">Flutter 期刊： 第二十期</span>
+            <span class="post-date" title="2020-09-13 21:00:46">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%20%E6%98%AF%E4%BB%80%E4%B9%88/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter 是什么">Flutter 是什么</span>
+            <span class="post-date" title="2020-09-13 21:23:04">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/Flutter%E4%BC%98%E7%BC%BA%E7%82%B9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter优缺点">Flutter优缺点</span>
+            <span class="post-date" title="2020-09-13 21:20:49">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E5%92%B8%E9%B1%BC%E5%BC%80%E5%8F%91flutter%E8%B5%B0%E8%BF%87%E7%9A%84%E8%B7%AF/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="阿里巴巴咸鱼开发flutter走过的路">阿里巴巴咸鱼开发flutter走过的路</span>
+            <span class="post-date" title="2020-09-13 21:18:44">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E4%BC%98%E5%8C%96flutter%E5%88%B0%E5%BA%95%E6%9C%89%E5%A4%9A%E5%BD%BB%E5%BA%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="阿里巴巴优化flutter到底有多彻底">阿里巴巴优化flutter到底有多彻底</span>
+            <span class="post-date" title="2020-09-13 21:16:34">2020/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/flutter/2020/09/13/flutter-02/%E9%83%BD%E8%AF%B4flutter%E5%87%89%E4%BA%86%EF%BC%8C%E7%9C%8B%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E5%92%B8%E9%B1%BC%E6%80%8E%E4%B9%88%E8%AF%B4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="都说flutter凉了，看阿里巴巴咸鱼怎么说">都说flutter凉了，看阿里巴巴咸鱼怎么说</span>
+            <span class="post-date" title="2020-09-13 21:17:13">2020/09/13</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-flutter-02/阿里巴巴优化flutter到底有多彻底" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">阿里巴巴优化flutter到底有多彻底</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-09-13 21:16:34'>2020-09-13 21:16</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="pushtsua_container_page_pv">
+            阅读:<span id="pushtsua_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B"><span class="toc-text">Flutter渲染原理简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%96%B9%E6%B3%95"><span class="toc-text">性能分析工具及方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter-DX%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-text">Flutter-DX案例分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  高性能高流畅度一直是Flutter团队宣传的一大亮点，也是当初闲鱼选择Flutter的重要因素之一，但是随着复杂业务的应用落地，通过Flutter页面和原生页面滑动流畅度对比，我们开始产生怀疑——</p>
+<p>因为部分Flutter页面流畅度明显低于Native，是Flutter的宣传言过其实？还是我们开发人员使用姿势有问题？今天我们就来具体分析下。</p>
+<h2 id="Flutter渲染原理简介"><a href="#Flutter渲染原理简介" class="headerlink" title="Flutter渲染原理简介"></a><strong>Flutter渲染原理简介</strong></h2><p>优化之前我们先来介绍下Flutter的渲染原理，通过这部分基础了解渲染流程以及主要耗时花费。</p>
+<p>Flutter视图树包含了三颗树：Widget、Element、RenderObject</p>
+<ul>
+<li>Widget: 存放渲染内容、它只是一个配置数据结构，创建是非常轻量的，在页面刷新的过程中随时会重建</li>
+<li>Element: 同时持有Widget和RenderObject，存放上下文信息，通过它来遍历视图树，支撑UI结构</li>
+<li>RenderObject: 根据Widget的布局属性进行layout，paint ，负责真正的渲染</li>
+</ul>
+<p>从创建到渲染的大体流程是：根据Widget生成Element，然后创建相应的RenderObject并关联到Element.renderObject属性上，最后再通过RenderObject来完成布局排列和绘制。例如下面这段布局代码</p>
+<p>对应三棵树的结构如下图：</p>
+<p>了解了这三棵树，我们再来看下页面刷新的时候具体做了哪些操作？</p>
+<p>当需要更新UI的时候，Framework 通知 Engine，Engine 会等到下个 Vsync 信号到达的时候，会通知 Framework 进行 animate, build，layout，paint，最后生成 layer 提交给 Engine。Engine 会把 layer 进行组合，生成纹理，最后通过 Open Gl 接口提交数据给 GPU， GPU 经过处理后在显示器上面显示，如下图：</p>
+<p>结合前面的例子，如果text文本或者image内容发生变化会触发哪些操作呢？</p>
+<p>Widget 是不可改变，需要重新创建一颗新树，build开始，然后对上一帧的element树做遍历，调用他的updateChild，看子节点类型跟之前是不是一样，不一样的话就把子节点扔掉，创造一个新的，一样的话就做内容更新，对renderObject做updateRenderObject操作，updateRenderObject内部实现会判断现在的节点跟上一帧是不是有改动，有改动才会别标记dirty，重新layout、paint，再生成新的layer交给GPU，流程如下图：</p>
+<p>到这里大家对Flutter在渲染方面有基本的理解，作为后面优化部分内容理解的基础。</p>
+<h2 id="性能分析工具及方法"><a href="#性能分析工具及方法" class="headerlink" title="性能分析工具及方法"></a><strong>性能分析工具及方法</strong></h2><p>下面来看下性能分析工具，注意，统计性能数据一定要在真机+profile模式下运行，拿到最接近真实的体验数据。</p>
+<p><strong>performance overlay</strong>平时常用的性能分析工具有performance overlay，通过他可以直观看到当前帧的耗时，但是他是UI线程和GPU线程分开展示的，UI Task Runner是Flutter Engine用于执行Dart root isolate代码，GPU Task Runner被用于执行设备GPU的相关调用。绿色的线表示当前帧，出现红色则表示耗时超过16.6ms，也就是发生丢帧现象。</p>
+<p><strong>Dart DevTool</strong></p>
+<p>另一个工具是Dart DevTool ，就是早期的Observatory，官方提供的性能检测工具。它的 timeline 界面可以让逐帧分析应用的 UI 性能。但是目前还是预览版，存在一些问题。profile模式下运行起来，点击android studio底部的菜单按钮，会弹出一个网页。</p>
+<p>点击顶部的 Timeline 菜单</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”836” data-rawheight=”594” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/50/v2-fb5863882eb9564c40b4523ca3d21def_hd.jpg?source=1940ef5c&quot;">https://pic1.zhimg.com/50/v2-fb5863882eb9564c40b4523ca3d21def_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”836” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-c9afaf07c1bbfb77be69f3a534c9619b_r.jpg?source=1940ef5c&quot;">https://pic4.zhimg.com/v2-c9afaf07c1bbfb77be69f3a534c9619b_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/50/v2-c9afaf07c1bbfb77be69f3a534c9619b_hd.jpg?source=1940ef5c&quot;&gt;">https://pic2.zhimg.com/50/v2-c9afaf07c1bbfb77be69f3a534c9619b_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<p>这个时候滑动页面，每一帧的耗时会以柱形 bar 的形式显示在页面上，每条bar代表一个 frame，同时用不同颜色区分 UI/GPU 线程耗时，这个时候我们要分析卡顿的场景就需要选中一条红色的bar（总耗时超过16.6ms），中间区域的Frame events chart显示了当前选中的frame的事件跟踪，UI 和 GPU 事件是独立的事件流，但它们共享一个公共的时间轴。</p>
+<p>选中Frame events chart中的某个事件，以上图为例Layout耗时最长，我们选中它，会在底部Flame chart区域显示一个自顶向下的堆栈跟踪，每个堆栈帧的宽度表示它消耗CPU的时长，消耗大量CPU时长的堆栈是我们首要分析的重点，后面就是具体分析堆栈，定位卡顿问题。</p>
+<p><strong>debug 调试工具</strong>另外还有一些debug调试工具可以辅助查看更多信息，注意，只能在debug模式下使用分析，拿到的数据不能作为性能标准</p>
+<p>debugProfileBuildsEnabled：向 Timeline 事件中添加每个widget的build 信息debugProfilePaintsEnabled：向 timeline 事件中添加每个renderObject的paint 信息debugPaintLayerBordersEnabled：每个layer会出现一个边框，帮助区分layer层级debugPrintRebuildDirtyWidgets：打印标记为dirty的</p>
+<p>widgetsdebugPrintLayouts：打印标记为dirty的renderObjectsdebugPrintBeginFrameBanner/debugPrintEndFrameBanner：打印每帧开始和结束</p>
+<p><strong>实例分析</strong>了解这些工具下面我们来看个简单的demo具体分析下，一个由Column、Container、ListView嵌套的布局，其中有个定时器控制Text中显示的文本实时更新</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”859” data-rawheight=”1293” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/50/v2-f1533dc73d533148acdd32c7e8fa7ff7_hd.jpg?source=1940ef5c&quot;">https://pic3.zhimg.com/50/v2-f1533dc73d533148acdd32c7e8fa7ff7_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”859” data-original=”<a target="_blank" rel="noopener" href="https://picb.zhimg.com/v2-f261bb5e192fdf2dfe2958ead66eb377_r.jpg?source=1940ef5c&quot;">https://picb.zhimg.com/v2-f261bb5e192fdf2dfe2958ead66eb377_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/50/v2-f261bb5e192fdf2dfe2958ead66eb377_hd.jpg?source=1940ef5c&quot;&gt;">https://pic3.zhimg.com/50/v2-f261bb5e192fdf2dfe2958ead66eb377_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<p>大部分 widget 都是静态的，只有黄色 Container 中包含一个内容一直刷新的 Text ，这个时候我们打开 debugProfileBuildsEnabled，用 Timeline 分析下它的渲染耗时，可以通过 Frame events chart 中显示的 build 层级非常深</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”878” data-rawheight=”526” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/50/v2-ab8e5a030eeba996cebcb0e3948d6353_hd.jpg?source=1940ef5c&quot;">https://pic3.zhimg.com/50/v2-ab8e5a030eeba996cebcb0e3948d6353_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”878” data-original=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-528163b7704946a7f0b55172ad1a5814_r.jpg?source=1940ef5c&quot;">https://pic3.zhimg.com/v2-528163b7704946a7f0b55172ad1a5814_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/50/v2-528163b7704946a7f0b55172ad1a5814_hd.jpg?source=1940ef5c&quot;&gt;">https://pic2.zhimg.com/50/v2-528163b7704946a7f0b55172ad1a5814_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<p>结合第一部分渲染原理我们了解到，每次定时器刷新text数字的时候，整个页面widget树都会重新build，但其实只有最底层Container中的Text内容在改变，没有必要刷新整颗树，所以这里我们的优化方案是提高build效率，降低 Widget tree 遍历的出发点，将 setState 刷新数据尽量下发到底层节点，所以将 Text 单独抽取成独立的 Widget，setState 下发到抽取出的 Widget 内部</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”513” data-rawheight=”556” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/50/v2-219a92362ae2456f1052abe97d6a41c7_hd.jpg?source=1940ef5c&quot;">https://pic4.zhimg.com/50/v2-219a92362ae2456f1052abe97d6a41c7_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”513” data-original=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-8c274b8856a96cde0506e1c641e1d830_r.jpg?source=1940ef5c&quot;">https://pic2.zhimg.com/v2-8c274b8856a96cde0506e1c641e1d830_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/50/v2-8c274b8856a96cde0506e1c641e1d830_hd.jpg?source=1940ef5c&quot;&gt;">https://pic2.zhimg.com/50/v2-8c274b8856a96cde0506e1c641e1d830_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<p>修改后的Timeline显示如下图：</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”866” data-rawheight=”460” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/50/v2-1b1fff4102724428e65879fd8d525111_hd.jpg?source=1940ef5c&quot;">https://pic2.zhimg.com/50/v2-1b1fff4102724428e65879fd8d525111_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”866” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-3d9f5a6a80a7395276ffa16ea2d9cc2b_r.jpg?source=1940ef5c&quot;">https://pic4.zhimg.com/v2-3d9f5a6a80a7395276ffa16ea2d9cc2b_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/50/v2-3d9f5a6a80a7395276ffa16ea2d9cc2b_hd.jpg?source=1940ef5c&quot;&gt;">https://pic3.zhimg.com/50/v2-3d9f5a6a80a7395276ffa16ea2d9cc2b_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<p>build 层级明显减少，总耗时也明显降低。</p>
+<p>接下来分析下 Paint 过程有没有可以优化的部分，我们打开 debugProfilePaintsEnabled 变量分析可以看到 Timeline 显示的 paint 层级</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”863” data-rawheight=”371” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/50/v2-fe657464423ff48f3ab9e7de5155ddcc_hd.jpg?source=1940ef5c&quot;">https://pic3.zhimg.com/50/v2-fe657464423ff48f3ab9e7de5155ddcc_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”863” data-original=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-4364784f73cccd24c153e2ef05b78b2a_r.jpg?source=1940ef5c&quot;">https://pic3.zhimg.com/v2-4364784f73cccd24c153e2ef05b78b2a_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/50/v2-4364784f73cccd24c153e2ef05b78b2a_hd.jpg?source=1940ef5c&quot;&gt;&quot;">https://pic1.zhimg.com/50/v2-4364784f73cccd24c153e2ef05b78b2a_hd.jpg?source=1940ef5c&quot;&gt;&quot;</a> data-caption=”” data-size=”normal” data-rawwidth=”842” data-rawheight=”1288” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/50/v2-d9a6b5c6c84f61365608f14a2524a261_hd.jpg?source=1940ef5c&quot;">https://pic1.zhimg.com/50/v2-d9a6b5c6c84f61365608f14a2524a261_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”842” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-9ee461d535192ba3c41f0dc95fd80501_r.jpg?source=1940ef5c&quot;">https://pic4.zhimg.com/v2-9ee461d535192ba3c41f0dc95fd80501_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/50/v2-9ee461d535192ba3c41f0dc95fd80501_hd.jpg?source=1940ef5c&quot;&gt;">https://pic3.zhimg.com/50/v2-9ee461d535192ba3c41f0dc95fd80501_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<p>通过 debugPaintLayerBordersEnabled=true;显示layer边框可以看到不断变化的 Text 和其他 Widget 都是在同一个 layer 中的，这里我们想到的优化点是利用RepaintBoundary提高paint效率，它为经常发生显示变化的内容提供一个新的隔离layer，新的layer paint不会影响到其他layer。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”506” data-rawheight=”198” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/50/v2-85aa76dfe0874286c46b7bd0f4962555_hd.jpg?source=1940ef5c&quot;">https://pic2.zhimg.com/50/v2-85aa76dfe0874286c46b7bd0f4962555_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”506” data-original=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-39771960da5925c93dc745aea2674907_r.jpg?source=1940ef5c&quot;">https://pic2.zhimg.com/v2-39771960da5925c93dc745aea2674907_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/50/v2-39771960da5925c93dc745aea2674907_hd.jpg?source=1940ef5c&quot;&gt;">https://pic3.zhimg.com/50/v2-39771960da5925c93dc745aea2674907_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<p>看下优化后的效果</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”866” data-rawheight=”364” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://picb.zhimg.com/50/v2-9414af0e2e63a80e371c2fbc300b28b0_hd.jpg?source=1940ef5c&quot;">https://picb.zhimg.com/50/v2-9414af0e2e63a80e371c2fbc300b28b0_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”866” data-original=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-244b50e52ae42c008efb67e9a90612c9_r.jpg?source=1940ef5c&quot;">https://pic1.zhimg.com/v2-244b50e52ae42c008efb67e9a90612c9_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/50/v2-244b50e52ae42c008efb67e9a90612c9_hd.jpg?source=1940ef5c&quot;&gt;&quot;">https://pic1.zhimg.com/50/v2-244b50e52ae42c008efb67e9a90612c9_hd.jpg?source=1940ef5c&quot;&gt;&quot;</a> data-caption=”” data-size=”normal” data-rawwidth=”865” data-rawheight=”1301” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/50/v2-efdafba83bf4f648a51d0ac26af61ec7_hd.jpg?source=1940ef5c&quot;">https://pic4.zhimg.com/50/v2-efdafba83bf4f648a51d0ac26af61ec7_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”865” data-original=”<a target="_blank" rel="noopener" href="https://pic3.zhimg.com/v2-38132af1b420bb24016016c2fd63e104_r.jpg?source=1940ef5c&quot;">https://pic3.zhimg.com/v2-38132af1b420bb24016016c2fd63e104_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/50/v2-38132af1b420bb24016016c2fd63e104_hd.jpg?source=1940ef5c&quot;&gt;">https://pic1.zhimg.com/50/v2-38132af1b420bb24016016c2fd63e104_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<p>可以看到我们为黄色的Container建立了单独的layer，并且paint的层级减少很多。</p>
+<p><strong>常见问题总结</strong></p>
+<ul>
+<li>提高build效率，setState刷新数据尽量下发到底层节点</li>
+<li>提高paint效率，RepaintBoundry创建单独layer减少重绘区域</li>
+</ul>
+<p>这两个我们之前的例子已经具体分析过</p>
+<ul>
+<li>减少build中逻辑处理，因为widget在页面刷新的过程中随时会通过build重建，build调用频繁，我们应该只处理跟UI相关的逻辑</li>
+<li>减少saveLayer（ShaderMask、ColorFilter、Text Overflow）、clipPath的使用，saveLayer会在GPU中分配一块新的绘图缓冲区，切换绘图目标，这个操作是在GPU中非常耗时的，clipPath会影响每个绘图指令,做相交操作，之外的部分剔除掉，所以这也是个耗时操作</li>
+<li>减少Opacity Widget 使用，尤其是在动画中，因为他会导致widget每一帧都会被重建，可以用 AnimatedOpacity 或 FadeInImage 进行代替</li>
+</ul>
+<p>以上内容介绍了些Flutter常见的性能问题以及我们怎么用工具检测这个问题，在平时开发过程中要留意规避这类问题。</p>
+<h2 id="Flutter-DX案例分析"><a href="#Flutter-DX案例分析" class="headerlink" title="Flutter-DX案例分析"></a><strong>Flutter-DX案例分析</strong></h2><p>近期我们做了个Flutter端的动态化模板渲染方案Flutter-DX，它使用集团DinamicX的DSL，通过下发DSL模板，在Flutter侧实现动态解析渲染。具体介绍可以参考之前的文章：</p>
+<p><u><a href="https://zshipu.com/t?url=https://link.zhihu.com/?target=http://mp.weixin.qq.com/s?__biz=MzU4MDUxOTI5NA==&mid=2247484759&idx=1&sn=6ebb553cec9adf09300ea01c260b71d5&chksm=fd54d146ca235850b516ae303fe79d5716b035ac1f465d064ce2c17b249449636031acd0e844&scene=21%23wechat_redirect">《如何在Flutter上实现高性能的动态模板渲染》</a><a href="https://zshipu.com/t?url=https://link.zhihu.com/?target=http://mp.weixin.qq.com/s?__biz=MzAxNDEwNjk5OQ==&mid=2650405380&idx=1&sn=8c78cd72a8d7611c85865c9076417f9c&chksm=8395321cb4e2bb0a4993e9ef19f9d4fe5cf2320277654d3ffaa30b6aba74c109f09335e7e6c2&scene=21%23wechat_redirect">《做一个高一致性、高性能的Flutter动态渲染，真的很难么？》</a></u>这里不再详细介绍。尽管进行了一次渲染架构升级，很大程度上提升性能表现，但是通过高可用线上统计，发现在长列表场景下fps值没有达到预期值，所以需要进一步分析哪些操作导致的耗时问题。以搜索页页面结构为例，外部是GridView的容器，里面都是一个个DX模板组成的宝贝card，滑动过程中发现流畅度要明显偏低所以我们做了以下的优化措施</p>
+<ul>
+<li>针对Sliver滑动的优化，sliver在滑动过程中，有一个超出屏幕上下250像素的一个缓存区</li>
+</ul>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”462” data-rawheight=”455” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/50/v2-14a824f71707a58c38f49201440a7370_hd.jpg?source=1940ef5c&quot;">https://pic2.zhimg.com/50/v2-14a824f71707a58c38f49201440a7370_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”462” data-original=”<a target="_blank" rel="noopener" href="https://pic1.zhimg.com/v2-4a3f53094e4b964a88aff0f08bb21893_r.jpg?source=1940ef5c&quot;">https://pic1.zhimg.com/v2-4a3f53094e4b964a88aff0f08bb21893_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/50/v2-4a3f53094e4b964a88aff0f08bb21893_hd.jpg?source=1940ef5c&quot;&gt;">https://pic2.zhimg.com/50/v2-4a3f53094e4b964a88aff0f08bb21893_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<p>在列表滚动过程中，DX card不断的被重建和销毁，没有任何缓存机制，我们在其中加了个缓存池，流程如下，避免element不断的被销毁和创建，一定程度提高流畅度。</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”735” data-rawheight=”967” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/50/v2-5d54f0ff225830e65da86800837bc73a_hd.jpg?source=1940ef5c&quot;">https://pic4.zhimg.com/50/v2-5d54f0ff225830e65da86800837bc73a_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”735” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-b2a6698629b965b74db2e1ebddbc2b00_r.jpg?source=1940ef5c&quot;">https://pic4.zhimg.com/v2-b2a6698629b965b74db2e1ebddbc2b00_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/50/v2-b2a6698629b965b74db2e1ebddbc2b00_hd.jpg?source=1940ef5c&quot;&gt;">https://pic2.zhimg.com/50/v2-b2a6698629b965b74db2e1ebddbc2b00_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<ul>
+<li>通过Timeline分析发现TextPaint的layout耗时显著，进一步对比分析发现，同样的UI显示，带换行符的长文本长度layout耗时明显偏高，</li>
+</ul>
+<p>后来确认带换行符的文本会影响布局效率，具体分析可以查看 issue</p>
+<p>“ data-caption=”” data-size=”normal” data-rawwidth=”552” data-rawheight=”570” data-default-watermark-src=”<a target="_blank" rel="noopener" href="https://picb.zhimg.com/50/v2-fdc40aa8bf2adfc275584e2a974d44f9_hd.jpg?source=1940ef5c&quot;">https://picb.zhimg.com/50/v2-fdc40aa8bf2adfc275584e2a974d44f9_hd.jpg?source=1940ef5c&quot;</a> class=”origin_image zh-lightbox-thumb lazy” width=”552” data-original=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-52103c7191253ea6bb5420453c7e7564_r.jpg?source=1940ef5c&quot;">https://pic4.zhimg.com/v2-52103c7191253ea6bb5420453c7e7564_r.jpg?source=1940ef5c&quot;</a> data-actualsrc=”<a target="_blank" rel="noopener" href="https://pic4.zhimg.com/50/v2-52103c7191253ea6bb5420453c7e7564_hd.jpg?source=1940ef5c&quot;&gt;">https://pic4.zhimg.com/50/v2-52103c7191253ea6bb5420453c7e7564_hd.jpg?source=1940ef5c&quot;&gt;</a></p>
+<p>这里我们做的优化措施是在判断只有一行文本显示的情况下，截取换行符前的内容作为text文本，从而提升TextPaint layout效率。</p>
+<p>除此之外，还有一些减少布局层级和简化build流程，预加载缓存等措施，实现将FPS提升3个点，达到一定程度的优化效果。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>以上内容分析了flutter的渲染原理以及遇到卡顿问题可以用哪些工具从哪些方向入手分析，Flutter 虽然一直宣称流畅度是一大亮点，但也存在一定的优化空间，以及需要开发者掌握一定的开发技巧才能达到更丝滑的体验。</p>
+<p>——————————————————————————————————</p>
+<p>本篇回答内容来自阿里巴巴淘系技术部无线开发专家三莅。</p>
+<p>本账号主体为阿里巴巴淘系技术，淘系技术部隶属于阿里巴巴新零售技术事业群，旗下包含淘宝技术、天猫技术、农村淘宝技术、闲鱼、躺平等团队和业务，是一支是具有商业和技术双重基因的螺旋体。</p>
+<p>刚刚入驻知乎，将会给大家带来超多干货分享，立体化输出我们对于技术和商业的思考与见解。</p>
+<p>详情介绍可以看这里 <a target="_blank" rel="noopener" href="https://zshipu.com/t?url=https://zhuanlan.zhihu.com/p/141070026">阿里巴巴淘系技术介绍</a></p>
+<p>欢迎收藏点赞关注我们！共同进步~ ：） &gt; 作者：阿里巴巴淘系技术</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 免责声明：本页面内容均来源于站内编辑发布，部分信息来源互联网，并不意味着本站赞同其观点或者证实其内容的真实性，如涉及版权等问题，请立即联系客服进行更改或删除，保证您的合法权益。转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。也可以邮件至 sblig@126.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+<h2>推荐阅读:</h2>
+<ul class="list-paddingleft-2" style="list-style-type: disc;" id="pushtsua_recommend_list">
+</ul>
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>阿里巴巴优化flutter到底有多彻底</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="知识铺">知识铺</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-09-13, 21:16:34</p>
+    <p><span class="copy-title">最后更新:</span>2020-09-13, 21:16:34</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="https://blog.zshipu.com/flutter/2020/09/13/flutter-02/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E4%BC%98%E5%8C%96flutter%E5%88%B0%E5%BA%95%E6%9C%89%E5%A4%9A%E5%BD%BB%E5%BA%95/" title="阿里巴巴优化flutter到底有多彻底">https://blog.zshipu.com/flutter/2020/09/13/flutter-02/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E4%BC%98%E5%8C%96flutter%E5%88%B0%E5%BA%95%E6%9C%89%E5%A4%9A%E5%BD%BB%E5%BA%95/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script>
+    //去除尾部匹配正则数组的字符串
+    String.prototype.trimEnd = function(regStr)
+    {
+        var result = this;
+        if(regStr==undefined||regStr==null||regStr=="")
+        {
+            return result;
+        }
+        var array = regStr.split(',');
+
+        if(array.length > 0){
+
+            var c = array.shift();
+            var str= this;
+            var i = str.length;
+            var rg = new RegExp(c);
+            var matchArr = str.match(rg);
+
+            if(matchArr != undefined && matchArr != null && matchArr.length > 0)
+            {
+                var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+                    .replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+                    .replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+                    .replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+                    .replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+                    .replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+                    .replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+                    .replace(/\./g, "\\.").replace(/\&/g, "\\&");
+                matchStr = matchStr + '$';
+                result = str.replace(new RegExp(matchStr), "");
+            }
+
+            if(array.length > 0){
+                return result.trimEnd(array.join())
+            }
+            else{
+                return result;
+            }
+        }
+    };
+</script>
+<script type="text/javascript">
+    var hreftrimend = '#.*$,\\?.*$,index.html$'
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'ec3adfa1a072fdaa4d91',
+            clientSecret: '7a84a35d6d8bce205398c3d5d7f6ee1ce8e1ab53',
+            repo: 'zspblogcomment',
+            owner: 'liliang8858',
+            admin: ['liliang8858'],
+            id: md5(location.href.trimEnd(hreftrimend)),// decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('20',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+<script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1278144647&web_id=1278144647"></script>
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://beian.miit.gov.cn">浙 ICP 备19032823号-1</a> |
+					<a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602010431"><img src="https://zshipu.com/img/ghs.png">浙公网安备 33010602010431号</a>
+					| 知识铺</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/liliang8858/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="https://zshipu.com/tongji/tusa.js"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#flutter,flutter技术','#flutter',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("/img/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div style="position:absolute; bottom: 0; right: 0;">
+<!--    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=110 src="//music.163.com/outchain/player?type=0&id=962982601&auto=1&height=90"></iframe>-->
+</div>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<script>
+    (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+    })();
+</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5db42fab89870e49"></script>
+
+<div class="site-nav" id="google_translate_element"></div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</html>
